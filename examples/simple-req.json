@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id":"https://github.com/McCastles/JMC/blob/master/examples/simple-req.json",
+    "title": "Simple req schema",
+    "description": "simple schema with one property and requirements",
+    "type": "object",
+    "properties": {
+      "street": {
+        "description": "street's name",
+        "type": "string"
+      },
+      "city": {
+        "description": "city's name",
+        "type": "string"
+      },
+      "telephone": {
+        "description": "telephone number",
+        "type": "number"
+      }
+    },
+    "required": ["street", "city"]
+  }

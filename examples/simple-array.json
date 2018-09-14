@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://github.com/McCastles/JMC/blob/master/examples/simple-array.json",
+  "title": "Simple array schema",
+  "description": "simple schema with an array",
+  "type": "object",
+  "required":[ "people" ],
+  "properties": {
+    "people": {
+      "description": "famous people",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://github.com/McCastles/JMC/blob/master/examples/outerTest.json",
+  "title": "Testing Link With outerDef",
+  "description": "Illustrating work with outer definitions file",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "object",
+      "description": "Name of the client",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "First name"
+        },
+        "secondName": {
+          "type": "string",
+          "description": "Second name"
+        }
+      },
+      "required": [
+        "secondName"
+      ]
+    },
+    "billing_address": {
+      "$ref": "./outerDef.json#/definitions/address",
+      "description": "Billing adress"
+    },
+    "shipping_address": {
+      "$ref": "./outerDef.json#/definitions/address",
+      "description": "Shipping adress"
+    }
+  }
+}

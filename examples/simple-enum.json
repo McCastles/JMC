@@ -1,0 +1,15 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/simple-enum.json",
+	"title": "Example Enum Schema",
+	"description": "Simple schema with enum",
+	"type": "object",
+	"properties": {
+	  "size": {
+		"description": "Size",
+		"type": "string",
+		"default": "small",
+		"enum": [ "big", "medium", "small", 42 ]
+	  }
+	}
+  }

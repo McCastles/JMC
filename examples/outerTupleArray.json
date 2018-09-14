@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Testing Links With outerDef (tuple arrays)",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/outerTupleArray.json",
+    "description": "Illustrating work with outer definitions file",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "object",
+        "description": "Name of the client",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "First name"
+          },
+          "secondName": {
+            "type": "string",
+            "description": "Second name"
+          }
+        },
+        "required": ["secondName"]
+      },
+      "arrayOfAdressPlusName": {
+        "type": "array",
+        "description": "tuple array with references",
+        "items": [
+          {
+            "type": "number",
+            "description": "Sample number item"
+          },
+          {
+            "$ref": "./outerDef.json#/definitions/address",
+            "description": "sample reference item"
+          },
+          {
+            "type": "object",
+            "description": "Sample object item",
+            "properties": {
+              "prop1": {
+                "description": "Sample property",
+                "type": "number"
+              }
+            }
+          }
+        ]
+      },
+      "billing_address": {
+        "$ref": "./outerDef.json#/definitions/address",
+        "description": "Billing adress"
+      },
+      "shipping_address": {
+        "$ref": "./outerDef.json#/definitions/address",
+        "description": "Shipping adress"
+      }
+    }
+  }

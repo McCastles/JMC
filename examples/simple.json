@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id":"https://github.com/McCastles/JMC/blob/master/examples/simple.json",
+    "title": "Simple schema",
+    "description": "simple schema with one property and ID",
+    "type": "object",
+    "properties": {
+      "price": {
+        "description": "cost of the product",
+        "type": "number"
+      }
+    }
+  }

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://github.com/McCastles/JMC/blob/master/examples/outerDef.json",
+  "title": "Definitions for miscellaneous schemas",
+  "description": "Definitions for outerTest and other schemas",
+    "definitions": {
+      "address": {
+        "type": "object",
+        "properties": {
+          "house":{ "type":"number", "description": "House number" },
+          "street": { "type": "string", "description": "Street name" },
+          "city": { "type": "string", "description": "City name" },
+          "state": { "type": "string", "description": "State name" }
+        },
+        "required": [ "street", "city", "state" ]
+      }
+    }
+  }
