@@ -4,8 +4,8 @@ const path = require('path');
 
 Object.resolve = (path, obj) => path.replace('#/', '').split('/').reduce((prev, curr) => prev ? prev[curr] : undefined, obj || null);
 
-const format = require('json-2-md-con/format');
-const tree = require('json-2-md-con/tree');
+const format = require('./format.js');
+const tree = require('./tree.js');
 
 /* TODO: 
 * examples
