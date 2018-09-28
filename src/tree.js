@@ -52,43 +52,15 @@ const tree = module.exports = {
 				tree.doc.push(row);
 			});
 		}
-
 		/* for arrays */
 		if (node.items)
 			for (let i = 0; i < node.items.length; i++)
 			{
 				const name = "item" + (i+1);
 				const value = node.items[i];
-				const required = false; /* is there a way to mark item as required? */
+				const required = false; 
 				const row = describe.property(name, value, required);
 				tree.doc.push(row);
 			}
 	},
-
-	// example: (nodeName, node) => {
-	//		 let result = "";
-	//		 const hasName = nodeName || nodeName == "";
-	//		 if (!node) {
-	//				 return result;
-	//		 }
-	//		 result += (hasName ? `"${nodeName}":` : "");
-	//		 if (hasName && !node.properties && !node.items) {
-	//				 result += node.type === "integer" ? 0 :
-	//						 node.enum ? `"${node.enum[0]}"` :
-	//								 node.type === "null" ? "null" :
-	//										 node.type === "boolean" ? false :
-	//												 node.type === "object" || node.$ref ? "{}" : `"${node.type}"`;
-	//		 }
-	//		 if (node.properties) {
-	//				 const properties = Object.keys(node.properties).map((name) => tree.example(name, node.properties[name])).join(",");
-	//				 result += `{${properties}}`;
-	//		 }
-	//		 result += (node.items ? `[${tree.example(undefined, node.items)}]` : "");
-
-	//		 if (node.$ref && tree.visited_refs[node.$ref] === undefined) {
-	//				 tree.visited_refs[node.$ref] = true;
-	//				 result += tree.example(undefined, Object.resolve(node.$ref, node));
-	//		 }
-	//		 return result;
-	// }
 };

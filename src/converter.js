@@ -7,11 +7,6 @@ const tree = require("./tree.js");
 
 Object.resolve = (path, obj) => path.replace("#/", "").split("/").reduce((prev, curr) => prev ? prev[curr] : undefined, obj || null);
 
-/* TODO: 
-* examples
-* figure out refs
-*/
-
 module.exports.generate = function (schema, outputFileName) {
 
 	tree.init();
@@ -41,18 +36,8 @@ module.exports.generate = function (schema, outputFileName) {
 	if (schema.properties) {
 		tree.doc.push(format.h2("Structure"));
 		tree.visit(undefined, schema); 
-		// console.log(tree.types);
 		tree.types.forEach((type) => tree.document(type.name, type.node));
 	}
-
-
-	/* adding example */
-	// tree.doc.push(format.h2("Example"));
-	// const example = tree.example(undefined, schema);
-	// const jsonExample = JSON.stringify(JSON.parse(example), null, 4);
-	// tree.doc.push("```");
-	// tree.doc.push(jsonExample);
-	// tree.doc.push("```"); 
 
 	/* adding new line characters */
 	tree.doc = tree.doc.join("\n");
