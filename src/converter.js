@@ -8,12 +8,11 @@ const template = require("./template");
 
 Object.resolve = (path, obj) => path.replace("#/", "").split("/").reduce((prev, curr) => prev ? prev[curr] : undefined, obj || null);
 
-module.exports.generate = function (schema, outputFileName) {
-
+module.exports = function (schema, outputFileName) {
+	if(!schema) {console.log("ERROR: JSON file path is not provided."); return;}
 	tree.init();
 	let fileName = path.basename(schema);
-	outputFileName = format.outputCheck(outputFileName, format.changeExtention(fileName));
-
+	
 	/* if input path provided, extract object fron .json file */
 	if (typeof schema == "string") 
 		schema = JSON.parse(fs.readFileSync(schema));
@@ -46,7 +45,10 @@ module.exports.generate = function (schema, outputFileName) {
 	/* adding new line characters */
 	tree.doc = tree.doc.join("\n");
 
-	/* save to .md file */
-	fs.writeFileSync(outputFileName, tree.doc);
+	/* save to .md file if path of file or folder provided*/
+	if(outputFileName) {
+		outputFileName = format.outputCheck(outputFileName, format.changeExtention(fileName));
+		fs.writeFileSync(outputFileName, tree.doc);
+	}
 	return tree.doc;
 };

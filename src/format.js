@@ -1,4 +1,5 @@
 const template = require("./template.js");
+const fs = require("fs");
 /* eslint-disable-next-line no-unused-vars */
 const format = module.exports = {
 	required: (is) => is ? "+" : "-",
@@ -20,8 +21,7 @@ const format = module.exports = {
 		return name.substr( name.indexOf(pointOfRef) + pointOfRef.length ); 
 	},
 	outputCheck: (outputFileName, generatedName) => {
-		if (outputFileName)
-			return outputFileName.endsWith(".md") ? outputFileName : (outputFileName + generatedName);
-		else return generatedName; 
+		if (outputFileName.endsWith(".md")) return outputFileName;
+		else return fs.existsSync(outputFileName) ? outputFileName + generatedName : generatedName;
 	}
 };

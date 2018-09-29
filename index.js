@@ -1,5 +1,5 @@
 "use strict";
 
-const converter = require("./src/converter.js");
-
-exports = module.exports = converter;
+const convert = require("./src/converter.js");
+convert("./examples/tuple-array-with-object.json", "./src/ala.md");
+// exports = module.exports = converter;
