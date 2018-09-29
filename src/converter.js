@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const format = require("./format.js");
 const tree = require("./tree.js");
+const template = require("./template");
 
 Object.resolve = (path, obj) => path.replace("#/", "").split("/").reduce((prev, curr) => prev ? prev[curr] : undefined, obj || null);
 
@@ -18,14 +19,17 @@ module.exports.generate = function (schema, outputFileName) {
 		schema = JSON.parse(fs.readFileSync(schema));
 
 	/* adding titles */
-	tree.doc.push(format.h1(schema.title));
-	tree.doc.push("Parsed from file: " + (schema.$id ? `[${fileName}](${schema.$id})` : fileName));
+	tree.doc.push(template.substitute("Title", {"title" : schema.title} ));
+	tree.doc.push(template.substitute("ParsedFrom", schema.$id ? 
+		{"fileName" : `[${fileName}]`, "link": `(${schema.$id})`} :
+		{"fileName" : fileName, "link" : ""} ));
 	tree.doc.push(""); 
-	tree.doc.push(format.capitalize(schema.description));
+	tree.doc.push(template.substitute("Description", 
+		{"description": format.capitalize(schema.description)}));
 
 	/* adding definitions */
 	if(schema.definitions) {
-		tree.doc.push(format.h2("Definitions"));
+		tree.doc.push(template.fetch("Definitions"));
 		Object.keys(schema.definitions).forEach((name) => {
 			tree.visit(name, schema.definitions[name]); });
 		tree.types.forEach((type) => tree.document(type.name, type.node));
@@ -34,7 +38,7 @@ module.exports.generate = function (schema, outputFileName) {
 
 	/* adding main structure */
 	if (schema.properties) {
-		tree.doc.push(format.h2("Structure"));
+		tree.doc.push(template.fetch("Structure"));
 		tree.visit(undefined, schema); 
 		tree.types.forEach((type) => tree.document(type.name, type.node));
 	}

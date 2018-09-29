@@ -6,6 +6,7 @@
     "definitions": {
       "address": {
         "type": "object",
+        "description": "The addres of somebody",
         "properties": {
           "street": {
             "description": "Street adress",

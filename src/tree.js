@@ -1,5 +1,6 @@
 const format = require("./format.js");
 const describe = require("./describe.js");
+const template = require("./template.js");
 
 const tree = module.exports = {
 	types: [],
@@ -23,7 +24,7 @@ const tree = module.exports = {
 		if (node.items && !node.items.type && !node.items.$ref) {
 			tree.types.push({ name: name, node: node });
 			for (let i = 0; i < node.items.length; i++)
-				tree.visit("item" + (i+1), node.items[i]);
+				tree.visit(template.fetch("Item") + (i+1), node.items[i]);
 		}
 
 		/* for definitions */
@@ -36,12 +37,15 @@ const tree = module.exports = {
 	},
 
 	document: (name, node) => {
-		if (name) { tree.doc.push(format.h3(name));
-			if (node.description) tree.doc.push(format.capitalize(node.description)); }
+		if (name) { 
+			tree.doc.push(template.substitute("SubTitle", {"subtitle": name}));
+			if (node.description) 
+				tree.doc.push( template.substitute("SubDescription", 
+				{"subdescription": format.capitalize(node.description)}) ) }
 
 		tree.doc.push("");
-		tree.doc.push(format.table.header());
-		tree.doc.push(format.table.columns());
+		tree.doc.push(template.fetch("TableHeader"));
+		tree.doc.push(template.fetch("TableColumns"));
 
 		/* for objects only */
 		if (node.properties) {
@@ -56,7 +60,7 @@ const tree = module.exports = {
 		if (node.items)
 			for (let i = 0; i < node.items.length; i++)
 			{
-				const name = "item" + (i+1);
+				const name = template.fetch("Item") + (i+1);
 				const value = node.items[i];
 				const required = false; 
 				const row = describe.property(name, value, required);

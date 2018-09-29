@@ -1,8 +1,6 @@
+const template = require("./template.js");
 /* eslint-disable-next-line no-unused-vars */
 const format = module.exports = {
-	h1: (text) => `# ${text}`,
-	h2: (text) => `## ${text}`,
-	h3: (text) => `### ${text}`,
 	required: (is) => is ? "+" : "-",
 	changeExtention: (text) => text.replace(".json", ".md"),
 	capitalize: (text) => {
@@ -11,9 +9,10 @@ const format = module.exports = {
 		return text;
 	},
 	table: {
-		row: (name, type, required, description) => `|${name}|${type}|${required}|${description}|`,
-		header: () => `|Key|Type|Required|Description|`,
-		columns: () => `|-|:-:|:-:|-|`,
+		row: (name, type, required, description) => {
+			return template.substitute("Row",
+			{"name":`${name}`,"type":`${type}`,"required":`${required}`,"description":`${description}`})
+		},
 		type: (name, type) => `[${type}](#${name})`,
 	},
 	getDefName: (name) => {
