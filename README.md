@@ -23,8 +23,8 @@ let result = convert("./examples/simple.json", "./markdowns");
 The first parameter is obligatory and contains the URI of the input JSON file.
 The second parameter is arbitrary and can contain the URI of the output Markdown file OR the directory to save the converted Markdown with the automaticly generated name.
 
-To customize converted Markdown files, change the files in the __templates__ directory accordingly.
-For instance, to make the title of the output Markdown bold, __Title.txt__ file in the __templates__ directory should look like this:
+To customize converted Markdown files, change the files in the `templates` directory accordingly.
+For instance, to make the title of the output Markdown bold, `Title.txt` file in the `templates` directory should look like this:
 ```javascript
 # __{{title}}__
 ```
