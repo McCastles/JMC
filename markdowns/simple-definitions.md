@@ -1,8 +1,8 @@
-# Simple Schema With Definitions
-Parsed from file: [simple-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/simple-definitions.json)
+# _Simple Schema With Definitions_
+__Parsed from file:__ [simple-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/simple-definitions.json)
 
-Simple schema with definitions.
-## Definitions
+__Simple schema with definitions.__
+## __Definitions__
 ### address
 
 |Key|Type|Required|Description|
