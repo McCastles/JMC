@@ -1,26 +1,26 @@
-# Tuple array schema with object
+# __Tuple array schema with object__
 Parsed from file: [tuple-array-with-object.json](https://github.com/McCastles/JMC/blob/master/examples/tuple-array-with-object.json)
 
-Schema with a tuple array (array with items of different types), one of which is an object.
-## Structure
+_Schema with a tuple array (array with items of different types), one of which is an object._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|people|[object[]](#people)|+|Famous people.|
-### people
-Famous people.
+|__people__|[object[]](#people)|+|_Famous people._|
+### __people__
+_Famous people._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|item1|string|-|Name of the person.|
-|item2|string|-|Surname of the person.|
-|item3|number|-|Telephone number of the person.|
-|item4|[object](#item4)|-|Children of the person.|
-### item4
-Children of the person.
+|__Item1__|string|-|_Name of the person._|
+|__Item2__|string|-|_Surname of the person._|
+|__Item3__|number|-|_Telephone number of the person._|
+|__Item4__|[object](#Item4)|-|_Children of the person._|
+### __Item4__
+_Children of the person._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|name|string|+|Name of the kid.|
-|surname|string|+|Surname of the kid.|
-|telephone|number|-|Telephone number of the kid.|
+|__name__|string|+|_Name of the kid._|
+|__surname__|string|+|_Surname of the kid._|
+|__telephone__|number|-|_Telephone number of the kid._|
