@@ -41,7 +41,7 @@ const tree = module.exports = {
 			tree.doc.push(template.substitute("SubTitle", {"subtitle": name}));
 			if (node.description) 
 				tree.doc.push( template.substitute("SubDescription", 
-				{"subdescription": format.capitalize(node.description)}) ) }
+					{"subdescription": format.capitalize(node.description)}) ); }
 
 		tree.doc.push("");
 		tree.doc.push(template.fetch("TableHeader"));

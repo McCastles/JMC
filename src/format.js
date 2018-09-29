@@ -11,7 +11,7 @@ const format = module.exports = {
 	table: {
 		row: (name, type, required, description) => {
 			return template.substitute("Row",
-			{"name":`${name}`,"type":`${type}`,"required":`${required}`,"description":`${description}`})
+				{"name":`${name}`,"type":`${type}`,"required":`${required}`,"description":`${description}`});
 		},
 		type: (name, type) => `[${type}](#${name})`,
 	},
