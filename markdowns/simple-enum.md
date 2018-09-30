@@ -1,9 +1,9 @@
-# Example Enum Schema
+# __Example Enum Schema__
 Parsed from file: [simple-enum.json](https://github.com/McCastles/JMC/blob/master/examples/simple-enum.json)
 
-Simple schema with enum.
-## Structure
+_Simple schema with enum._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|size|string|-|Size. Possible values: `big` `medium` `small` Default is `small`|
+|__size__|string|-|_Size. Possible values: `big` `medium` `small` Default is `small`_|

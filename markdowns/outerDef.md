@@ -1,13 +1,13 @@
-# Definitions for miscellaneous schemas
+# __Definitions for miscellaneous schemas__
 Parsed from file: [outerDef.json](https://github.com/McCastles/JMC/blob/master/examples/outerDef.json)
 
-Definitions for outerTest and other schemas.
-## Definitions
-### address
+_Definitions for outerTest and other schemas._
+## __Definitions__
+### __address__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|house|number|-|House number.|
-|street|string|+|Street name.|
-|city|string|+|City name.|
-|state|string|+|State name.|
+|__house__|number|-|_House number._|
+|__street__|string|+|_Street name._|
+|__city__|string|+|_City name._|
+|__state__|string|+|_State name._|

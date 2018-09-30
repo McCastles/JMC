@@ -1,25 +1,25 @@
-# Example Array With Object Enum Schema
+# __Example Array With Object Enum Schema__
 Parsed from file: [simple-array-with-object-enum.json](https://github.com/McCastles/JMC/blob/master/examples/simple-array-with-object-enum.json)
 
-Simple schema with array (one of the values is an object) with enumerated values.
-## Structure
+_Simple schema with array (one of the values is an object) with enumerated values._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|people|[object[]](#people)|+|List of guests.|
-### people
-List of guests.
+|__people__|[object[]](#people)|+|_List of guests._|
+### __people__
+_List of guests._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|item1|string|-|Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`|
-|item2|number|-|Place.|
-|item3|[object](#item3)|-|Children of the person.|
-### item3
-Children of the person.
+|__Item1__|string|-|_Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`_|
+|__Item2__|number|-|_Place._|
+|__Item3__|[object](#Item3)|-|_Children of the person._|
+### __Item3__
+_Children of the person._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|name|string|+|Name of the kid.|
-|surname|string|+|Surname of the kid.|
-|telephone|number|-|Telephone number of the kid.|
+|__name__|string|+|_Name of the kid._|
+|__surname__|string|+|_Surname of the kid._|
+|__telephone__|number|-|_Telephone number of the kid._|

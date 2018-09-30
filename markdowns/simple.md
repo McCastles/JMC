@@ -1,9 +1,9 @@
-# Simple schema
+# __Simple schema__
 Parsed from file: [simple.json](https://github.com/McCastles/JMC/blob/master/examples/simple.json)
 
-Simple schema with one property and ID.
-## Structure
+_Simple schema with one property and ID._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|price|number|-|Cost of the product.|
+|__price__|number|-|_Cost of the product._|

@@ -1,19 +1,19 @@
-# Definitions for outerTest
+# __Definitions for outerTest__
 Parsed from file: [outerArray.json](https://github.com/McCastles/JMC/blob/master/examples/outerArray.json)
 
-Illustrating work with outer definitions file.
-## Structure
+_Illustrating work with outer definitions file._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|name|[object](#name)|-|Name of the client.|
-|adresses|[address[]](./outerDef.md#/definitions/address)|-|Array of adresses.|
-|billing_address|[address](./outerDef.md#/definitions/address)|-|Billing adress.|
-|shipping_address|[address](./outerDef.md#/definitions/address)|-|Shipping adress.|
-### name
-Name of the client.
+|__name__|[object](#name)|-|_Name of the client._|
+|__adresses__|[address[]](./outerDef.md#/definitions/address)|-|_Array of adresses._|
+|__billing_address__|[address](./outerDef.md#/definitions/address)|-|_Billing adress._|
+|__shipping_address__|[address](./outerDef.md#/definitions/address)|-|_Shipping adress._|
+### __name__
+_Name of the client._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|firstName|string|-|First name.|
-|secondName|string|+|Second name.|
+|__firstName__|string|-|_First name._|
+|__secondName__|string|+|_Second name._|

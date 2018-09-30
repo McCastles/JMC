@@ -1,11 +1,11 @@
-# Simple req schema
+# __Simple req schema__
 Parsed from file: [simple-req.json](https://github.com/McCastles/JMC/blob/master/examples/simple-req.json)
 
-Simple schema with one property and requirements.
-## Structure
+_Simple schema with one property and requirements._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|street|string|+|Street's name.|
-|city|string|+|City's name.|
-|telephone|number|-|Telephone number.|
+|__street__|string|+|_Street's name._|
+|__city__|string|+|_City's name._|
+|__telephone__|number|-|_Telephone number._|

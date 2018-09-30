@@ -1,26 +1,27 @@
-# _Simple Schema With Definitions_
-__Parsed from file:__ [simple-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/simple-definitions.json)
+# __Simple Schema With Definitions__
+Parsed from file: [simple-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/simple-definitions.json)
 
-__Simple schema with definitions.__
+_Simple schema with definitions._
 ## __Definitions__
-### address
+### __address__
+_The addres of somebody._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|street|string|+|Street adress.|
-|city|string|+|Current city.|
-|state|string|+|Current state.|
-## Structure
+|__street__|string|+|_Street adress._|
+|__city__|string|+|_Current city._|
+|__state__|string|+|_Current state._|
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|name|[object](#name)|-|Name of the client.|
-|billing_address|[address](#/definitions/address)|-|Billing adress.|
-|shipping_address|[address](#/definitions/address)|-|Shipping adress.|
-### name
-Name of the client.
+|__name__|[object](#name)|-|_Name of the client._|
+|__billing_address__|[address](#/definitions/address)|-|_Billing adress._|
+|__shipping_address__|[address](#/definitions/address)|-|_Shipping adress._|
+### __name__
+_Name of the client._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|firstName|string|-|First name.|
-|secondName|string|+|Second name.|
+|__firstName__|string|-|_First name._|
+|__secondName__|string|+|_Second name._|

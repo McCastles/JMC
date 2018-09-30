@@ -1,9 +1,9 @@
-# Simple array schema
+# __Simple array schema__
 Parsed from file: [simple-array.json](https://github.com/McCastles/JMC/blob/master/examples/simple-array.json)
 
-Simple schema with an array.
-## Structure
+_Simple schema with an array._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|people|string[]|+|Famous people.|
+|__people__|string[]|+|_Famous people._|

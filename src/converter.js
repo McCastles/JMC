@@ -8,14 +8,26 @@ const template = require("./template");
 
 Object.resolve = (path, obj) => path.replace("#/", "").split("/").reduce((prev, curr) => prev ? prev[curr] : undefined, obj || null);
 
-module.exports = function (schema, outputFileName) {
-	if(!schema) {console.log("ERROR: JSON file path is not provided."); return;}
-	tree.init();
-	let fileName = path.basename(schema);
+module.exports = function (srcPath, outputDirName) {
+	/* dir/*.json is handled the same way as dir/ */
+	if(!srcPath.basename) srcPath = srcPath.replace("*.json","");
+
+	/* invalid JSON check */
+	if(! (srcPath && typeof srcPath == "string" && fs.existsSync(srcPath)) ) {
+		console.log("ERROR: Existing JSON file path is not provided."); return; }
 	
-	/* if input path provided, extract object fron .json file */
-	if (typeof schema == "string") 
-		schema = JSON.parse(fs.readFileSync(schema));
+	/* for folders convertations will be occur for each .json file */
+	if (fs.lstatSync(srcPath).isDirectory()) {
+		let jsonFiles = fs.readdirSync(srcPath);
+		jsonFiles.forEach((file) => {compose(srcPath + file, outputDirName);});
+	} else compose(srcPath, outputDirName);
+};
+
+const compose = (schema, outputDirName) => {
+	if(!schema.endsWith(".json")) return;
+	let fileName = path.basename(schema);
+	tree.init();
+	schema = JSON.parse(fs.readFileSync(schema));
 
 	/* adding titles */
 	tree.doc.push(template.substitute("Title", {"title" : schema.title} ));
@@ -45,10 +57,10 @@ module.exports = function (schema, outputFileName) {
 	/* adding new line characters */
 	tree.doc = tree.doc.join("\n");
 
-	/* save to .md file if path of file or folder provided*/
-	if(outputFileName) {
-		outputFileName = format.outputCheck(outputFileName, format.changeExtention(fileName));
-		fs.writeFileSync(outputFileName, tree.doc);
-	}
-	return tree.doc;
+	/* save to .md file */
+	
+	// if(outputDirName) {
+	// 	outputDirName = format.outputCheck(outputDirName, );
+	fs.writeFileSync(format.outputCheck(outputDirName, format.changeExtention(fileName)), tree.doc);
+	// }
 };

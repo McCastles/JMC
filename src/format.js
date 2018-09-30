@@ -4,6 +4,7 @@ const fs = require("fs");
 const format = module.exports = {
 	required: (is) => is ? "+" : "-",
 	changeExtention: (text) => text.replace(".json", ".md"),
+	dirPath: (name) => name.endsWith("/") ? name : name + "/",
 	capitalize: (text) => {
 		text = text.charAt(0).toUpperCase() + text.substr(1);
 		if (!text.endsWith(".")) text += ".";
@@ -20,8 +21,9 @@ const format = module.exports = {
 		let pointOfRef = "#/definitions/";
 		return name.substr( name.indexOf(pointOfRef) + pointOfRef.length ); 
 	},
-	outputCheck: (outputFileName, generatedName) => {
-		if (outputFileName.endsWith(".md")) return outputFileName;
-		else return fs.existsSync(outputFileName) ? outputFileName + generatedName : generatedName;
+	outputCheck: (outputDirName, generatedName) => {
+		outputDirName = outputDirName ? format.dirPath(outputDirName) : "./markdowns/";
+		if (!fs.existsSync(outputDirName)) fs.mkdirSync(outputDirName);
+		return outputDirName + generatedName;
 	}
 };

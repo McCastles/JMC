@@ -1,17 +1,17 @@
-# Simple tuple array schema
+# __Simple tuple array schema__
 Parsed from file: [tuple-array.json](https://github.com/McCastles/JMC/blob/master/examples/tuple-array.json)
 
-Simple schema with a tuple array (array with items of different types).
-## Structure
+_Simple schema with a tuple array (array with items of different types)._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|people|[object[]](#people)|+|Famous people.|
-### people
-Famous people.
+|__people__|[object[]](#people)|+|_Famous people._|
+### __people__
+_Famous people._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|item1|string|-|Name of the person.|
-|item2|string|-|Surname of the person.|
-|item3|number|-|Telephone number of the person.|
+|__Item1__|string|-|_Name of the person._|
+|__Item2__|string|-|_Surname of the person._|
+|__Item3__|number|-|_Telephone number of the person._|

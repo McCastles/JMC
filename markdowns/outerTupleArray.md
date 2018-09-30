@@ -1,33 +1,33 @@
-# Testing Links With outerDef (tuple arrays)
+# __Testing Links With outerDef (tuple arrays)__
 Parsed from file: [outerTupleArray.json](https://github.com/McCastles/JMC/blob/master/examples/outerTupleArray.json)
 
-Illustrating work with outer definitions file.
-## Structure
+_Illustrating work with outer definitions file._
+## __Structure__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|name|[object](#name)|-|Name of the client.|
-|arrayOfAdressPlusName|[object[]](#arrayOfAdressPlusName)|-|Tuple array with references.|
-|billing_address|[address](./outerDef.md#/definitions/address)|-|Billing adress.|
-|shipping_address|[address](./outerDef.md#/definitions/address)|-|Shipping adress.|
-### name
-Name of the client.
+|__name__|[object](#name)|-|_Name of the client._|
+|__arrayOfAdressPlusName__|[object[]](#arrayOfAdressPlusName)|-|_Tuple array with references._|
+|__billing_address__|[address](./outerDef.md#/definitions/address)|-|_Billing adress._|
+|__shipping_address__|[address](./outerDef.md#/definitions/address)|-|_Shipping adress._|
+### __name__
+_Name of the client._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|firstName|string|-|First name.|
-|secondName|string|+|Second name.|
-### arrayOfAdressPlusName
-Tuple array with references.
+|__firstName__|string|-|_First name._|
+|__secondName__|string|+|_Second name._|
+### __arrayOfAdressPlusName__
+_Tuple array with references._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|item1|number|-|Sample number item.|
-|item2|[address](./outerDef.md#/definitions/address)|-|Sample reference item.|
-|item3|[object](#item3)|-|Sample object item.|
-### item3
-Sample object item.
+|__Item1__|number|-|_Sample number item._|
+|__Item2__|[address](./outerDef.md#/definitions/address)|-|_Sample reference item._|
+|__Item3__|[object](#Item3)|-|_Sample object item._|
+### __Item3__
+_Sample object item._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|prop1|number|-|Sample property.|
+|__prop1__|number|-|_Sample property._|
