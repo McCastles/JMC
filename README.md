@@ -29,6 +29,7 @@ convert("./examples/");
 /* all .json files are converted saved to markdowns directory*/
 ```
 The first parameter is obligatory and contains the URI of the input JSON file or folder.
+
 The second parameter is arbitrary and can contain the directory for Markdown files to be saved. If not provided, Markdown files will be saved to the `markdowns` directory.
 
 To customize converted Markdown files, change the files in the `templates` directory accordingly.
