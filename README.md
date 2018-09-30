@@ -18,9 +18,15 @@
 Use the following code example to convert JSON files to Markdown:
 ```javascript
 let convert = require("@linterhub/JMC");
-convert("./examples/simple.json", "./"); /* simple.md is saved to root */
-convert("./examples/*.json", "./outputs"); /* all .json files are converted and saved to outputs directory */
-convert("./examples/"); /* all .json files are converted saved to markdowns directory*/
+
+convert("./examples/simple.json", "./"); 
+/* simple.md is saved to root */
+
+convert("./examples/*.json", "./outputs"); 
+/* all .json files are converted and saved to outputs directory */
+
+convert("./examples/"); 
+/* all .json files are converted saved to markdowns directory*/
 ```
 The first parameter is obligatory and contains the URI of the input JSON file or folder.
 The second parameter is arbitrary and can contain the directory for Markdown files to be saved. If not provided, Markdown files will be saved to the `markdowns` directory.
