@@ -6,6 +6,13 @@ const format = require("./format.js");
 const tree = require("./tree.js");
 const template = require("./template");
 
+/* TODO
+	for references
+	allOf?
+	3 rows where not required
+*/
+
+
 Object.resolve = (path, obj) => path.replace("#/", "").split("/").reduce((prev, curr) => prev ? prev[curr] : undefined, obj || null);
 
 module.exports = function (srcPath, outputDirName) {
@@ -38,19 +45,19 @@ const compose = (schema, outputDirName) => {
 	tree.doc.push(template.substitute("Description", 
 		{"description": format.capitalize(schema.description)}));
 
-	/* adding definitions */
-	if(schema.definitions) {
+
+	tree.visit(undefined, schema, tree.types);
+
+	if (schema.definitions) {
 		tree.doc.push(template.fetch("Definitions"));
-		Object.keys(schema.definitions).forEach((name) => {
-			tree.visit(name, schema.definitions[name]); });
-		tree.types.forEach((type) => tree.document(type.name, type.node));
-		tree.types = [];
+		/* push main definitions */
+		tree.documentDef(schema);
+		/* push the rest */
+		tree.defs.forEach((def) => tree.document(def.name, def.node));
 	}
 
-	/* adding main structure */
 	if (schema.properties) {
 		tree.doc.push(template.fetch("Structure"));
-		tree.visit(undefined, schema); 
 		tree.types.forEach((type) => tree.document(type.name, type.node));
 	}
 
@@ -58,9 +65,5 @@ const compose = (schema, outputDirName) => {
 	tree.doc = tree.doc.join("\n");
 
 	/* save to .md file */
-	
-	// if(outputDirName) {
-	// 	outputDirName = format.outputCheck(outputDirName, );
 	fs.writeFileSync(format.outputCheck(outputDirName, format.changeExtention(fileName)), tree.doc);
-	// }
 };

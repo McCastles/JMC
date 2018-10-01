@@ -30,7 +30,7 @@ convert("./examples/");
 ```
 The first parameter is obligatory and contains the URI of the input JSON file or folder.
 
-The second parameter is arbitrary and can contain the directory for Markdown files to be saved. If not provided, Markdown files will be saved to the `markdowns` directory.
+The second parameter is arbitrary and can contain the directory path for Markdown files to be saved. If not provided, Markdown files will be saved to the `markdowns` directory.
 
 To customize converted Markdown files, change the files in the `templates` directory accordingly.
 For instance, to make the title of the output Markdown bold, `Title.txt` file in the `templates` directory should look like this:

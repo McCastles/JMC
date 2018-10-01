@@ -45,7 +45,7 @@ const describe = module.exports = {
 			else 
 				type = (value.items.type) ? `${value.items.type}[]` : `[object[]](#${name})`;
 
-		/* for definitions */
+		/* for references */
 		if (value.$ref && value.$ref.indexOf("http") !== 0) {
 			const name = format.getDefName(value.$ref);
 			const file = format.changeExtention(value.$ref);
