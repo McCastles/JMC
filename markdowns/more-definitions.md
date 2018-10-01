@@ -22,7 +22,7 @@ _The addres of somebody._
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
 |__billing_address__|[address](#/definitions/address)|-|_Billing adress._|
-|__shipping_address__|[address](#/definitions/address)|-|_Shipping adress._|
+|__shipping_address__|[address](#address)|-|_Shipping adress._|
 |__price_to_pay__|[price](#/definitions/price)|-|_Price the customer will pay for the product._|
 ### __name__
 _Name of the client._
