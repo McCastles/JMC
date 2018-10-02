@@ -40,16 +40,15 @@ const describe = module.exports = {
 		/* for arrays */
 		if (type === "array") 
 			if (value.items.$ref) {
+				let name = format.getDefName(value.items.$ref);
 				let ref = format.changeExtention(value.items.$ref);
-				type = `[${format.getDefName(ref)}[]](${ref})`; } 
+				type = `[${name}[]](${ref})`; } 
 			else 
 				type = (value.items.type) ? `${value.items.type}[]` : `[object[]](#${name})`;
 
 		/* for references */
 		if (value.$ref && value.$ref.indexOf("http") !== 0) {
-			const name = format.getDefName(value.$ref);
-			const file = format.changeExtention(value.$ref);
-			type = `[${name}](${file})`;
+			type = `[${format.getDefName(value.$ref)}](${format.changeExtention(value.$ref)})`;
 		}
 
 		return type;

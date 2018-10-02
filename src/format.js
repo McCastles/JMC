@@ -18,8 +18,7 @@ const format = module.exports = {
 		type: (name, type) => `[${type}](#${name})`,
 	},
 	getDefName: (name) => {
-		let pointOfRef = "#/definitions/";
-		return name.substr( name.indexOf(pointOfRef) + pointOfRef.length ); 
+		return name.substr( name.indexOf("#") + 1 ); 
 	},
 	outputCheck: (outputDirName, generatedName) => {
 		outputDirName = outputDirName ? format.dirPath(outputDirName) : "./markdowns/";
