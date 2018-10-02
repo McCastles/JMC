@@ -16,6 +16,10 @@ const format = module.exports = {
 				{"name":`${name}`,"type":`${type}`,"required":`${required}`,"description":`${description}`});
 		},
 		type: (name, type) => `[${type}](#${name})`,
+		hasOwnTable: (name, refs) => {
+			for (let i = 0; i < refs.length; i++) if (refs[i].name === name) return true;
+			return false;
+		}
 	},
 	getDefName: (name) => {
 		return name.substr( name.indexOf("#") + 1 ); 

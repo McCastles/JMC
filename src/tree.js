@@ -76,7 +76,7 @@ const tree = module.exports = {
 			Object.keys(node.properties).forEach((prop) => {
 				const value = node.properties[prop];
 				const required = node.required ? node.required.indexOf(prop) > -1 : false;
-				const row = describe.property(prop, value, required);
+				const row = describe.property(prop, value, required, tree.defs);
 				tree.doc.push(row);
 			});
 		};
@@ -87,7 +87,7 @@ const tree = module.exports = {
 			{
 				const name = template.fetch("Item") + (i+1);
 				const value = node.items[i];
-				const row = describe.property(name, value, false);
+				const row = describe.property(name, value, false, tree.defs);
 				tree.doc.push(row);
 			};
 

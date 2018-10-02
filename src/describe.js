@@ -2,8 +2,8 @@ const format = require("./format.js");
 
 const describe = module.exports = {
 
-	property: (name, value, required) => {
-		const type = describe.type(name, value);
+	property: (name, value, required, refsWithOwnTables) => {
+		const type = describe.type(name, value, refsWithOwnTables);
 		const requiredText = format.required(required);
 		const description = value.description ? describe.description(value) : "-";
 		return format.table.row(name, type, requiredText, description);
@@ -30,7 +30,7 @@ const describe = module.exports = {
 		return finalDescription;
 	},
 
-	type: (name, value) => {
+	type: (name, value, refsWithOwnTables) => {
 		let type = value.type;
 
 		/* for objects */
@@ -48,7 +48,10 @@ const describe = module.exports = {
 
 		/* for references */
 		if (value.$ref && value.$ref.indexOf("http") !== 0) {
-			type = `[${format.getDefName(value.$ref)}](${format.changeExtention(value.$ref)})`;
+			let name = format.getDefName(value.$ref);
+			let ref = format.table.hasOwnTable(name, refsWithOwnTables) ? 
+				format.changeExtention(value.$ref) : "#definitions";
+			type = `[${name}](${ref})`;
 		}
 
 		return type;

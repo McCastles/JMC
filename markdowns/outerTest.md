@@ -7,8 +7,8 @@ _Illustrating work with outer definitions file._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
-|__billing_address__|[address](./outerDef.md#address)|-|_Billing adress._|
-|__shipping_address__|[address](./outerDef.md#address)|-|_Shipping adress._|
+|__billing_address__|[address](#definitions)|-|_Billing adress._|
+|__shipping_address__|[address](#definitions)|-|_Shipping adress._|
 ### __name__
 _Name of the client._
 
