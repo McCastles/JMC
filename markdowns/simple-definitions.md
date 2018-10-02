@@ -3,6 +3,10 @@ Parsed from file: [simple-definitions.json](https://github.com/McCastles/JMC/blo
 
 _Simple schema with definitions._
 ## __Definitions__
+
+|Key|Type|Required|Description|
+|-|:-:|:-:|-|
+|__address__|[object](#address)|-|_The addres of somebody._|
 ### __address__
 _The addres of somebody._
 
@@ -16,8 +20,8 @@ _The addres of somebody._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
-|__billing_address__|[address](#/definitions/address)|-|_Billing adress._|
-|__shipping_address__|[address](#/definitions/address)|-|_Shipping adress._|
+|__billing_address__|[](#address)|-|_Billing adress._|
+|__shipping_address__|[](#address)|-|_Shipping adress._|
 ### __name__
 _Name of the client._
 

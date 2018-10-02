@@ -42,11 +42,11 @@
         "required": ["secondName"]
       },
       "billing_address": {
-        "$ref": "#/definitions/address",
+        "$ref": "#address",
         "description": "Billing adress"
       },
       "shipping_address": {
-        "$ref": "#/definitions/address",
+        "$ref": "#address",
         "description": "Shipping adress"
       }
     }

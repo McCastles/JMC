@@ -1,5 +1,5 @@
 # __Simple Schema With Definitions__
-Parsed from file: [more-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/simple-definitions.json)
+Parsed from file: [more-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/more-definitions.json)
 
 _Simple schema with definitions._
 ## __Definitions__
@@ -21,9 +21,9 @@ _The addres of somebody._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
-|__billing_address__|[address](#/definitions/address)|-|_Billing adress._|
-|__shipping_address__|[address](#address)|-|_Shipping adress._|
-|__price_to_pay__|[price](#/definitions/price)|-|_Price the customer will pay for the product._|
+|__billing_address__|[](#address)|-|_Billing adress._|
+|__shipping_address__|[](#address)|-|_Shipping adress._|
+|__price_to_pay__|[](#price)|-|_Price the customer will pay for the product._|
 ### __name__
 _Name of the client._
 

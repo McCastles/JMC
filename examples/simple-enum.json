@@ -12,4 +12,4 @@
 		"enum": [ "big", "medium", "small", 42 ]
 	  }
 	}
-  }
+}

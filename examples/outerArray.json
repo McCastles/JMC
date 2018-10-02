@@ -24,15 +24,15 @@
       "description": "array of adresses",
       "type": "array",
       "items": {
-        "$ref": "./outerDef.json#/definitions/address"
+        "$ref": "./outerDef.json#address"
       }
     },
     "billing_address": {
-      "$ref": "./outerDef.json#/definitions/address",
+      "$ref": "./outerDef.json#address",
       "description": "Billing adress"
     },
     "shipping_address": {
-      "$ref": "./outerDef.json#/definitions/address",
+      "$ref": "./outerDef.json#address",
       "description": "Shipping adress"
     }
   }

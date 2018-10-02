@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "$id": "https://github.com/McCastles/JMC/blob/master/examples/simple-definitions.json",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/more-definitions.json",
     "title": "Simple Schema With Definitions",
     "type": "object",
     "description": "Simple schema with definitions",
@@ -50,15 +50,15 @@
         "required": ["secondName"]
       },
       "billing_address": {
-        "$ref": "#/definitions/address",
+        "$ref": "#address",
         "description": "Billing adress"
       },
       "shipping_address": {
-        "$ref": "#/definitions/address",
+        "$ref": "#address",
         "description": "Shipping adress"
       },
       "price_to_pay": {
-        "$ref": "#/definitions/price",
+        "$ref": "#price",
         "description": "Price the customer will pay for the product"
       }
     }

@@ -3,6 +3,10 @@ Parsed from file: [outerDef.json](https://github.com/McCastles/JMC/blob/master/e
 
 _Definitions for outerTest and other schemas._
 ## __Definitions__
+
+|Key|Type|Required|Description|
+|-|:-:|:-:|-|
+|__address__|[object](#address)|-|_-_|
 ### __address__
 
 |Key|Type|Required|Description|
