@@ -4,22 +4,23 @@ const template = require("./template.js");
 
 const tree = module.exports = {
 	types: [],
-	defs: [],
 	described: [],
 	doc: [],
 	visited_refs: [],
+	schema_definitions: [],
+	hardDefinitions: [],
 
-	init: () => { tree.types = []; tree.defs = []; 
-		tree.described = []; tree.doc = []; tree.visited_refs = []; },
+	init: () => { tree.types = []; tree.hardDefinitions = []; tree.described = [];
+		tree.doc = []; tree.visited_refs = []; schema_definitions = [] },
 
 	visit: (name, node, branch) => {
 		if (!node) return;
 
 		/* for definitions */
 		if (node.definitions) {
-			// tree.defs.push({ name: name, node: node });
+			// tree.hardDefinitions.push({ name: name, node: node });
 			Object.keys(node.definitions).forEach((def) => 
-				tree.visit(def, node.definitions[def], tree.defs));
+				tree.visit(def, node.definitions[def], tree.hardDefinitions));
 		}
 
 		/* for object properties */
@@ -36,14 +37,18 @@ const tree = module.exports = {
 				tree.visit(template.fetch("Item") + (i+1), node.items[i], branch);
 		}
 
+		//visited refs not needed for examples?
+
 		/* for references */
-		if (node.$ref) {
-			if (tree.visited_refs[node.$ref] === undefined) {
-				tree.visited_refs[node.$ref] = true;
-				const ref = Object.resolve(node.$ref, node);
-				tree.visit(node.$ref, ref);
-			}
-		}
+		if ( (node.$ref) && (tree.visited_refs[node.$ref] === undefined) )
+			tree.visited_refs[node.$ref] = true;
+				// console.log(node.$ref);
+				// const ref = Object.resolve(node.$ref, node);
+				// console.log(ref);
+				// console.log("");
+				// tree.visit(node.$ref, ref);
+			
+		
 	},
 	
 	initiateTable : () => {
@@ -76,7 +81,7 @@ const tree = module.exports = {
 			Object.keys(node.properties).forEach((prop) => {
 				const value = node.properties[prop];
 				const required = node.required ? node.required.indexOf(prop) > -1 : false;
-				const row = describe.property(prop, value, required, tree.defs);
+				const row = describe.property(prop, value, required, tree);
 				tree.doc.push(row);
 			});
 		};
@@ -87,7 +92,8 @@ const tree = module.exports = {
 			{
 				const name = template.fetch("Item") + (i+1);
 				const value = node.items[i];
-				const row = describe.property(name, value, false, tree.defs);
+				/* передавать массим имен дефиниций чтобы реализовать блок-схему */
+				const row = describe.property(name, value, false, tree);
 				tree.doc.push(row);
 			};
 

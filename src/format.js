@@ -16,8 +16,9 @@ const format = module.exports = {
 				{"name":`${name}`,"type":`${type}`,"required":`${required}`,"description":`${description}`});
 		},
 		type: (name, type) => `[${type}](#${name})`,
-		hasOwnTable: (name, refs) => {
-			for (let i = 0; i < refs.length; i++) if (refs[i].name === name) return true;
+		hasOwnTable: (name, hardDefinitions) => {
+			for (let i = 0; i < hardDefinitions.length; i++) 
+				if (hardDefinitions[i].name === name) return true;
 			return false;
 		}
 	},

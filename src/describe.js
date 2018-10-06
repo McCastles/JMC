@@ -1,11 +1,12 @@
 const format = require("./format.js");
+const tree = require("./tree.js");
 
 const describe = module.exports = {
 
-	property: (name, value, required, refsWithOwnTables) => {
-		const type = describe.type(name, value, refsWithOwnTables);
+	property: (name, value, required, tree) => {
+		const type = describe.type(name, value, tree);
 		const requiredText = format.required(required);
-		const description = value.description ? describe.description(value) : "-";
+		const description = value.description ? describe.description(value) : "";
 		return format.table.row(name, type, requiredText, description);
 	},
 
@@ -30,7 +31,7 @@ const describe = module.exports = {
 		return finalDescription;
 	},
 
-	type: (name, value, refsWithOwnTables) => {
+	type: (name, value, tree) => {
 		let type = value.type;
 
 		/* for objects */
@@ -39,21 +40,24 @@ const describe = module.exports = {
 		
 		/* for arrays */
 		if (type === "array") 
-			if (value.items.$ref) {
-				let name = format.getDefName(value.items.$ref);
-				let ref = format.changeExtention(value.items.$ref);
-				type = `[${name}[]](${ref})`; } 
+			if (value.items.$ref) 
+				type = describe.typeHandleReferences(value.items.$ref, tree);	
 			else 
 				type = (value.items.type) ? `${value.items.type}[]` : `[object[]](#${name})`;
 
 		/* for references */
-		if (value.$ref && value.$ref.indexOf("http") !== 0) {
-			let name = format.getDefName(value.$ref);
-			let ref = format.table.hasOwnTable(name, refsWithOwnTables) ? 
-				format.changeExtention(value.$ref) : "#definitions";
-			type = `[${name}](${ref})`;
-		}
+		if (value.$ref && value.$ref.indexOf("http") !== 0) 
+			type = describe.typeHandleReferences(value.$ref, tree);
 
 		return type;
 	},
+
+	typeHandleReferences(reference, tree) {
+		let name = format.getDefName(reference);
+		let ref = format.changeExtention(reference); 
+		if(tree.schema_definitions.indexOf(name) > -1)
+			if (!format.table.hasOwnTable(name, tree.hardDefinitions))
+				ref = "#definitions";
+		return `[#${name}](${ref})`;
+	}
 };
