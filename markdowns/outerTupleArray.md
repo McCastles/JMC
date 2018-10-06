@@ -8,8 +8,8 @@ _Illustrating work with outer definitions file._
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
 |__arrayOfAdressPlusName__|[object[]](#arrayOfAdressPlusName)|-|_Tuple array with references._|
-|__billing_address__|[address](#definitions)|-|_Billing adress._|
-|__shipping_address__|[address](#definitions)|-|_Shipping adress._|
+|__billing_address__|[#address](#definitions)|-|_Billing adress._|
+|__shipping_address__|[#address](#definitions)|-|_Shipping adress._|
 ### __name__
 _Name of the client._
 
@@ -23,7 +23,7 @@ _Tuple array with references._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__Item1__|number|-|_Sample number item._|
-|__Item2__|[address](#definitions)|-|_Sample reference item._|
+|__Item2__|[#address](#definitions)|-|_Sample reference item._|
 |__Item3__|[object](#Item3)|-|_Sample object item._|
 ### __Item3__
 _Sample object item._
@@ -31,3 +31,6 @@ _Sample object item._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__prop1__|number|-|_Sample property._|
+## __Examples__
+```
+```

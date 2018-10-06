@@ -21,9 +21,10 @@ _The addres of somebody._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
-|__billing_address__|[address](#address)|-|_Billing adress._|
-|__shipping_address__|[address](#address)|-|_Shipping adress._|
-|__price_to_pay__|[price](#definitions)|-|_Price the customer will pay for the product._|
+|__billing_address__|[#address](#address)|-|_Billing adress._|
+|__shipping_address__|[#address](#address)|-|_Shipping adress._|
+|__price_to_pay__|[#price](#definitions)|-|_Price the customer will pay for the product._|
+|__automobile__|[#automobile](./outer/outerDef2.md#automobile)|-|_My automobile._|
 ### __name__
 _Name of the client._
 
@@ -31,3 +32,6 @@ _Name of the client._
 |-|:-:|:-:|-|
 |__firstName__|string|-|_First name._|
 |__secondName__|string|+|_Second name._|
+## __Examples__
+```
+```

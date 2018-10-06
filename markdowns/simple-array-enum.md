@@ -14,3 +14,6 @@ _List of guests._
 |-|:-:|:-:|-|
 |__Item1__|string|-|_Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`_|
 |__Item2__|number|-|_Place._|
+## __Examples__
+```
+```

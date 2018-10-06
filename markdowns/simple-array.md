@@ -7,3 +7,6 @@ _Simple schema with an array._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__people__|string[]|+|_Famous people._|
+## __Examples__
+```
+```

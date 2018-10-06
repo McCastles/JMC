@@ -60,6 +60,10 @@
       "price_to_pay": {
         "$ref": "#price",
         "description": "Price the customer will pay for the product"
+      },
+      "automobile": {
+        "$ref": "./outer/outerDef2.json#automobile",
+        "description": "My automobile"
       }
     }
   }

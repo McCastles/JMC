@@ -23,12 +23,16 @@
       ]
     },
     "billing_address": {
-      "$ref": "./outerDef.json#address",
+      "$ref": "./outerProxy.json#address",
       "description": "Billing adress"
     },
     "shipping_address": {
-      "$ref": "./outerDef.json#address",
+      "$ref": "./outerProxy.json#address",
       "description": "Shipping adress"
+    },
+    "car": {
+      "$ref": "./outerProxy.json#automobile",
+      "description": "The automobile that will deliver the package"
     }
   }
 }

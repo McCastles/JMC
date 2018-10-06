@@ -6,7 +6,7 @@ _Definitions for outerTest and other schemas._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|__address__|[object](#address)|-|_-_|
+|__address__|[object](#address)|-|__|
 ### __address__
 
 |Key|Type|Required|Description|
@@ -15,3 +15,6 @@ _Definitions for outerTest and other schemas._
 |__street__|string|+|_Street name._|
 |__city__|string|+|_City name._|
 |__state__|string|+|_State name._|
+## __Examples__
+```
+```

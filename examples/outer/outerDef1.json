@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "$id": "https://github.com/McCastles/JMC/blob/master/examples/outerDef.json",
+  "$id": "https://github.com/McCastles/JMC/blob/master/examples/outerDef1.json",
   "title": "Definitions for miscellaneous schemas",
   "description": "Definitions for outerTest and other schemas",
     "definitions": {

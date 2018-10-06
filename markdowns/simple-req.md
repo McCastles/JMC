@@ -9,3 +9,6 @@ _Simple schema with one property and requirements._
 |__street__|string|+|_Street's name._|
 |__city__|string|+|_City's name._|
 |__telephone__|number|-|_Telephone number._|
+## __Examples__
+```
+```

@@ -7,9 +7,9 @@ _Illustrating work with outer definitions file._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
-|__adresses__|[address[]](./outerDef.md#address)|-|_Array of adresses._|
-|__billing_address__|[address](#definitions)|-|_Billing adress._|
-|__shipping_address__|[address](#definitions)|-|_Shipping adress._|
+|__adresses__|[#address](#definitions)|-|_Array of adresses._|
+|__billing_address__|[#address](#definitions)|-|_Billing adress._|
+|__shipping_address__|[#address](#definitions)|-|_Shipping adress._|
 ### __name__
 _Name of the client._
 
@@ -17,3 +17,6 @@ _Name of the client._
 |-|:-:|:-:|-|
 |__firstName__|string|-|_First name._|
 |__secondName__|string|+|_Second name._|
+## __Examples__
+```
+```

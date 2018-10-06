@@ -7,3 +7,6 @@ _Simple schema with one property and ID._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__price__|number|-|_Cost of the product._|
+## __Examples__
+```
+```

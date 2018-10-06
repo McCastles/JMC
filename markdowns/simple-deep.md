@@ -25,3 +25,6 @@ _Your country._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__city__|string|-|_Your city._|
+## __Examples__
+```
+```

@@ -28,11 +28,11 @@
       }
     },
     "billing_address": {
-      "$ref": "./outerDef.json#address",
+      "$ref": "./outerDef1.json#address",
       "description": "Billing adress"
     },
     "shipping_address": {
-      "$ref": "./outerDef.json#address",
+      "$ref": "./outerDef1.json#address",
       "description": "Shipping adress"
     }
   }

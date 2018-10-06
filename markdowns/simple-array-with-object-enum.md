@@ -23,3 +23,6 @@ _Children of the person._
 |__name__|string|+|_Name of the kid._|
 |__surname__|string|+|_Surname of the kid._|
 |__telephone__|number|-|_Telephone number of the kid._|
+## __Examples__
+```
+```

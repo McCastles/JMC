@@ -20,8 +20,8 @@ _The addres of somebody._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
-|__billing_address__|[address](#address)|-|_Billing adress._|
-|__shipping_address__|[address](#address)|-|_Shipping adress._|
+|__billing_address__|[#address](#address)|-|_Billing adress._|
+|__shipping_address__|[#address](#address)|-|_Shipping adress._|
 ### __name__
 _Name of the client._
 
@@ -29,3 +29,6 @@ _Name of the client._
 |-|:-:|:-:|-|
 |__firstName__|string|-|_First name._|
 |__secondName__|string|+|_Second name._|
+## __Examples__
+```
+```

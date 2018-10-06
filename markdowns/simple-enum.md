@@ -7,3 +7,6 @@ _Simple schema with enum._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__size__|string|-|_Size. Possible values: `big` `medium` `small` Default is `small`_|
+## __Examples__
+```
+```

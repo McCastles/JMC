@@ -15,3 +15,6 @@ _Famous people._
 |__Item1__|string|-|_Name of the person._|
 |__Item2__|string|-|_Surname of the person._|
 |__Item3__|number|-|_Telephone number of the person._|
+## __Examples__
+```
+```
