@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/proxy.json",
+  "title": "Definitions for miscellaneous schemas",
+  "description": "Definitions for outerTest and other schemas",
+  "definitions": {
+    "protoAddress": {
+      "$ref": "./address.json#address",
+      "description": "My adress"
+    },
+    "protoAutomobile": {
+      "$ref": "./automobile.json#automobile",
+      "description": "My automobile"
+    }
+  }
+}

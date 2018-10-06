@@ -62,7 +62,7 @@
         "description": "Price the customer will pay for the product"
       },
       "automobile": {
-        "$ref": "./outer/outerDef2.json#automobile",
+        "$ref": "./outer/automobile.json#automobile",
         "description": "My automobile"
       }
     }

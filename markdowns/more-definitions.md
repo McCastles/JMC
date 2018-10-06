@@ -24,7 +24,7 @@ _The addres of somebody._
 |__billing_address__|[#address](#address)|-|_Billing adress._|
 |__shipping_address__|[#address](#address)|-|_Shipping adress._|
 |__price_to_pay__|[#price](#definitions)|-|_Price the customer will pay for the product._|
-|__automobile__|[#automobile](./outer/outerDef2.md#automobile)|-|_My automobile._|
+|__automobile__|[#automobile](./outer/automobile.md#automobile)|-|_My automobile._|
 ### __name__
 _Name of the client._
 

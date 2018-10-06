@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Definitions for outerTest",
-  "$id": "https://github.com/McCastles/JMC/blob/master/examples/outerArray.json",
+  "$id": "https://github.com/McCastles/JMC/blob/master/examples/outer/test.json",
+  "title": "Testing Link With outerDef",
   "description": "Illustrating work with outer definitions file",
   "type": "object",
   "properties": {
@@ -18,22 +18,21 @@
           "description": "Second name"
         }
       },
-      "required": ["secondName"]
-    },
-    "adresses": {
-      "description": "array of adresses",
-      "type": "array",
-      "items": {
-        "$ref": "./outerDef.json#address"
-      }
+      "required": [
+        "secondName"
+      ]
     },
     "billing_address": {
-      "$ref": "./outerDef1.json#address",
+      "$ref": "./definitions/proxy.json#address",
       "description": "Billing adress"
     },
     "shipping_address": {
-      "$ref": "./outerDef1.json#address",
+      "$ref": "./definitions/proxy.json#address",
       "description": "Shipping adress"
+    },
+    "car": {
+      "$ref": "./definitions/proxy.json#automobile",
+      "description": "The automobile that will deliver the package"
     }
   }
 }
