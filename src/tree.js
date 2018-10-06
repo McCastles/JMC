@@ -57,11 +57,12 @@ const tree = module.exports = {
 		tree.doc.push(template.fetch("TableColumns"));
 	},
 
-	documentDef : (node) => {
+	documentDef : (node, tree) => {
+
 		tree.initiateTable();
 		Object.keys(node.definitions).forEach((def) => {
 			const value = node.definitions[def];
-			const row = describe.property(def, value, false);
+			const row = describe.property(def, value, false, tree);
 			tree.doc.push(row); 
 		});
 	},

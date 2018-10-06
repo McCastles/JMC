@@ -48,7 +48,7 @@ const describe = module.exports = {
 		/* for references */
 		if (value.$ref && value.$ref.indexOf("http") !== 0) 
 			type = describe.typeHandleReferences(value.$ref, tree);
-
+		
 		return type;
 	},
 
