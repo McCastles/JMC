@@ -7,9 +7,9 @@ _Illustrating work with outer definitions file._
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
-|__billing_address__|[#address](./definitions/proxy.md#address)|-|_Billing adress._|
-|__shipping_address__|[#address](./definitions/proxy.md#address)|-|_Shipping adress._|
-|__car__|[#automobile](./definitions/proxy.md#automobile)|-|_The automobile that will deliver the package._|
+|__billing_address__|[#proxyAddress](./definitions/proxy.md#proxyAddress)|-|_Billing adress._|
+|__shipping_address__|[#proxyAddress](./definitions/proxy.md#proxyAddress)|-|_Shipping adress._|
+|__car__|[#proxyAutomobile](./definitions/proxy.md#proxyAutomobile)|-|_The automobile that will deliver the package._|
 ### __name__
 _Name of the client._
 

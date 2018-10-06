@@ -45,15 +45,15 @@
         ]
       },
       "billing_address": {
-        "$ref": "./definitions/proxy.json#address",
+        "$ref": "./definitions/proxy.json#proxyAddress",
         "description": "Billing adress"
       },
       "shipping_address": {
-        "$ref": "./definitions/proxy.json#address",
+        "$ref": "./definitions/proxy.json#proxyAddress",
         "description": "Shipping adress"
       },
       "automobile": {
-        "$ref": "./definitions/proxy.json#automobile",
+        "$ref": "./definitions/proxy.json#proxyAutomobile",
         "description": "The automobile that will deliver the package"
       }
     }

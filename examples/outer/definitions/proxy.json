@@ -4,11 +4,11 @@
   "title": "Definitions for miscellaneous schemas",
   "description": "Definitions for outerTest and other schemas",
   "definitions": {
-    "protoAddress": {
+    "proxyAddress": {
       "$ref": "./address.json#address",
       "description": "My adress"
     },
-    "protoAutomobile": {
+    "proxyAutomobile": {
       "$ref": "./automobile.json#automobile",
       "description": "My automobile"
     }

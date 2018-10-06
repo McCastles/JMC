@@ -6,8 +6,8 @@ _Definitions for outerTest and other schemas._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|__protoAddress__|[#address](#definitions)|-|_My adress._|
-|__protoAutomobile__|[#automobile](#definitions)|-|_My automobile._|
+|__proxyAddress__|[#address](#definitions)|-|_My adress._|
+|__proxyAutomobile__|[#automobile](#definitions)|-|_My automobile._|
 ## __Examples__
 ```
 ```

@@ -8,9 +8,9 @@ _Illustrating work with outer definitions file._
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|_Name of the client._|
 |__arrayOfAdressPlusName__|[object[]](#arrayOfAdressPlusName)|-|_Tuple array with references._|
-|__billing_address__|[#automobile](./definitions/proxy.md#automobile)|-|_Billing adress._|
-|__shipping_address__|[#automobile](./definitions/proxy.md#automobile)|-|_Shipping adress._|
-|__automobile__|[#automobile](./definitions/proxy.md#automobile)|-|_The automobile that will deliver the package._|
+|__billing_address__|[#proxyAddress](./definitions/proxy.md#proxyAddress)|-|_Billing adress._|
+|__shipping_address__|[#proxyAddress](./definitions/proxy.md#proxyAddress)|-|_Shipping adress._|
+|__automobile__|[#proxyAutomobile](./definitions/proxy.md#proxyAutomobile)|-|_The automobile that will deliver the package._|
 ### __name__
 _Name of the client._
 
