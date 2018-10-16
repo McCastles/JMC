@@ -32,7 +32,7 @@ const example = module.exports = {
         else if (value.items) 
             example.applyItems(value, tabKey, tab, comma);
         else if (value.enum) 
-            example.applyEnum(value, tabKey, tab, comma);
+            example.applyEnum(value, tabKey, comma);
         else if (value.$ref) 
             example.applyReference(value, tabKey, tab, comma);
         else 
@@ -48,7 +48,7 @@ const example = module.exports = {
     applyItems: (value, tabKey, tab, comma) => {
         finalExample.push(tabKey + "[");
         if (value.items.type) 
-            finalExample.push(tabKey + 
+            finalExample.push(tab + "\t" + 
             `${template.fetchTypePrompt(value.items.type)}` + comma);
         else
             example.content(value.items, tab + "\t");

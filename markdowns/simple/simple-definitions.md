@@ -1,12 +1,11 @@
-# __Schema With Definitions__
-Parsed from file: [more-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/more-definitions.json)
+# __Simple Schema With Definitions__
+Parsed from file: [simple-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-definitions.json)
 
-_Schema with definitions._
+_Simple schema with definitions._
 ## __Definitions__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|__price__|number|-|Price of the product.|
 |__address__|[object](#address)|-|The addres of somebody.|
 ### __address__
 _The addres of somebody._
@@ -23,7 +22,6 @@ _The addres of somebody._
 |__name__|[object](#name)|-|Name of the client.|
 |__billing_address__|[#address](#address)|-|Billing adress.|
 |__shipping_address__|[#address](#address)|-|Shipping adress.|
-|__price_to_pay__|[#price](#definitions)|-|Price the customer will pay for the product.|
 ### __name__
 _Name of the client._
 
@@ -47,7 +45,6 @@ _Name of the client._
 		"street": "prompt sting",
 		"city": "prompt sting",
 		"state": "prompt sting"
-	},
-	"price_to_pay": 42
+	}
 }
 ```

@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "$id":"https://github.com/McCastles/JMC/blob/master/examples/simple/simple-array-enum.json",
+    "$id":"https://github.com/McCastles/JMC/blob/master/examples/tuple-array-enum.json",
     "title": "Example Array Enum Schema",
-    "description": "Simple schema",
+    "description": "tuple array schema",
     "type": "object",
     "required": [ "people" ],
     "properties": {
@@ -20,6 +20,10 @@
 						"Starr"
 					],
             		"default": "Starr"
+          		},
+          		{	
+            		"type": "number",
+            		"description": "Place"
           		}
         	]
       	}

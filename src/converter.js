@@ -64,6 +64,7 @@ const compose = (schema, outputDirName) => {
 		tree.types.forEach((type) => tree.document(type.name, type.node));
 	}
 	
+	
 	tree.doc.push(template.fetch("Example"));	
 	tree.doc.push(example.createExample(schema));
 	
@@ -72,4 +73,5 @@ const compose = (schema, outputDirName) => {
 
 	/* save to .md file */
 	fs.writeFileSync(format.outputCheck(outputDirName, format.changeExtention(fileName)), tree.doc);
+	console.log("Converted file: " + format.changeExtention(fileName));
 };

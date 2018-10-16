@@ -6,24 +6,36 @@ _Schema with a tuple array (array with items of different types), one of which i
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|__people__|[object[]](#people)|+|_Famous people._|
+|__people__|[object[]](#people)|+|Famous people.|
 ### __people__
 _Famous people._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|__Item1__|string|-|_Name of the person._|
-|__Item2__|string|-|_Surname of the person._|
-|__Item3__|number|-|_Telephone number of the person._|
-|__Item4__|[object](#Item4)|-|_Children of the person._|
+|__Item1__|string|-|Name of the person.|
+|__Item2__|boolean|-|Is male?.|
+|__Item3__|number|-|Telephone number of the person.|
+|__Item4__|[object](#Item4)|-|Children of the person.|
 ### __Item4__
 _Children of the person._
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|__name__|string|+|_Name of the kid._|
-|__surname__|string|+|_Surname of the kid._|
-|__telephone__|number|-|_Telephone number of the kid._|
-## __Examples__
+|__name__|string|+|Name of the kid.|
+|__surname__|string|+|Surname of the kid.|
+|__telephone__|number|-|Telephone number of the kid.|
+## __Example__
 ```
+{
+	"people": [
+		"prompt sting",
+		true,
+		42,
+		{
+			"name": "prompt sting",
+			"surname": "prompt sting",
+			"telephone": 42
+		}
+	]
+}
 ```
