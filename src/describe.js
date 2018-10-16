@@ -6,7 +6,7 @@ const describe = module.exports = {
 	property: (name, value, required, tree) => {
 		const type = describe.type(name, value, tree);
 		const requiredText = format.required(required);
-		const description = value.description ? describe.description(value) : "";
+		const description = value.description ? describe.description(value) : "Lack of descripton";
 		return format.table.row(name, type, requiredText, description);
 	},
 
@@ -16,17 +16,17 @@ const describe = module.exports = {
 		/* NOTE: only values of the value.type are allowed */
 		/* for simple enums */
 		if (value.enum) {
-			finalDescription += " Possible values: " + 
-				value.enum.map((v) => ((typeof v) === value.type) ? `\`${v}\`` : "").join(" ");
+			finalDescription += " Possible values:" + 
+				value.enum.map((v) => ((typeof v) === value.type) ? ` \`${v}\`` : "").join("");
 			if (value.default)
-				finalDescription += "Default is `" + value.default + "`"; }
+				finalDescription += ". Default is `" + value.default + "`."; }
 
 		/* for enums inside arrays */
 		if (value.items && value.items.enum) {
-			finalDescription += " Possible values: " + 
-				value.items.enum.map((v) => ((typeof v) === value.items.type) ? `\`${v}\`` : "").join(" ");
+			finalDescription += " Possible values:" + 
+				value.items.enum.map((v) => ((typeof v) === value.items.type) ? ` \`${v}\`` : "").join("");
 			if (value.items.default)
-				finalDescription += "Default is `" + value.items.default + "`"; }
+				finalDescription += ". Default is `" + value.items.default + "`."; }
 
 		return finalDescription;
 	},

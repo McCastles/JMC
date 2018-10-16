@@ -4,14 +4,14 @@ const fs = require("fs");
 const path = require("path");
 const format = require("./format.js");
 const tree = require("./tree.js");
-const template = require("./template");
+const template = require("./template.js");
+const example = require("./example.js");
 
 /* TODO
-	examples
-	work with multiple files
 	allOf?
 	3 rows where not required
 	advanced folders mdkir?
+	{ "type": ["number", "string"] }
 */
 
 Object.resolve = (path, obj) => path.replace("#/", "").split("/").reduce((prev, curr) => prev ? prev[curr] : undefined, obj || null);
@@ -36,7 +36,6 @@ const compose = (schema, outputDirName) => {
 	let fileName = path.basename(schema);
 	schema = JSON.parse(fs.readFileSync(schema));
 
-
 	tree.init();
 
 	/* adding titles */
@@ -49,8 +48,6 @@ const compose = (schema, outputDirName) => {
 		{"description": format.capitalize(schema.description)}));
 
 	tree.visit(undefined, schema, tree.types);
-
-
 
 	if (schema.definitions) {
 		tree.doc.push(template.fetch("Definitions"));
@@ -66,11 +63,9 @@ const compose = (schema, outputDirName) => {
 		tree.doc.push(template.fetch("Structure"));
 		tree.types.forEach((type) => tree.document(type.name, type.node));
 	}
-
-	tree.doc.push(template.fetch("Examples"));
-	tree.doc.push("```");
-	// tree.doc.push(tree.example());
-	tree.doc.push("```");
+	
+	tree.doc.push(template.fetch("Example"));	
+	tree.doc.push(example.createExample(schema));
 	
 	/* adding new line characters */
 	tree.doc = tree.doc.join("\n");

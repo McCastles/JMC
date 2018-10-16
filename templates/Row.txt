@@ -1,1 +1,1 @@
-|__{{name}}__|{{type}}|{{required}}|_{{description}}_|
+|__{{name}}__|{{type}}|{{required}}|{{description}}|

@@ -18,7 +18,6 @@ const tree = module.exports = {
 
 		/* for definitions */
 		if (node.definitions) {
-			// tree.hardDefinitions.push({ name: name, node: node });
 			Object.keys(node.definitions).forEach((def) => 
 				tree.visit(def, node.definitions[def], tree.hardDefinitions));
 		}
@@ -37,8 +36,6 @@ const tree = module.exports = {
 				tree.visit(template.fetch("Item") + (i+1), node.items[i], branch);
 		}
 
-		//visited refs not needed for examples?
-
 		/* for references */
 		if ( (node.$ref) && (tree.visited_refs[node.$ref] === undefined) )
 			tree.visited_refs[node.$ref] = true;
@@ -47,8 +44,6 @@ const tree = module.exports = {
 				// console.log(ref);
 				// console.log("");
 				// tree.visit(node.$ref, ref);
-			
-		
 	},
 	
 	initiateTable : () => {
@@ -58,7 +53,6 @@ const tree = module.exports = {
 	},
 
 	documentDef : (node, tree) => {
-
 		tree.initiateTable();
 		Object.keys(node.definitions).forEach((def) => {
 			const value = node.definitions[def];
@@ -93,12 +87,8 @@ const tree = module.exports = {
 			{
 				const name = template.fetch("Item") + (i+1);
 				const value = node.items[i];
-				/* передавать массим имен дефиниций чтобы реализовать блок-схему */
 				const row = describe.property(name, value, false, tree);
 				tree.doc.push(row);
 			};
-
-		/* for references */
-		
 	},
 };

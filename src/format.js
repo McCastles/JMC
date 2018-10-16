@@ -1,6 +1,6 @@
 const template = require("./template.js");
 const fs = require("fs");
-/* eslint-disable-next-line no-unused-vars */
+
 const format = module.exports = {
 	required: (is) => is ? "+" : "-",
 	changeExtention: (text) => text.replace(".json", ".md"),
