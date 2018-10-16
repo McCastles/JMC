@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+    "$id":"https://github.com/McCastles/JMC/blob/master/examples/simple/simple-deep.json",
+    "title": "Simple deep schema",
+    "description": "simple deep",
+    "type": "object",
+    "properties": {
+    	"planet": {
+        	"description": "your planet",
+        	"type": "object",
+        	"properties": {
+        		"continent": {
+            		"description": "your continent",
+            		"type": "object",
+            		"properties": {
+            			"country": {
+                			"description": "your country",
+                			"type": "object",
+                			"properties": {
+                				"city": {
+                    			"description": "your city",
+                    			"type":"string"
+                				},
+                				"prop1": {
+                    			"description": "additional prop",
+                    			"type":"number"
+                  				}
+                			}
+              			}
+            		}
+          		}
+        	}
+      	}
+    },
+    "required": ["planet"]
+  }

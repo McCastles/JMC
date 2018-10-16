@@ -1,28 +1,41 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "$id": "https://github.com/McCastles/JMC/blob/master/examples/tuple-array.json",
-    "title": "Simple tuple array schema",
-    "description": "simple schema with a tuple array (array with items of different types)",
+    "title": "tuple array schema",
+    "description": "schema with a tuple array (array with items of different types)",
     "type": "object",
-    "required":[ "people" ],
+    "required": [ 
+        "people" 
+    ],
     "properties": {
-      "people": {
-        "description": "famous people",
-        "type": "array",
-        "items": [
-            {
-                "description": "name of the person",
-                "type": "string"
-            },
-            {
-                "description": "surname of the person",
-                "type": "string"
-            },
-            {
-                "description": "telephone number of the person",
-                "type": "number"
-            }       
-        ]
-      }
+        "sampleArray": {
+            "type":"array",
+            "items": [
+                {
+                    "type":"number"
+                },
+                {
+                    "type":"string"
+                }
+            ]
+        },
+        "people": {
+            "description": "famous people",
+            "type": "array",
+            "items": [
+                {
+                    "description": "name of the person",
+                    "type": "string"
+                },
+                {
+                    "description": "is male?",
+                    "type": "boolean"
+                },
+                {
+                    "description": "telephone number of the person",
+                    "type": "number"
+                }       
+            ]
+        }
     }
-  }
+}

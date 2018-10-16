@@ -1,9 +1,9 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "$id": "https://github.com/McCastles/JMC/blob/master/examples/more-definitions.json",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/more-definitions-outer.json",
     "title": "Schema With Definitions",
     "type": "object",
-    "description": "schema with definitions",
+    "description": "schema with outer definition",
 
     "definitions": {
      	"price": {
@@ -68,6 +68,10 @@
       	"price_to_pay": {
         	"$ref": "#price",
         	"description": "Price the customer will pay for the product"
-      	}
+		  },
+		"automobile": {
+			"$ref": "./outer/definitions/automobile.json#automobile",
+			"description": "My automobile"
+		}
     }
 }

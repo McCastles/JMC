@@ -1,17 +1,29 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "$id": "https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/automobile.json",
-  "title": "Definitions for miscellaneous schemas",
-  "description": "Definitions for outerTest and other schemas",
-    "definitions": {
-      "automobile": {
-        "type": "object",
-        "properties": {
-          "producent":{ "type":"string", "description": "Name of the producent company" },
-          "color": { "type": "string", "description": "Color of the auto" },
-          "year": { "type": "number", "description": "Year of construction" }
-        },
-        "required": [ "year", "producent" ]
-      }
-    }
-  }
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"$id": "https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/automobile.json",
+	"title": "Definitions for miscellaneous schemas",
+	"description": "Definitions for outerTest and other schemas",
+		"definitions": {
+			"automobile": {
+				"type": "object",
+				"properties": {
+					"producent":{ 
+						"type":"string", 
+						"description": "Name of the producent company" 
+					},
+					"color": { 
+						"type": "string", 
+						"description": "Color of the auto" 
+					},
+					"year": { 
+						"type": "number", 
+						"description": "Year of construction" 
+					}
+				},
+			"required": [ 
+				"year", 
+				"producent" 
+			]
+		}
+	}
+}
