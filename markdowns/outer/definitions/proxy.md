@@ -6,5 +6,5 @@ _Definitions for outerTest and other schemas_
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|__proxyAddress__|[#address](#definitions)|-|My adress|
-|__proxyAutomobile__|[#automobile](#definitions)|-|My automobile|
+|__proxyAddress__|[#address](./address.md#address)|-|My adress|
+|__proxyAutomobile__|[#automobile](./automobile.md#automobile)|-|My automobile|
