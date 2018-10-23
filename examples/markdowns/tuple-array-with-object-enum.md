@@ -3,11 +3,13 @@ Parsed from file: [tuple-array-with-object-enum.json](https://github.com/McCastl
 
 _Simple schema with array (one of the values is an object) with enumerated values_
 ## __Structure__
+
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__people__|[object[]](#people)|+|List of guests|
 ### __people__
 _List of guests_
+
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__Item1__|string|-|Guest's surname Possible values: `Lennon` `McCartney` `Harrison` `Starr`|
@@ -15,6 +17,7 @@ _List of guests_
 |__Item3__|[object](#Item3)|-|Children of the person|
 ### __Item3__
 _Children of the person_
+
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|string|+|Name of the kid|
