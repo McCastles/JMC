@@ -1,6 +1,5 @@
 # __Simple schema__
 Parsed from file: [simple.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple.json)
-
 _Simple schema_
 ## __Structure__
 
