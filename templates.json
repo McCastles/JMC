@@ -1,0 +1,20 @@
+{
+    "Title": "./defaultTemplates/Title.md",
+    "ParsedFrom": "./defaultTemplates/ParsedFrom.md",
+    "Description": "./defaultTemplates/Description.md",
+
+    "Definitions": "./defaultTemplates/Definitions.md",
+    "Structure": "./defaultTemplates/Structure.md",
+    "Example": "./defaultTemplates/Example.md",
+
+    "SubTitle": "./defaultTemplates/Subtitle.md",
+    "SubDescription": "./defaultTemplates/SubDescription.md",
+    "Row": "./defaultTemplates/Row.md",
+    "TableColumns": "./defaultTemplates/TableColumns.md",
+    "TableHeader": "./defaultTemplates/TableHeader.md",
+    "Item": "./defaultTemplates/Item.md",
+    
+    "PromptNumber": "./defaultTemplates/PromptNumber.md",
+    "PromptBoolean": "./defaultTemplates/PromptBoolean.md",
+    "PromptString": "./defaultTemplates/PromptString.md"
+}
