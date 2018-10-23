@@ -24,12 +24,12 @@ const template = module.exports = {
       return fs.readFileSync(template.defaultJSON[key]).toString();
     }
   },
-  fetchTypePrompt: (type) => {
-    switch (type) {
-      case 'string': return `\'${template.fetch('StringPrompt')}\'`;
-      case 'number': return template.fetch('NumberPrompt');
-      case 'boolean': return template.fetch('BooleanPrompt');
-      default: return '';
-    }
-  },
+  // fetchTypePrompt: (type) => {
+  //   switch (type) {
+  //     case 'string': return `\'${template.fetch('StringPrompt')}\'`;
+  //     case 'number': return template.fetch('NumberPrompt');
+  //     case 'boolean': return template.fetch('BooleanPrompt');
+  //     default: return '';
+  //   }
+  // },
 };

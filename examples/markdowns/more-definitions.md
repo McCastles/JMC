@@ -9,7 +9,7 @@ _Schema with definitions_
 |__name__|[object](#name)|-|Name of the client|
 |__billing_address__|[#address](#address)|-|Billing adress|
 |__shipping_address__|[#address](#address)|-|Shipping adress|
-|__price_to_pay__|[#price](#price)|-|Price the customer will pay for the product|
+|__price_to_pay__|[#price](#definitions)|-|Price the customer will pay for the product|
 ### __name__
 _Name of the client_
 

@@ -21,13 +21,15 @@ module.exports = function prepare(srcPath, dstPath, customTemplateFileName) {
   jsonFiles.forEach((file) => compose(file, dstPath, customTemplateFileName));
 };
 
+
 const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
   if (!srcFilePath.endsWith('.json')) return;
-  template.init(customTemplateFileName);
 
   const fileName = path.basename(srcFilePath);
   const schema = JSON.parse(fs.readFileSync(srcFilePath));
-  tree.init();
+
+  template.init(customTemplateFileName);
+  tree.init(schema.definitions ? Object.keys(schema.definitions) : undefined);
 
   tree.doc.push(template.substitute('Title', {'Title': schema.title} ));
   tree.doc.push(template.substitute('ParsedFrom', schema.$id ?
@@ -37,35 +39,30 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
   tree.doc.push(template.substitute('Description',
       {'Description': format.capitalize(schema.description)}));
 
-  tree.visit(undefined, schema, tree.types);
+  tree.visit(undefined, schema, tree.structure);
 
   if (schema.properties) {
     tree.doc.push(template.fetch('Structure'));
-    tree.types.forEach((type) => tree.document(type.name, type.node));
+    tree.structure.forEach((type) => tree.document(type.name, type.node));
   }
 
   if (schema.definitions) {
     tree.doc.push(template.fetch('Definitions'));
-    Object.keys(schema.definitions).forEach((definition) =>
-      tree.schema_definitions.push(definition));
     tree.documentDef(schema, tree);
-    tree.hardDefinitions.forEach((def) => tree.document(def.name, def.node));
+    tree.hard_definitions.forEach((def) => tree.document(def.name, def.node));
   }
 
   /* ???? */
   // tree.doc.push(template.fetch('Example'));
   // tree.doc.push('```');
-  // // tree.types.forEach((type) =>
+  // // tree.structure.forEach((type) =>
   // tree.doc.push(JSON.stringify(type.node.properties, null, 4)));
-  // tree.doc.push(JSON.stringify(tree.types[0].node.properties, null, 4));
+  // tree.doc.push(JSON.stringify(tree.structure[0].node.properties, null, 4));
   // tree.doc.push('```');
-  // console.log(tree.types[0].node.properties);
-
-  /* adding new line characters */
-  tree.doc = tree.doc.join('\n');
+  // console.log(tree.structure[0].node.properties);
 
   dstFilePath = format.outputCheck(srcFilePath, dstFilePath,
       fileName.replace('.json', '.md'));
-  fs.writeFileSync(dstFilePath, tree.doc);
+  fs.writeFileSync(dstFilePath, tree.doc.join('\n'));
   console.log('Converted file: ' + dstFilePath);
 };

@@ -3,39 +3,38 @@ const describe = require('./describe.js');
 const template = require('./template.js');
 
 const tree = module.exports = {
-  types: [],
-  described: [],
+  structure: [],
   doc: [],
   visited_refs: [],
   schema_definitions: [],
-  hardDefinitions: [],
+  hard_definitions: [],
 
-  init: () => {
-    tree.types = [];
-    tree.hardDefinitions = [];
-    tree.described = [];
+  init: (definitions) => {
+    tree.structure = [];
+    tree.hard_definitions = [];
     tree.doc = [];
     tree.visited_refs = [];
     tree.schema_definitions = [];
+    if (definitions) {
+      definitions.forEach((definition) =>
+        tree.schema_definitions.push(definition));
+    }
   },
 
   visit: (name, node, branch) => {
     if (!node) return;
 
-    /* for definitions */
     if (node.definitions) {
       Object.keys(node.definitions).forEach((def) =>
-        tree.visit(def, node.definitions[def], tree.hardDefinitions));
+        tree.visit(def, node.definitions[def], tree.hard_definitions));
     }
 
-    /* for object properties */
     if (node.properties) {
       branch.push( {name: name, node: node} );
       Object.keys(node.properties).forEach((prop) =>
         tree.visit(prop, node.properties[prop], branch));
     }
 
-    /* for tuple arrays */
     if (node.items && !node.items.type && !node.items.$ref) {
       branch.push( {name: name, node: node} );
       for (let i = 0; i < node.items.length; i++) {
@@ -43,15 +42,9 @@ const tree = module.exports = {
       }
     }
 
-    /* for references */
     if ( (node.$ref) && (tree.visited_refs[node.$ref] === undefined) ) {
       tree.visited_refs[node.$ref] = true;
     }
-    // console.log(node.$ref);
-    // const ref = Object.resolve(node.$ref, node);
-    // console.log(ref);
-    // console.log('');
-    // tree.visit(node.$ref, ref);
   },
 
   initiateTable: () => {
@@ -77,10 +70,8 @@ const tree = module.exports = {
             {'SubDescription': format.capitalize(node.description)}) );
       }
     }
-
     tree.initiateTable();
 
-    /* for objects */
     if (node.properties) {
       Object.keys(node.properties).forEach((prop) => {
         const value = node.properties[prop];
@@ -91,7 +82,6 @@ const tree = module.exports = {
       });
     }
 
-    /* for arrays */
     if (node.items) {
       for (let i = 0; i < node.items.length; i++) {
         const name = template.fetch('Item') + (i+1);
