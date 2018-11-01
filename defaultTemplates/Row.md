@@ -1,1 +1,0 @@
-|__{{Name}}__|{{Type}}|{{Required}}|{{Description}}|
