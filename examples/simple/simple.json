@@ -6,8 +6,8 @@
     "type": "object",
     "properties": {
     	"price": {
-        "description": "cost of the product",
-        "type": "number"
+            "description": "cost of the product",
+            "type": "number"
     	}
     }
 }

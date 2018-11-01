@@ -18,18 +18,17 @@ const template = module.exports = {
     return temp;
   },
   fetch: (key) => {
-    if (template.customJSON) {
-      return fs.readFileSync(template.customJSON[key]).toString();
-    } else {
-      return fs.readFileSync(template.defaultJSON[key]).toString();
+    return fs.readFileSync(template.customJSON ?
+      template.customJSON[key] : template.defaultJSON[key]).toString();
+  },
+  fetchTypePrompt: (type) => {
+    switch (type) {
+      case 'object': return {};
+      case 'array': return [];
+      case 'string': return template.fetch('PromptString');
+      case 'number': return Number(template.fetch('PromptNumber'));
+      case 'boolean': return template.fetch('PromptBoolean');
+      default: return '';
     }
   },
-  // fetchTypePrompt: (type) => {
-  //   switch (type) {
-  //     case 'string': return `\'${template.fetch('StringPrompt')}\'`;
-  //     case 'number': return template.fetch('NumberPrompt');
-  //     case 'boolean': return template.fetch('BooleanPrompt');
-  //     default: return '';
-  //   }
-  // },
 };

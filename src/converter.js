@@ -1,26 +1,34 @@
 'use strict';
 
 const fs = require('fs');
+const example = require('./example.js');
 const path = require('path');
 const glob = require('glob');
 const format = require('./format.js');
 const tree = require('./tree.js');
 const template = require('./template.js');
 
-module.exports = function prepare(srcPath, dstPath, customTemplateFileName) {
-  if (! (srcPath && typeof srcPath == 'string' && fs.existsSync(srcPath)) ) {
-    console.log('ERROR: Existing JSON file path is not provided.');
-    return;
-  }
-  if (fs.lstatSync(srcPath).isDirectory()) {
-    const subDirs = glob.sync(srcPath + '*/');
-    subDirs.forEach((dir) => prepare(dir, dstPath, customTemplateFileName));
-  }
-  srcPath += fs.lstatSync(srcPath).isDirectory() ? '/*.json' : '';
-  const jsonFiles = glob.sync(srcPath);
-  jsonFiles.forEach((file) => compose(file, dstPath, customTemplateFileName));
+module.exports = (srcPath, dstPath, customTemplateFileName) => {
+  if (dstPath && !dstPath.endsWith('/')) dstPath += '/';
+  prepare(srcPath, dstPath, customTemplateFileName);
 };
 
+const prepare = (srcPath, dstPath, customTemplateFileName) => {
+  let jsonFiles = undefined;
+  let subDirs = undefined;
+  if (srcPath.endsWith('.json')) {
+    jsonFiles = glob.sync(srcPath);
+    if (jsonFiles.length == 0) {
+      console.log('ERROR: Fitting JSON file are not found.');
+      return;
+    }
+  } else {
+    jsonFiles = glob.sync(srcPath + '*.json');
+    subDirs = glob.sync(srcPath + '*/');
+    subDirs.forEach((dir) => prepare(dir, dstPath, customTemplateFileName));
+  }
+  jsonFiles.forEach((file) => compose(file, dstPath, customTemplateFileName));
+};
 
 const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
   if (!srcFilePath.endsWith('.json')) return;
@@ -52,16 +60,14 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
     tree.hard_definitions.forEach((def) => tree.document(def.name, def.node));
   }
 
-  /* ???? */
-  // tree.doc.push(template.fetch('Example'));
-  // tree.doc.push('```');
-  // // tree.structure.forEach((type) =>
-  // tree.doc.push(JSON.stringify(type.node.properties, null, 4)));
-  // tree.doc.push(JSON.stringify(tree.structure[0].node.properties, null, 4));
-  // tree.doc.push('```');
-  // console.log(tree.structure[0].node.properties);
+  tree.doc.push(template.fetch('Example'));
+  // console.log(schema);
+  /* returns object */
+  tree.doc.push('```');
+  tree.doc.push(JSON.stringify(example.createExample(schema), null, 4));
+  tree.doc.push('```');
 
-  dstFilePath = format.outputCheck(srcFilePath, dstFilePath,
+  dstFilePath = format.outputCheck(path.dirname(srcFilePath), dstFilePath,
       fileName.replace('.json', '.md'));
   fs.writeFileSync(dstFilePath, tree.doc.join('\n'));
   console.log('Converted file: ' + dstFilePath);

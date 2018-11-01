@@ -1,20 +1,20 @@
 {
-    "Title": "./defaultTemplates/Title.md",
-    "ParsedFrom": "./defaultTemplates/ParsedFrom.md",
-    "Description": "./defaultTemplates/Description.md",
+    "Title": "./src/defaultTemplates/Title.md",
+    "ParsedFrom": "./src/defaultTemplates/ParsedFrom.md",
+    "Description": "./src/defaultTemplates/Description.md",
 
-    "Definitions": "./defaultTemplates/Definitions.md",
-    "Structure": "./defaultTemplates/Structure.md",
-    "Example": "./defaultTemplates/Example.md",
+    "Definitions": "./src/defaultTemplates/Definitions.md",
+    "Structure": "./src/defaultTemplates/Structure.md",
+    "Example": "./src/defaultTemplates/Example.md",
 
-    "SubTitle": "./defaultTemplates/Subtitle.md",
-    "SubDescription": "./defaultTemplates/SubDescription.md",
-    "Row": "./defaultTemplates/Row.md",
-    "TableColumns": "./defaultTemplates/TableColumns.md",
-    "TableHeader": "./defaultTemplates/TableHeader.md",
-    "Item": "./defaultTemplates/Item.md",
+    "SubTitle": "./src/defaultTemplates/Subtitle.md",
+    "SubDescription": "./src/defaultTemplates/SubDescription.md",
+    "Row": "./src/defaultTemplates/Row.md",
+    "TableColumns": "./src/defaultTemplates/TableColumns.md",
+    "TableHeader": "./src/defaultTemplates/TableHeader.md",
+    "Item": "./src/defaultTemplates/Item.md",
     
-    "PromptNumber": "./defaultTemplates/PromptNumber.md",
-    "PromptBoolean": "./defaultTemplates/PromptBoolean.md",
-    "PromptString": "./defaultTemplates/PromptString.md"
+    "PromptNumber": "./src/defaultTemplates/PromptNumber.md",
+    "PromptBoolean": "./src/defaultTemplates/PromptBoolean.md",
+    "PromptString": "./src/defaultTemplates/PromptString.md"
 }
