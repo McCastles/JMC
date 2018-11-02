@@ -31,4 +31,11 @@ const template = module.exports = {
       default: return '';
     }
   },
+  fetchRefPrompt: (name, defStructure) => {
+    for (let i = 0; i < defStructure.length; i++) {
+      if (defStructure[i].name === name) {
+        return template.fetchTypePrompt(defStructure[i].node.type);
+      }
+    }
+  },
 };

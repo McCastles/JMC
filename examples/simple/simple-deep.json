@@ -20,11 +20,7 @@
                 				"city": {
                     			"description": "your city",
                     			"type":"string"
-                				},
-                				"prop1": {
-                    			"description": "additional prop",
-                    			"type":"number"
-                  				}
+                				}
                 			}
               			}
             		}

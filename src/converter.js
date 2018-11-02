@@ -8,6 +8,14 @@ const format = require('./format.js');
 const tree = require('./tree.js');
 const template = require('./template.js');
 
+Object.defineProperty(String.prototype, "getRefName", {
+  value: function getRefName() {
+    return this.substr(this.indexOf('#') + 1);
+  },
+  writable: true,
+  configurable: true
+});
+
 module.exports = (srcPath, dstPath, customTemplateFileName) => {
   if (dstPath && !dstPath.endsWith('/')) dstPath += '/';
   prepare(srcPath, dstPath, customTemplateFileName);
@@ -47,26 +55,25 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
   tree.doc.push(template.substitute('Description',
       {'Description': format.capitalize(schema.description)}));
 
-  tree.visit(undefined, schema, tree.structure);
+  tree.visitProp(undefined, schema);
+  tree.visitDef(schema);
 
   if (schema.properties) {
     tree.doc.push(template.fetch('Structure'));
-    tree.structure.forEach((type) => tree.document(type.name, type.node));
+    tree.propStructure.forEach((pair) =>
+      tree.document(pair.name, pair.node));
   }
 
   if (schema.definitions) {
     tree.doc.push(template.fetch('Definitions'));
-    tree.documentDef(schema, tree);
-    tree.hard_definitions.forEach((def) => tree.document(def.name, def.node));
+    tree.documentDef();
   }
 
   tree.doc.push(template.fetch('Example'));
-  // console.log(schema);
-  /* returns object */
   tree.doc.push('```');
-  tree.doc.push(JSON.stringify(example.createExample(schema), null, 4));
+  tree.doc.push(JSON.stringify(
+      example.createExample(schema, tree.defStructure), null, 4));
   tree.doc.push('```');
-
   dstFilePath = format.outputCheck(path.dirname(srcFilePath), dstFilePath,
       fileName.replace('.json', '.md'));
   fs.writeFileSync(dstFilePath, tree.doc.join('\n'));

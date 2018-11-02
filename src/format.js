@@ -29,9 +29,7 @@ module.exports = {
     return dstPath + generatedName;
   },
   mimicStructure: (url) => {
-    if (url !== '.') {
-      module.exports.mimicStructure(path.dirname(url));
-    }
+    if (url !== '.') module.exports.mimicStructure(path.dirname(url));
     if (!fs.existsSync(url)) fs.mkdirSync(url);
   },
 };

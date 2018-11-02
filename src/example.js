@@ -2,8 +2,10 @@ const template = require('./template.js');
 
 const example = module.exports = {
   finalExample: {},
-  createExample: (schema) => {
+  defStructure: [],
+  createExample: (schema, defStructure) => {
     example.finalExample = {};
+    example.defStructure = defStructure;
     example.apply(schema, example.finalExample);
     return example.finalExample;
   },
@@ -11,15 +13,17 @@ const example = module.exports = {
     if (!(typeof place === 'object')) return;
       root.properties ? example.applyProperties(root.properties, place)
     : root.items ? example.applyItems(root.items, place)
+    : root.$ref ? example.applyRef(root.$ref, place)
     : example.content(root, place);
   },
   content: (root, place, property, type) => {
     const prompt =
         root.enum ? example.applyEnum(root)
-      : root.$ref ? example.applyRef()
+      : root.$ref ? template.fetchRefPrompt(
+          root.$ref.getRefName(), example.defStructure)
       : template.fetchTypePrompt(type);
     if (property) place[property] = prompt;
-    else place.push(prompt);
+    else if (type) place.push(prompt);
     example.apply(root, prompt);
   },
   applyProperties: (properties, place) => {
@@ -38,29 +42,13 @@ const example = module.exports = {
   applyEnum: (root) => {
     return root.default ? root.default : root.enum[0];
   },
-  applyRef: (root, place) => {
-
+  applyRef: (reference, place) => {
+    const name = reference.getRefName();
+    for (let i = 0; i < example.defStructure.length; i++) {
+      if (example.defStructure[i].name === name) {
+        example.apply(example.defStructure[i].node, place);
+        break;
+      }
+    }
   },
-
-/*
-  content: (root, place, property) => {
-    place[property] =
-        root.enum ? example.applyEnum(root)
-      : root.$ref ? example.applyRef()
-      : template.fetchTypePrompt(root.type);
-    example.apply(root, place[property]);
-  },
-  contentArray: (root, place, type) => {
-    const prompt =
-        root.enum ? example.applyEnum(root)
-      : root.$ref ? example.applyRef()
-      : template.fetchTypePrompt(type);
-    place.push(prompt);
-    example.apply(root, prompt);
-  },
-*/
-  // applyReference: (value, tabKey, tab, comma) => {
-  //   const def = format.getDefName(value.$ref);
-  //   example.apply(definitions[def], tabKey, tab, comma);
-  // },
 };

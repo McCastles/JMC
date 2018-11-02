@@ -3,65 +3,55 @@ const describe = require('./describe.js');
 const template = require('./template.js');
 
 const tree = module.exports = {
-  structure: [],
+  propStructure: [],
+  defStructure: [],
   doc: [],
-  visited_refs: [],
-  schema_definitions: [],
-  hard_definitions: [],
 
-  init: (definitions) => {
-    tree.structure = [];
-    tree.hard_definitions = [];
+  init: () => {
+    tree.defStructure = [];
+    tree.propStructure = [];
     tree.doc = [];
-    tree.visited_refs = [];
-    tree.schema_definitions = [];
-    if (definitions) {
-      definitions.forEach((definition) =>
-        tree.schema_definitions.push(definition));
+  },
+  visitDef: (schema) => {
+    if (schema.definitions) {
+      Object.keys(schema.definitions).forEach((definition) => {
+        const value = schema.definitions[definition];
+        tree.defStructure.push({
+          name: definition,
+          node: value,
+          hard: (value.properties || value.$ref) ? true : false});
+      });
     }
   },
-
-  visit: (name, node, branch) => {
+  visitProp: (name, node) => {
     if (!node) return;
-
-    if (node.definitions) {
-      Object.keys(node.definitions).forEach((def) =>
-        tree.visit(def, node.definitions[def], tree.hard_definitions));
-    }
-
     if (node.properties) {
-      branch.push( {name: name, node: node} );
+      tree.propStructure.push( {name: name, node: node} );
       Object.keys(node.properties).forEach((prop) =>
-        tree.visit(prop, node.properties[prop], branch));
+        tree.visitProp(prop, node.properties[prop]));
     }
-
     if (node.items && !node.items.type && !node.items.$ref) {
-      branch.push( {name: name, node: node} );
+      tree.propStructure.push( {name: name, node: node} );
       for (let i = 0; i < node.items.length; i++) {
-        tree.visit(template.fetch('Item') + (i+1), node.items[i], branch);
+        tree.visitProp(template.fetch('Item') + (i+1), node.items[i]);
       }
     }
-
-    if ( (node.$ref) && (tree.visited_refs[node.$ref] === undefined) ) {
-      tree.visited_refs[node.$ref] = true;
-    }
   },
-
   initiateTable: () => {
     tree.doc.push('');
     tree.doc.push(template.fetch('TableHeader'));
     tree.doc.push(template.fetch('TableColumns'));
   },
-
-  documentDef: (node, tree) => {
+  documentDef: () => {
     tree.initiateTable();
-    Object.keys(node.definitions).forEach((def) => {
-      const value = node.definitions[def];
-      const row = describe.property(def, value, false, tree);
+    tree.defStructure.forEach((def) => {
+      const row = describe.property(def.name, def.node, false);
       tree.doc.push(row);
     });
+    tree.defStructure.forEach((def) => {
+      if (def.hard === true) tree.document(def.name, def.node);
+    });
   },
-
   document: (name, node) => {
     if (name) {
       tree.doc.push(template.substitute('SubTitle', {'SubTitle': name}));
@@ -71,22 +61,20 @@ const tree = module.exports = {
       }
     }
     tree.initiateTable();
-
     if (node.properties) {
       Object.keys(node.properties).forEach((prop) => {
         const value = node.properties[prop];
         const required = node.required ?
           node.required.indexOf(prop) > -1 : false;
-        const row = describe.property(prop, value, required, tree);
+        const row = describe.property(prop, value, required, tree.defStructure);
         tree.doc.push(row);
       });
     }
-
     if (node.items) {
       for (let i = 0; i < node.items.length; i++) {
         const name = template.fetch('Item') + (i+1);
         const value = node.items[i];
-        const row = describe.property(name, value, false, tree);
+        const row = describe.property(name, value, false, tree.defStructure);
         tree.doc.push(row);
       }
     }
