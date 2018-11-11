@@ -31,17 +31,3 @@ _Simple schema with array (one of the values is an object) with enumerated value
 |__name__|string|+|Name of the kid|
 |__surname__|string|+|Surname of the kid|
 |__telephone__|number|-|Telephone number of the kid|
-## __Example__
-```
-{
-    "people": [
-        "Lennon",
-        42,
-        {
-            "name": "Sample string",
-            "surname": "Sample string",
-            "telephone": 42
-        }
-    ]
-}
-```

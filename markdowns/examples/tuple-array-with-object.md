@@ -33,18 +33,3 @@ _Schema with a tuple array (array with items of different types), one of which i
 |__name__|string|+|Name of the kid|
 |__surname__|string|+|Surname of the kid|
 |__telephone__|number|-|Telephone number of the kid|
-## __Example__
-```
-{
-    "people": [
-        "Sample string",
-        "true",
-        42,
-        {
-            "name": "Sample string",
-            "surname": "Sample string",
-            "telephone": 42
-        }
-    ]
-}
-```

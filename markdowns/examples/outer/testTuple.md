@@ -12,9 +12,9 @@ _Illustrating work with outer definitions file_
 		* [arrayOfAdressPlusName[1]](#arrayOfAdressPlusName)
 		* [arrayOfAdressPlusName[2]](#arrayOfAdressPlusName[2])
 			* [prop](#arrayOfAdressPlusName[2])
-	* [billing_address](##properties)
-	* [shipping_address](##properties)
-	* [automobile](##properties)
+	* [billing_address](#properties)
+	* [shipping_address](#properties)
+	* [automobile](#properties)
 * [Example](#example)
 ## __Properties__
 

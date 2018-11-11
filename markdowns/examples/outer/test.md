@@ -7,9 +7,9 @@ _Illustrating work with outer definitions file_
 	* [name](#name)
 		* [firstName](#name)
 		* [secondName](#name)
-	* [billing_address](##properties)
-	* [shipping_address](##properties)
-	* [car](##properties)
+	* [billing_address](#properties)
+	* [shipping_address](#properties)
+	* [car](#properties)
 * [Example](#example)
 ## __Properties__
 

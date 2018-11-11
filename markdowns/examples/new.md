@@ -10,7 +10,7 @@ _Simple new deep_
 		* [prop13](#prop10)
 	* [prop20](#prop20)
 		* [prop21](#prop20)
-	* [prop30](##properties)
+	* [prop30](#properties)
 * [Example](#example)
 ## __Properties__
 
@@ -35,18 +35,3 @@ _Simple new deep_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__prop21__|string|-|Lack of descripton|
-## __Example__
-```
-{
-    "prop10": {
-        "prop11": {
-            "prop12": "Sample string"
-        },
-        "prop13": "Sample string"
-    },
-    "prop20": {
-        "prop21": "Sample string"
-    },
-    "prop30": "Sample string"
-}
-```

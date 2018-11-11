@@ -4,8 +4,8 @@ Parsed from file: [proxy.json](https://github.com/McCastles/JMC/blob/master/exam
 _Definitions for outerTest and other schemas_
 ## Table of Contents
 * [Definitions](#definitions)
-	* [proxyAddress](##definitions)
-	* [proxyAutomobile](##definitions)
+	* [proxyAddress](#definitions)
+	* [proxyAutomobile](#definitions)
 ## __Definitions__
 
 |Key|Type|Required|Description|

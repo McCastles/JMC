@@ -29,15 +29,3 @@ _Simple deep_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__city__|string|-|Your city|
-## __Example__
-```
-{
-    "planet": {
-        "continent": {
-            "country": {
-                "city": "Sample string"
-            }
-        }
-    }
-}
-```

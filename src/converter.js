@@ -55,11 +55,11 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
   tree.doc.push('## Table of Contents');
   if (schema.properties) {
     tree.doc.push('* [Properties](#properties)');
-    tree.tableOfContents(tree.propStructure, '#properties');
+    tree.tableOfContents(tree.propStructure, 'properties');
   }
   if (schema.definitions) {
     tree.doc.push('* [Definitions](#definitions)');
-    tree.tableOfContents(tree.defStructure, '#definitions');
+    tree.tableOfContents(tree.defStructure, 'definitions');
   }
   if (tree.propStructure.length != 0) {
     tree.doc.push('* [Example](#example)');
@@ -79,13 +79,13 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
     tree.documentHard(tree.defStructure);
   }
 
-  if (tree.propStructure.length != 0) {
-    tree.doc.push(template.fetch('Example'));
-    tree.doc.push('```');
-    tree.doc.push(JSON.stringify(
-        example.createExample(schema, tree.defStructure), null, 4));
-    tree.doc.push('```');
-  }
+  // if (tree.propStructure.length != 0) {
+  //   tree.doc.push(template.fetch('Example'));
+  //   tree.doc.push('```');
+  //   tree.doc.push(JSON.stringify(
+  //       example.createExample(schema, tree.defStructure), null, 4));
+  //   tree.doc.push('```');
+  // }
 
   dstFilePath = format.outputCheck(
       path.dirname(srcFilePath),

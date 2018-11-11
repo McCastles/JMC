@@ -17,11 +17,3 @@ _Simple schema_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__people[0]__|string|-|Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`. Default is `Starr`.|
-## __Example__
-```
-{
-    "people": [
-        "Starr"
-    ]
-}
-```

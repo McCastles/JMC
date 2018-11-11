@@ -4,10 +4,10 @@ Parsed from file: [simple-definitions.json](https://github.com/McCastles/JMC/blo
 _Simple schema with definitions_
 ## Table of Contents
 * [Properties](#properties)
-	* [billing_address](##properties)
-	* [shipping_address](##properties)
+	* [billing_address](#properties)
+	* [shipping_address](#properties)
 * [Definitions](#definitions)
-	* [address](##definitions)
+	* [address](#definitions)
 * [Example](#example)
 ## __Properties__
 
@@ -20,10 +20,3 @@ _Simple schema with definitions_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__address__|string|-|The addres of somebody|
-## __Example__
-```
-{
-    "billing_address": "Sample string",
-    "shipping_address": "Sample string"
-}
-```

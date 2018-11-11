@@ -4,7 +4,7 @@ Parsed from file: [xferra.json](https://schema.linterhub.com/schemaver.json)
 _The meta-schema of versioned JSON schema_
 ## Table of Contents
 * [Definitions](#definitions)
-	* [schema](##definitions)
+	* [schema](#definitions)
 	* [object](#object)
 		* [$version](#object)
 		* [$schema](#object)

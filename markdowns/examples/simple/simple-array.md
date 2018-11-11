@@ -4,18 +4,10 @@ Parsed from file: [simple-array.json](https://github.com/McCastles/JMC/blob/mast
 _Simple schema_
 ## Table of Contents
 * [Properties](#properties)
-	* [people](##properties)
+	* [people](#properties)
 * [Example](#example)
 ## __Properties__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__people__|string[]|+|Famous people|
-## __Example__
-```
-{
-    "people": [
-        "Sample string"
-    ]
-}
-```

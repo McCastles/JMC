@@ -7,11 +7,11 @@ _Schema with definitions_
 	* [name](#name)
 		* [firstName](#name)
 		* [secondName](#name)
-	* [billing_address](##properties)
-	* [shipping_address](##properties)
-	* [price_to_pay](##properties)
+	* [billing_address](#properties)
+	* [shipping_address](#properties)
+	* [price_to_pay](#properties)
 * [Definitions](#definitions)
-	* [price](##definitions)
+	* [price](#definitions)
 	* [address](#address)
 		* [street](#address)
 		* [city](#address)
@@ -44,23 +44,3 @@ _Schema with definitions_
 |__street__|string|+|Street adress|
 |__city__|string|+|Current city|
 |__state__|string|+|Current state|
-## __Example__
-```
-{
-    "name": {
-        "firstName": "Sample string",
-        "secondName": "Sample string"
-    },
-    "billing_address": {
-        "street": "Sample string",
-        "city": "Sample string",
-        "state": "Sample string"
-    },
-    "shipping_address": {
-        "street": "Sample string",
-        "city": "Sample string",
-        "state": "Sample string"
-    },
-    "price_to_pay": 42
-}
-```
