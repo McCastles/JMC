@@ -49,13 +49,8 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
   tree.init();
   tree.foreword(schema, fileName);
 
-
   tree.visit(schema.definitions, tree.defStructure, schema.required);
   tree.visit(schema.properties, tree.propStructure, schema.required);
-
-  // console.log(tree.propStructure);
-  // console.log();
-  // console.log(tree.defStructure);
 
   tree.doc.push('## Table of Contents');
   if (schema.properties) {
@@ -92,7 +87,9 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
     tree.doc.push('```');
   }
 
-  dstFilePath = format.outputCheck(path.dirname(srcFilePath), dstFilePath,
+  dstFilePath = format.outputCheck(
+      path.dirname(srcFilePath),
+      dstFilePath,
       fileName.replace('.json', '.md'));
   fs.writeFileSync(dstFilePath, tree.doc.join('\n'));
   console.log('Converted file: ' + dstFilePath);

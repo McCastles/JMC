@@ -44,8 +44,8 @@ const tree = module.exports = {
         const branch =
           value.properties ? value.properties
           : value.destination ? value.destination
-          : (value.items && !value.items.type) ? value.items
-          : undefined;
+          : (value.items && !value.items.type && !value.items.$ref) ?
+            value.items : undefined;
         const name = isNaN(element) ? element : `${old}[${element}]`;
         destination.push({
           name: name,

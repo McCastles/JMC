@@ -50,6 +50,5 @@ const example = module.exports = {
         break;
       }
     }
-    // console.log(reference);
   },
 };

@@ -6,6 +6,7 @@ const describe = module.exports = {
     const requiredText = required ? '+' : '-';
     const description = value.description ?
       describe.description(value) : 'Lack of descripton';
+      // console.log(type);
     return format.row(name, type, requiredText, description);
   },
   type: (name, value, defStructure) => {
@@ -13,7 +14,7 @@ const describe = module.exports = {
     if (value.properties) type = `[${type}](#${name})`;
     if (type === 'array') {
       if (value.items.$ref) {
-        type = describe.typeHandleReferences(value.items.$ref, defStructure);
+        type = describe.typeHandleReferences(value.items.$ref, defStructure, '[]');
       } else {
         type = (value.items.type) ?
           `${value.items.type}[]` : `[object[]](#${name})`;
@@ -21,11 +22,11 @@ const describe = module.exports = {
     }
     if (value.$ref && value.$ref.indexOf('http') !== 0) {
       // console.log(value.$ref);
-      type = describe.typeHandleReferences(value.$ref, defStructure);
+      type = describe.typeHandleReferences(value.$ref, defStructure, '');
     }
     return type;
   },
-  typeHandleReferences(reference, defStructure) {
+  typeHandleReferences(reference, defStructure, braces) {
     const name = reference.getRefName();
     let ref = reference.replace('.json', '.md');
     for (let i = 0; i < defStructure.length; i++) {
@@ -34,7 +35,7 @@ const describe = module.exports = {
         break;
       }
     }
-    return `[#${name}](${ref})`;
+    return `[${name}${braces}](${ref})`;
   },
   description: (value) => {
     let finalDescription = format.capitalize(value.description);
