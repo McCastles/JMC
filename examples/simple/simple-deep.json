@@ -3,7 +3,7 @@
     "$id":"https://github.com/McCastles/JMC/blob/master/examples/simple/simple-deep.json",
     "title": "Simple deep schema",
     "description": "simple deep",
-    "type": "object",
+	"type": "object",
     "properties": {
     	"planet": {
         	"description": "your planet",

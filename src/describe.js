@@ -20,6 +20,7 @@ const describe = module.exports = {
       }
     }
     if (value.$ref && value.$ref.indexOf('http') !== 0) {
+      // console.log(value.$ref);
       type = describe.typeHandleReferences(value.$ref, defStructure);
     }
     return type;

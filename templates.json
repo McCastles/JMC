@@ -4,7 +4,7 @@
     "Description": "./src/defaultTemplates/Description.md",
 
     "Definitions": "./src/defaultTemplates/Definitions.md",
-    "Structure": "./src/defaultTemplates/Structure.md",
+    "Properties": "./src/defaultTemplates/Properties.md",
     "Example": "./src/defaultTemplates/Example.md",
 
     "SubTitle": "./src/defaultTemplates/Subtitle.md",

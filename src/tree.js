@@ -8,75 +8,142 @@ const tree = module.exports = {
   doc: [],
 
   init: () => {
-    tree.defStructure = [];
     tree.propStructure = [];
+    tree.defStructure = [];
     tree.doc = [];
   },
-  visitDef: (schema) => {
-    if (schema.definitions) {
-      Object.keys(schema.definitions).forEach((definition) => {
-        const value = schema.definitions[definition];
-        tree.defStructure.push({
-          name: definition,
+
+  foreword: (schema, fileName) => {
+    tree.doc.push(
+        template.substitute(
+            'Title',
+            {'Title': schema.title}
+        )
+    );
+    tree.doc.push(
+        template.substitute(
+            'ParsedFrom',
+          schema.$id ?
+              {'FileName': `[${fileName}]`, 'Link': `(${schema.$id})`}
+            : {'FileName': fileName, 'Link': ''}
+        )
+    );
+    tree.doc.push('');
+    tree.doc.push(
+        template.substitute(
+            'Description',
+            {'Description': format.capitalize(schema.description)}
+        )
+    );
+  },
+
+  visit: (source, destination, requiredArray, old) => {
+    if (source) {
+      Object.keys(source).forEach((element) => {
+        const value = source[element];
+        const branch =
+          value.properties ? value.properties
+          : value.destination ? value.destination
+          : (value.items && !value.items.type) ? value.items
+          : undefined;
+        const name = isNaN(element) ? element : `${old}[${element}]`;
+        destination.push({
+          name: name,
           node: value,
-          hard: (value.properties || value.$ref) ? true : false});
+          parent: old,
+          hard: branch ? true : false,
+          required: requiredArray ? requiredArray.indexOf(element) > -1 : false,
+        });
+        if (branch) {
+          tree.visit(branch, destination,
+              source[element].required, name);
+        }
       });
     }
   },
-  visitProp: (name, node) => {
-    if (!node) return;
-    if (node.properties) {
-      tree.propStructure.push( {name: name, node: node} );
-      Object.keys(node.properties).forEach((prop) =>
-        tree.visitProp(prop, node.properties[prop]));
-    }
-    if (node.items && !node.items.type && !node.items.$ref) {
-      tree.propStructure.push( {name: name, node: node} );
-      for (let i = 0; i < node.items.length; i++) {
-        tree.visitProp(template.fetch('Item') + (i+1), node.items[i]);
+
+  document: (array) => {
+    array.forEach((element) => {
+      if (!element.parent) tree.applyTable(element);
+    });
+  },
+
+  documentHard: (array) => {
+    array.forEach((element) => {
+      if (element.hard) {
+        tree.doc.push(
+            template.substitute(
+                'SubTitle',
+                {'SubTitle': element.name}
+            )
+        );
+        if (element.description) {
+          tree.doc.push(
+              template.substitute(
+                  'SubDescription',
+                  {'SubDescription': format.capitalize(element.description)}
+              )
+          );
+        }
+        tree.initiateTable();
+        if (element.node.properties) {
+          Object.keys(element.node.properties).forEach((target) => {
+            tree.applyTable(tree.callElementByName(array, target));
+          });
+        }
+        if (element.node.items) {
+          for (let i = 0; i < element.node.items.length; i++) {
+            tree.applyTable(
+                tree.callElementByName(array, `${element.name}[${i}]`)
+            );
+          }
+        }
       }
+    });
+  },
+
+  callElementByName: (array, name) => {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].name == name) return array[i];
     }
   },
+
+  applyTable: (element) => {
+    const row = describe.property(
+        element.name,
+        element.node,
+        element.required,
+        tree.defStructure
+    );
+    tree.doc.push(row);
+  },
+
   initiateTable: () => {
     tree.doc.push('');
     tree.doc.push(template.fetch('TableHeader'));
     tree.doc.push(template.fetch('TableColumns'));
   },
-  documentDef: () => {
-    tree.initiateTable();
-    tree.defStructure.forEach((def) => {
-      const row = describe.property(def.name, def.node, false);
-      tree.doc.push(row);
-    });
-    tree.defStructure.forEach((def) => {
-      if (def.hard === true) tree.document(def.name, def.node);
-    });
+
+  tableOfContents: (array, prompt) => {
+    for (let i = 0; i < array.length; i++) {
+      const reference =
+      array[i].hard ? array[i].name
+    : array[i].parent ? array[i].parent
+    : prompt;
+      const tab = tree.countTab(array, array[i].parent);
+      tree.doc.push(`${tab}* [${array[i].name}](#${reference})`);
+    }
   },
-  document: (name, node) => {
-    if (name) {
-      tree.doc.push(template.substitute('SubTitle', {'SubTitle': name}));
-      if (node.description) {
-        tree.doc.push( template.substitute('SubDescription',
-            {'SubDescription': format.capitalize(node.description)}) );
-      }
+
+  countTab: (array, parent, tab) => {
+    if (!tab) tab = '\t';
+    if (parent) {
+      tab += tree.countTab(
+          array,
+          tree.callElementByName(array, parent).parent,
+          tab
+      );
     }
-    tree.initiateTable();
-    if (node.properties) {
-      Object.keys(node.properties).forEach((prop) => {
-        const value = node.properties[prop];
-        const required = node.required ?
-          node.required.indexOf(prop) > -1 : false;
-        const row = describe.property(prop, value, required, tree.defStructure);
-        tree.doc.push(row);
-      });
-    }
-    if (node.items) {
-      for (let i = 0; i < node.items.length; i++) {
-        const name = template.fetch('Item') + (i+1);
-        const value = node.items[i];
-        const row = describe.property(name, value, false, tree.defStructure);
-        tree.doc.push(row);
-      }
-    }
+    return tab;
   },
 };

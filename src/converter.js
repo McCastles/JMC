@@ -8,12 +8,12 @@ const format = require('./format.js');
 const tree = require('./tree.js');
 const template = require('./template.js');
 
-Object.defineProperty(String.prototype, "getRefName", {
+Object.defineProperty(String.prototype, 'getRefName', {
   value: function getRefName() {
     return this.substr(this.indexOf('#') + 1);
   },
   writable: true,
-  configurable: true
+  configurable: true,
 });
 
 module.exports = (srcPath, dstPath, customTemplateFileName) => {
@@ -38,6 +38,7 @@ const prepare = (srcPath, dstPath, customTemplateFileName) => {
   jsonFiles.forEach((file) => compose(file, dstPath, customTemplateFileName));
 };
 
+
 const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
   if (!srcFilePath.endsWith('.json')) return;
 
@@ -45,35 +46,52 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
   const schema = JSON.parse(fs.readFileSync(srcFilePath));
 
   template.init(customTemplateFileName);
-  tree.init(schema.definitions ? Object.keys(schema.definitions) : undefined);
+  tree.init();
+  tree.foreword(schema, fileName);
 
-  tree.doc.push(template.substitute('Title', {'Title': schema.title} ));
-  tree.doc.push(template.substitute('ParsedFrom', schema.$id ?
-    {'FileName': `[${fileName}]`, 'Link': `(${schema.$id})`} :
-    {'FileName': fileName, 'Link': ''} ));
-  tree.doc.push('');
-  tree.doc.push(template.substitute('Description',
-      {'Description': format.capitalize(schema.description)}));
 
-  tree.visitProp(undefined, schema);
-  tree.visitDef(schema);
+  tree.visit(schema.definitions, tree.defStructure, schema.required);
+  tree.visit(schema.properties, tree.propStructure, schema.required);
+
+  // console.log(tree.propStructure);
+  // console.log();
+  // console.log(tree.defStructure);
+
+  tree.doc.push('## Table of Contents');
+  if (schema.properties) {
+    tree.doc.push('* [Properties](#properties)');
+    tree.tableOfContents(tree.propStructure, '#properties');
+  }
+  if (schema.definitions) {
+    tree.doc.push('* [Definitions](#definitions)');
+    tree.tableOfContents(tree.defStructure, '#definitions');
+  }
+  if (tree.propStructure.length != 0) {
+    tree.doc.push('* [Example](#example)');
+  }
 
   if (schema.properties) {
-    tree.doc.push(template.fetch('Structure'));
-    tree.propStructure.forEach((pair) =>
-      tree.document(pair.name, pair.node));
+    tree.doc.push(template.fetch('Properties'));
+    tree.initiateTable();
+    tree.document(tree.propStructure);
+    tree.documentHard(tree.propStructure);
   }
 
   if (schema.definitions) {
     tree.doc.push(template.fetch('Definitions'));
-    tree.documentDef();
+    tree.initiateTable();
+    tree.document(tree.defStructure);
+    tree.documentHard(tree.defStructure);
   }
 
-  tree.doc.push(template.fetch('Example'));
-  tree.doc.push('```');
-  tree.doc.push(JSON.stringify(
-      example.createExample(schema, tree.defStructure), null, 4));
-  tree.doc.push('```');
+  if (tree.propStructure.length != 0) {
+    tree.doc.push(template.fetch('Example'));
+    tree.doc.push('```');
+    tree.doc.push(JSON.stringify(
+        example.createExample(schema, tree.defStructure), null, 4));
+    tree.doc.push('```');
+  }
+
   dstFilePath = format.outputCheck(path.dirname(srcFilePath), dstFilePath,
       fileName.replace('.json', '.md'));
   fs.writeFileSync(dstFilePath, tree.doc.join('\n'));
