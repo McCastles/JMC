@@ -40,3 +40,22 @@ _Simple schema with definitions_
 |__street__|string|+|Street adress|
 |__city__|string|+|Current city|
 |__state__|string|+|Current state|
+## __Example__
+```
+{
+    "name": {
+        "firstName": "Sample string",
+        "secondName": "Sample string"
+    },
+    "billing_address": {
+        "street": "Sample string",
+        "city": "Sample string",
+        "state": "Sample string"
+    },
+    "shipping_address": {
+        "street": "Sample string",
+        "city": "Sample string",
+        "state": "Sample string"
+    }
+}
+```

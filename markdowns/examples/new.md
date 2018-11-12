@@ -35,3 +35,18 @@ _Simple new deep_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__prop21__|string|-|Lack of descripton|
+## __Example__
+```
+{
+    "prop10": {
+        "prop11": {
+            "prop12": "Sample string"
+        },
+        "prop13": "Sample string"
+    },
+    "prop20": {
+        "prop21": "Sample string"
+    },
+    "prop30": "Sample string"
+}
+```

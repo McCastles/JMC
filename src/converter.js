@@ -79,13 +79,13 @@ const compose = (srcFilePath, dstFilePath, customTemplateFileName) => {
     tree.documentHard(tree.defStructure);
   }
 
-  // if (tree.propStructure.length != 0) {
-  //   tree.doc.push(template.fetch('Example'));
-  //   tree.doc.push('```');
-  //   tree.doc.push(JSON.stringify(
-  //       example.createExample(schema, tree.defStructure), null, 4));
-  //   tree.doc.push('```');
-  // }
+  if (tree.propStructure.length != 0) {
+    tree.doc.push(template.fetch('Example'));
+    tree.doc.push('```');
+    tree.doc.push(JSON.stringify(
+        example.createExample(schema, tree.defStructure), null, 4));
+    tree.doc.push('```');
+  }
 
   dstFilePath = format.outputCheck(
       path.dirname(srcFilePath),

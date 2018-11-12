@@ -20,3 +20,10 @@ _Simple schema with definitions_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__address__|string|-|The addres of somebody|
+## __Example__
+```
+{
+    "billing_address": "Sample string",
+    "shipping_address": "Sample string"
+}
+```

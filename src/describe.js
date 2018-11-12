@@ -1,4 +1,5 @@
 const format = require('./format.js');
+const template = require('./template.js');
 
 const describe = module.exports = {
   property: (name, value, required, defStructure) => {
@@ -6,15 +7,22 @@ const describe = module.exports = {
     const requiredText = required ? '+' : '-';
     const description = value.description ?
       describe.description(value) : 'Lack of descripton';
-      // console.log(type);
-    return format.row(name, type, requiredText, description);
+    return template.substitute('Row', {
+      'Name': `${name}`,
+      'Type': `${type}`,
+      'Required': `${requiredText}`,
+      'Description': `${description}`,
+    });
   },
   type: (name, value, defStructure) => {
     let type = value.type;
     if (value.properties) type = `[${type}](#${name})`;
     if (type === 'array') {
       if (value.items.$ref) {
-        type = describe.typeHandleReferences(value.items.$ref, defStructure, '[]');
+        type = describe.typeHandleReferences(
+            value.items.$ref,
+            defStructure,
+            '[]');
       } else {
         type = (value.items.type) ?
           `${value.items.type}[]` : `[object[]](#${name})`;

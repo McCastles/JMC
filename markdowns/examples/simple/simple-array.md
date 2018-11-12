@@ -11,3 +11,11 @@ _Simple schema_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__people__|string[]|+|Famous people|
+## __Example__
+```
+{
+    "people": [
+        "Sample string"
+    ]
+}
+```

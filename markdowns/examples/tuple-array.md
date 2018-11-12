@@ -31,3 +31,17 @@ _Schema with a tuple array (array with items of different types)_
 |__people[0]__|string|-|Name of the person|
 |__people[1]__|boolean|-|Is male?|
 |__people[2]__|number|-|Telephone number of the person|
+## __Example__
+```
+{
+    "sampleArray": [
+        42,
+        "Sample string"
+    ],
+    "people": [
+        "Sample string",
+        "true",
+        42
+    ]
+}
+```

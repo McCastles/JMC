@@ -11,3 +11,9 @@ _Simple schema_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__price__|number|-|Cost of the product|
+## __Example__
+```
+{
+    "price": 42
+}
+```

@@ -11,3 +11,9 @@ _Simple schema_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__size__|string|-|Size. Possible values: `big` `medium` `small`. Default is `small`.|
+## __Example__
+```
+{
+    "size": "small"
+}
+```

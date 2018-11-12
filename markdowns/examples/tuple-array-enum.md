@@ -19,3 +19,12 @@ _Tuple array schema_
 |-|:-:|:-:|-|
 |__people[0]__|string|-|Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`. Default is `Starr`.|
 |__people[1]__|number|-|Place|
+## __Example__
+```
+{
+    "people": [
+        "Starr",
+        42
+    ]
+}
+```
