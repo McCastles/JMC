@@ -29,13 +29,12 @@ const describe = module.exports = {
       }
     }
     if (value.$ref && value.$ref.indexOf('http') !== 0) {
-      // console.log(value.$ref);
       type = describe.typeHandleReferences(value.$ref, defStructure, '');
     }
     return type;
   },
   typeHandleReferences(reference, defStructure, braces) {
-    const name = reference.getRefName();
+    const name = format.getRefName(reference);
     let ref = reference.replace('.json', '.md');
     for (let i = 0; i < defStructure.length; i++) {
       if ((defStructure[i].name === name) && (defStructure[i].hard === false)) {

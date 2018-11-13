@@ -8,14 +8,6 @@ const format = require('./format.js');
 const tree = require('./tree.js');
 const template = require('./template.js');
 
-Object.defineProperty(String.prototype, 'getRefName', {
-  value: function getRefName() {
-    return this.substr(this.indexOf('#') + 1);
-  },
-  writable: true,
-  configurable: true,
-});
-
 module.exports = (srcPath, dstPath, customTemplateFileName) => {
   if (dstPath && !dstPath.endsWith('/')) dstPath += '/';
   prepare(srcPath, dstPath, customTemplateFileName);

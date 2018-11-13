@@ -1,4 +1,5 @@
 const template = require('./template.js');
+const format = require('./format.js');
 
 const example = module.exports = {
   finalExample: {},
@@ -20,7 +21,7 @@ const example = module.exports = {
     const prompt =
         root.enum ? example.applyEnum(root)
       : root.$ref ? template.fetchRefPrompt(
-          root.$ref.getRefName(), example.defStructure)
+          format.getRefName(root.$ref), example.defStructure)
       : template.fetchTypePrompt(type);
     if (property) place[property] = prompt;
     else if (type) place.push(prompt);
@@ -43,7 +44,7 @@ const example = module.exports = {
     return root.default ? root.default : root.enum[0];
   },
   applyRef: (reference, place) => {
-    const name = reference.getRefName();
+    const name = format.getRefName(reference);
     for (let i = 0; i < example.defStructure.length; i++) {
       if (example.defStructure[i].name === name) {
         example.apply(example.defStructure[i].node, place);

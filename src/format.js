@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-module.exports = {
+const format = module.exports = {
   slash: (dstPath) => {
     dstPath = dstPath.indexOf('./') == 0 ? '' : `./${dstPath}`;
     dstPath += dstPath.endsWith('/') ? '' : '/';
@@ -15,12 +15,15 @@ module.exports = {
     if (!dstPath) dstPath = './markdowns/';
     dstPath = srcPath.replace('./', dstPath).concat('/');
     if (!fs.existsSync(dstPath)) {
-      module.exports.mimicStructure(dstPath);
+      format.mimicStructure(dstPath);
     }
     return dstPath + generatedName;
   },
   mimicStructure: (url) => {
-    if (url !== '.') module.exports.mimicStructure(path.dirname(url));
+    if (url !== '.') format.mimicStructure(path.dirname(url));
     if (!fs.existsSync(url)) fs.mkdirSync(url);
+  },
+  getRefName: (reference) => {
+    return reference.substr(reference.indexOf('#') + 1);
   },
 };
