@@ -17,25 +17,24 @@
 
 Use the following code example to convert JSON files to Markdown:
 ```javascript
-let convert = require("@linterhub/JMC");
+    let convert = require("@linterhub/JMC");
 
-convert("./examples/simple.json", "./"); 
-/* simple.md is saved to root */
-
-convert("./examples/*.json", "./outputs"); 
-/* all .json files are converted and saved to outputs directory */
-
-convert("./examples/"); 
-/* all .json files are converted saved to markdowns directory*/
+    convert('./examples/', false, './OutputDirectory/', undefined);
+    /* all .json files from ./examples/ and subdirectories will be
+    * converted and saved in ./OutputDirectory/examples/ */
 ```
-The first parameter is obligatory and contains the URI of the input JSON file or folder.
-
-The second parameter is arbitrary and can contain the directory path for Markdown files to be saved. If not provided, Markdown files will be saved to the `markdowns` directory.
-
-To customize converted Markdown files, change the files in the `templates` directory accordingly.
-For instance, to make the title of the output Markdown bold, `Title.txt` file in the `templates` directory should look like this:
+* The first parameter is obligatory and contains the URI of the input JSON file or folder. It is possible to use mask to convert files only from given directory. For instance:
 ```javascript
-# __{{title}}__
+    convert('./examples/*.json');
+```
+
+* The second paramenter is arbitrary. If true, the converter will try to convert meta-schema rather than object-describing one.
+
+* The third parameter is arbitrary. If given, converted .md files will be saved according to the given path, copying the structure of original folder. The default output file name is markdowns.
+
+* The fourth parameter is arbitrary. If given, custom template file will be taken into consideration. To customize converted Markdown files, custom template file should contain references to template .md files. For instance:
+```json
+    "Title": "./src/defaultTemplates/Title.md",
 ```
 Markdown syntax for the customization can be found [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 ## Maintainers
