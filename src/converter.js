@@ -4,12 +4,12 @@ const glob = require('glob');
 const metacompose = require('./metacompose.js');
 const compose = require('./compose.js');
 
-module.exports = (srcPath, meta, dstPath, customTemplateFileName) => {
+module.exports = (srcPath, dstPath, meta, customTemplateFileName) => {
   if (dstPath && !dstPath.endsWith('/')) dstPath += '/';
-  prepare(srcPath, meta, dstPath, customTemplateFileName);
+  prepare(srcPath, dstPath, meta, customTemplateFileName);
 };
 
-const prepare = (srcPath, meta, dstPath, customTemplateFileName) => {
+const prepare = (srcPath, dstPath, meta, customTemplateFileName) => {
   let jsonFiles = undefined;
   let subDirs = undefined;
   if (srcPath.endsWith('.json')) {
@@ -22,7 +22,7 @@ const prepare = (srcPath, meta, dstPath, customTemplateFileName) => {
     jsonFiles = glob.sync(srcPath + '*.json');
     subDirs = glob.sync(srcPath + '*/');
     subDirs.forEach((dir) => {
-      prepare(dir, meta, dstPath, customTemplateFileName);
+      prepare(dir, dstPath, meta, customTemplateFileName);
     });
   }
   jsonFiles.forEach((file) => {

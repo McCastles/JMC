@@ -19,7 +19,7 @@ Use the following code example to convert JSON files to Markdown:
 ```javascript
     let convert = require("@linterhub/JMC");
 
-    convert('./examples/', false, './OutputDirectory/', undefined);
+    convert('./examples/simple/simple.json', './OutputDirectory/', false, undefined);
     /* all .json files from ./examples/ and subdirectories will be
     * converted and saved in ./OutputDirectory/examples/ */
 ```
@@ -28,9 +28,9 @@ Use the following code example to convert JSON files to Markdown:
     convert('./examples/*.json');
 ```
 
-* The second paramenter is arbitrary. If true, the converter will try to convert meta-schema rather than object-describing one.
+* The second parameter is arbitrary. If given, converted .md files will be saved according to the given path, copying the structure of original folder. The default output file name is markdowns.
 
-* The third parameter is arbitrary. If given, converted .md files will be saved according to the given path, copying the structure of original folder. The default output file name is markdowns.
+* The third paramenter is arbitrary. If true, the converter will try to convert meta-schema rather than object-describing one.
 
 * The fourth parameter is arbitrary. If given, custom template file will be taken into consideration. To customize converted Markdown files, custom template file should contain references to template .md files. For instance:
 ```json
