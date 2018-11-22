@@ -19,7 +19,7 @@ Use the following code example to convert JSON files to Markdown:
 ```javascript
     let convert = require("@linterhub/JMC");
 
-    convert('./examples/simple/simple.json', './OutputDirectory/', false, undefined);
+    convert('./examples/', './OutputDirectory/', false, undefined);
     /* all .json files from ./examples/ and subdirectories will be
     * converted and saved in ./OutputDirectory/examples/ */
 ```
