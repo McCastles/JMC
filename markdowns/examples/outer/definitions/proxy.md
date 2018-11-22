@@ -1,8 +1,7 @@
 # __Definitions for miscellaneous schemas__
 Parsed from file: [proxy.json](https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/proxy.json)
 
-_Definitions for outerTest and other schemas_
-## Table of Contents
+> Definitions for outerTest and other schemas
 * [Definitions](#definitions)
 	* [proxyAddress](#definitions)
 	* [proxyAutomobile](#definitions)
@@ -10,5 +9,5 @@ _Definitions for outerTest and other schemas_
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
-|__proxyAddress__|[address](./address.md#address)|-|My adress|
-|__proxyAutomobile__|[automobile](./automobile.md#automobile)|-|My automobile|
+|__proxyAddress__|[ddress](./address.md#address)|-|My adress|
+|__proxyAutomobile__|[utomobile](./automobile.md#automobile)|-|My automobile|

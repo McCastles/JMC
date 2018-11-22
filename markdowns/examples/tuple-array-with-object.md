@@ -1,8 +1,7 @@
 # __Tuple array schema with object__
 Parsed from file: [tuple-array-with-object.json](https://github.com/McCastles/JMC/blob/master/examples/tuple-array-with-object.json)
 
-_Schema with a tuple array (array with items of different types), one of which is an object_
-## Table of Contents
+> Schema with a tuple array (array with items of different types), one of which is an object
 * [Properties](#properties)
 	* [people](#people)
 		* [people[0]](#people)
@@ -12,13 +11,13 @@ _Schema with a tuple array (array with items of different types), one of which i
 			* [name](#people[3])
 			* [surname](#people[3])
 			* [telephone](#people[3])
-* [Example](#example)
 ## __Properties__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__people__|[object[]](#people)|+|Famous people|
 ### __people__
+_Famous people_
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
@@ -27,24 +26,10 @@ _Schema with a tuple array (array with items of different types), one of which i
 |__people[2]__|number|-|Telephone number of the person|
 |__people[3]__|[object](#people[3])|-|Children of the person|
 ### __people[3]__
+_Children of the person_
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|string|+|Name of the kid|
 |__surname__|string|+|Surname of the kid|
 |__telephone__|number|-|Telephone number of the kid|
-## __Example__
-```
-{
-    "people": [
-        "Sample string",
-        "true",
-        42,
-        {
-            "name": "Sample string",
-            "surname": "Sample string",
-            "telephone": 42
-        }
-    ]
-}
-```

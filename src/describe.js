@@ -45,7 +45,7 @@ const describe = module.exports = {
     return `[${name}${braces}](${ref})`;
   },
   description: (value) => {
-    let finalDescription = format.capitalize(value.description);
+    let finalDescription = format.toCaptal(value.description);
     if (value.enum) {
       finalDescription += '. Possible values:' +
         value.enum.map((v) =>

@@ -32,7 +32,7 @@ const tree = module.exports = {
     tree.doc.push(
         template.substitute(
             'Description',
-            {'Description': format.capitalize(schema.description)}
+            {'Description': format.toCaptal(schema.description)}
         )
     );
   },
@@ -77,11 +77,11 @@ const tree = module.exports = {
                 {'SubTitle': element.name}
             )
         );
-        if (element.description) {
+        if (element.node.description) {
           tree.doc.push(
               template.substitute(
                   'SubDescription',
-                  {'SubDescription': format.capitalize(element.description)}
+                  {'SubDescription': format.toCaptal(element.node.description)}
               )
           );
         }

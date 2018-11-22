@@ -7,7 +7,7 @@ const format = module.exports = {
     dstPath += dstPath.endsWith('/') ? '' : '/';
     return dstPath;
   },
-  capitalize: (text) => {
+  toCaptal: (text) => {
     text = text.charAt(0).toUpperCase() + text.substr(1);
     return text;
   },
@@ -24,6 +24,10 @@ const format = module.exports = {
     if (!fs.existsSync(url)) fs.mkdirSync(url);
   },
   getRefName: (reference) => {
-    return reference.substr(reference.indexOf('#') + 1);
+    return reference.substr(
+        reference.indexOf('#') + 1
+    ).substr(
+        reference.lastIndexOf('/')
+    );
   },
 };
