@@ -22,17 +22,17 @@ const tree = module.exports = {
     );
     tree.doc.push(
         template.substitute(
-            'ParsedFrom',
-          schema.$id ?
-              {'FileName': `[${fileName}]`, 'Link': `(${schema.$id})`}
-            : {'FileName': fileName, 'Link': ''}
+            'Description',
+            {'Description': format.toCaptal(schema.description)}
         )
     );
     tree.doc.push('');
     tree.doc.push(
         template.substitute(
-            'Description',
-            {'Description': format.toCaptal(schema.description)}
+            'ParsedFrom',
+          schema.$id ?
+              {'FileName': `[${fileName}]`, 'Link': `(${schema.$id})`}
+            : {'FileName': fileName, 'Link': ''}
         )
     );
   },

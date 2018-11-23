@@ -24,10 +24,8 @@ const format = module.exports = {
     if (!fs.existsSync(url)) fs.mkdirSync(url);
   },
   getRefName: (reference) => {
-    return reference.substr(
-        reference.indexOf('#') + 1
-    ).substr(
-        reference.lastIndexOf('/')
-    );
+    const a = reference.lastIndexOf('/');
+    const b = reference.lastIndexOf('#');
+    return reference.substr((a > b ? a : b) + 1);
   },
 };

@@ -1,7 +1,7 @@
 # __Tuple array schema with object__
-Parsed from file: [tuple-array-with-object.json](https://github.com/McCastles/JMC/blob/master/examples/tuple-array-with-object.json)
-
 > Schema with a tuple array (array with items of different types), one of which is an object
+
+Parsed from file: [tuple-array-with-object.json](https://github.com/McCastles/JMC/blob/master/examples/tuple-array-with-object.json)
 * [Properties](#properties)
 	* [people](#people)
 		* [people[0]](#people)
@@ -11,6 +11,7 @@ Parsed from file: [tuple-array-with-object.json](https://github.com/McCastles/JM
 			* [name](#people[3])
 			* [surname](#people[3])
 			* [telephone](#people[3])
+* [Example](#example)
 ## __Properties__
 
 |Key|Type|Required|Description|
@@ -33,3 +34,18 @@ _Children of the person_
 |__name__|string|+|Name of the kid|
 |__surname__|string|+|Surname of the kid|
 |__telephone__|number|-|Telephone number of the kid|
+## __Example__
+```
+{
+    "people": [
+        "Sample string",
+        "true",
+        42,
+        {
+            "name": "Sample string",
+            "surname": "Sample string",
+            "telephone": 42
+        }
+    ]
+}
+```

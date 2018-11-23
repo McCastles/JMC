@@ -20,8 +20,7 @@ const example = module.exports = {
   content: (root, place, property, type) => {
     const prompt =
         root.enum ? example.applyEnum(root)
-      : root.$ref ? template.fetchRefPrompt(
-          format.getRefName(root.$ref), example.defStructure)
+      : root.$ref ? {}
       : template.fetchTypePrompt(type);
     if (property) place[property] = prompt;
     else if (type) place.push(prompt);

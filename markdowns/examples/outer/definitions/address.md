@@ -1,7 +1,7 @@
 # __Definitions for miscellaneous schemas__
-Parsed from file: [address.json](https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/address.json)
-
 > Definitions for outerTest and other schemas
+
+Parsed from file: [address.json](https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/address.json)
 * [Definitions](#definitions)
 	* [address](#address)
 		* [house](#address)

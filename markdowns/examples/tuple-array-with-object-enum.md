@@ -1,7 +1,7 @@
 # __Example Array With Object Enum Schema__
-Parsed from file: [tuple-array-with-object-enum.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-array-with-object-enum.json)
-
 > Simple schema with array (one of the values is an object) with enumerated values
+
+Parsed from file: [tuple-array-with-object-enum.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-array-with-object-enum.json)
 * [Properties](#properties)
 	* [people](#people)
 		* [people[0]](#people)
@@ -10,6 +10,7 @@ Parsed from file: [tuple-array-with-object-enum.json](https://github.com/McCastl
 			* [name](#people[2])
 			* [surname](#people[2])
 			* [telephone](#people[2])
+* [Example](#example)
 ## __Properties__
 
 |Key|Type|Required|Description|
@@ -31,3 +32,17 @@ _Children of the person_
 |__name__|string|+|Name of the kid|
 |__surname__|string|+|Surname of the kid|
 |__telephone__|number|-|Telephone number of the kid|
+## __Example__
+```
+{
+    "people": [
+        "Lennon",
+        42,
+        {
+            "name": "Sample string",
+            "surname": "Sample string",
+            "telephone": 42
+        }
+    ]
+}
+```

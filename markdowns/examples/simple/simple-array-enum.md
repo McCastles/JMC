@@ -1,10 +1,11 @@
 # __Example Array Enum Schema__
-Parsed from file: [simple-array-enum.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-array-enum.json)
-
 > Simple schema
+
+Parsed from file: [simple-array-enum.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-array-enum.json)
 * [Properties](#properties)
 	* [people](#people)
 		* [people[0]](#people)
+* [Example](#example)
 ## __Properties__
 
 |Key|Type|Required|Description|
@@ -16,3 +17,11 @@ _List of guests_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__people[0]__|string|-|Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`. Default is `Starr`.|
+## __Example__
+```
+{
+    "people": [
+        "Starr"
+    ]
+}
+```

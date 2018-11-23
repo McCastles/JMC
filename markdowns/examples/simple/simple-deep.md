@@ -1,12 +1,13 @@
 # __Simple deep schema__
-Parsed from file: [simple-deep.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-deep.json)
-
 > Simple deep
+
+Parsed from file: [simple-deep.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-deep.json)
 * [Properties](#properties)
 	* [planet](#planet)
 		* [continent](#continent)
 			* [country](#country)
 				* [city](#country)
+* [Example](#example)
 ## __Properties__
 
 |Key|Type|Required|Description|
@@ -30,3 +31,15 @@ _Your country_
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__city__|string|-|Your city|
+## __Example__
+```
+{
+    "planet": {
+        "continent": {
+            "country": {
+                "city": "Sample string"
+            }
+        }
+    }
+}
+```

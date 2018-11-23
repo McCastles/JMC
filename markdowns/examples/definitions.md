@@ -1,7 +1,7 @@
 # __Simple Schema With Definitions__
-Parsed from file: [definitions.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-definitions.json)
-
 > Simple schema with definitions
+
+Parsed from file: [definitions.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-definitions.json)
 * [Properties](#properties)
 	* [name](#name)
 		* [firstName](#name)
@@ -13,13 +13,14 @@ Parsed from file: [definitions.json](https://github.com/McCastles/JMC/blob/maste
 		* [street](#address)
 		* [city](#address)
 		* [state](#address)
+* [Example](#example)
 ## __Properties__
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__name__|[object](#name)|-|Name of the client|
-|__billing_address__|[s](#address)|-|Billing adress|
-|__shipping_address__|[s](#address)|-|Shipping adress|
+|__billing_address__|[address](#address)|-|Billing adress|
+|__shipping_address__|[address](#address)|-|Shipping adress|
 ### __name__
 _Name of the client_
 
@@ -40,3 +41,22 @@ _The addres of somebody_
 |__street__|string|+|Street adress|
 |__city__|string|+|Current city|
 |__state__|string|+|Current state|
+## __Example__
+```
+{
+    "name": {
+        "firstName": "Sample string",
+        "secondName": "Sample string"
+    },
+    "billing_address": {
+        "street": "Sample string",
+        "city": "Sample string",
+        "state": "Sample string"
+    },
+    "shipping_address": {
+        "street": "Sample string",
+        "city": "Sample string",
+        "state": "Sample string"
+    }
+}
+```

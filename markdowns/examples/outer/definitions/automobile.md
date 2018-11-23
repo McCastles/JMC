@@ -1,7 +1,7 @@
 # __Definitions for miscellaneous schemas__
-Parsed from file: [automobile.json](https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/automobile.json)
-
 > Definitions for outerTest and other schemas
+
+Parsed from file: [automobile.json](https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/automobile.json)
 * [Definitions](#definitions)
 	* [automobile](#automobile)
 		* [producent](#automobile)

@@ -28,11 +28,11 @@ Use the following code example to convert JSON files to Markdown:
     convert('./examples/*.json');
 ```
 
-* The second parameter is arbitrary. If given, converted .md files will be saved according to the given path, copying the structure of original folder. The default output file name is markdowns.
+* The second parameter is optional. If given, converted .md files will be saved according to the given path, copying the structure of original folder. The default output file name is markdowns.
 
-* The third paramenter is arbitrary. If true, the converter will try to convert meta-schema rather than object-describing one.
+* The third paramenter is optional. If true, the converter will try to convert meta-schema rather than object-describing one.
 
-* The fourth parameter is arbitrary. If given, custom template file will be taken into consideration. To customize converted Markdown files, custom template file should contain references to template .md files. For instance:
+* The fourth parameter is optional. If given, custom template file will be taken into consideration. To customize converted Markdown files, custom template file should contain references to template .md files. For instance:
 ```json
     "Title": "./src/defaultTemplates/Title.md",
 ```

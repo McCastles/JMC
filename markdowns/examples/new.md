@@ -1,7 +1,7 @@
 # __New__
-Parsed from file: [new.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-deep.json)
-
 > Simple new deep
+
+Parsed from file: [new.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-deep.json)
 * [Properties](#properties)
 	* [prop10](#prop10)
 		* [prop11](#prop11)
@@ -10,6 +10,7 @@ Parsed from file: [new.json](https://github.com/McCastles/JMC/blob/master/exampl
 	* [prop20](#prop20)
 		* [prop21](#prop20)
 	* [prop30](#properties)
+* [Example](#example)
 ## __Properties__
 
 |Key|Type|Required|Description|
@@ -33,3 +34,18 @@ Parsed from file: [new.json](https://github.com/McCastles/JMC/blob/master/exampl
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
 |__prop21__|string|-|Lack of descripton|
+## __Example__
+```
+{
+    "prop10": {
+        "prop11": {
+            "prop12": "Sample string"
+        },
+        "prop13": "Sample string"
+    },
+    "prop20": {
+        "prop21": "Sample string"
+    },
+    "prop30": "Sample string"
+}
+```

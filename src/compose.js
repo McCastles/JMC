@@ -1,5 +1,5 @@
 const fs = require('fs');
-// const example = require('./example.js');
+const example = require('./example.js');
 const path = require('path');
 const format = require('./format.js');
 const tree = require('./tree.js');
@@ -26,9 +26,9 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
     tree.doc.push('* [Definitions](#definitions)');
     tree.tableOfContents(tree.defStructure, 'definitions');
   }
-  // if (tree.propStructure.length != 0) {
-  //   tree.doc.push('* [Example](#example)');
-  // }
+  if (tree.propStructure.length != 0) {
+    tree.doc.push('* [Example](#example)');
+  }
 
   if (schema.properties) {
     tree.doc.push(template.fetch('Properties'));
@@ -44,13 +44,13 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
     tree.documentHard(tree.defStructure);
   }
 
-  // if (tree.propStructure.length != 0) {
-  //   tree.doc.push(template.fetch('Example'));
-  //   tree.doc.push('```');
-  //   tree.doc.push(JSON.stringify(
-  //       example.createExample(schema, tree.defStructure), null, 4));
-  //   tree.doc.push('```');
-  // }
+  if (tree.propStructure.length != 0) {
+    tree.doc.push(template.fetch('Example'));
+    tree.doc.push('```');
+    tree.doc.push(JSON.stringify(
+        example.createExample(schema, tree.defStructure), null, 4));
+    tree.doc.push('```');
+  }
 
   dstFilePath = format.outputCheck(
       path.dirname(srcFilePath),
