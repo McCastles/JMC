@@ -34,19 +34,21 @@
     "properties": {
     	"name": {
         	"type": "object",
-  	      "description": "Name of the client",
+  	      	"description": "Name of the client",
     	    "properties": {
         	  	"firstName": {
             		"type": "string",
-            		"description": "First name"
+					"description": "First name",
+					"format": "hostname"
     	      	},
-        	  	"secondName": {
+        	  	"email": {
             		"type": "string",
-            		"description": "Second name"
+					"description": "email",
+					"format":"email"
      	     	}
        		},
         	"required": [
-			"secondName"
+			"email"
 			]
     	},
 
@@ -56,8 +58,19 @@
     	},
       
  	   "shipping_address": {
-    	   	"$ref": "#address",
-       		"description": "Shipping adress"
-   		}
+			"allOf": [
+				{ "$ref": "#/definitions/address" },
+				{ "properties": {
+					"type": {
+						"enum": [
+							"residential",
+							"business"
+						]
+					}
+				},
+				"required": ["type"]
+				}
+			]
+		}
 	}
 }

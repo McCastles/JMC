@@ -34,6 +34,7 @@ const example = module.exports = {
   },
   applyItems: (items, place) => {
     if (items.type) example.content(items, place, undefined, items.type);
+    if (items.$ref) example.applyRef(items.$ref, place);
     else {
       items.forEach((item) =>
         example.content(item, place, undefined, item.type));

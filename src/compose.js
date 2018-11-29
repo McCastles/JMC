@@ -1,5 +1,5 @@
 const fs = require('fs');
-const example = require('./example.js');
+// const example = require('./example.js');
 const path = require('path');
 const format = require('./format.js');
 const tree = require('./tree.js');
@@ -14,43 +14,47 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
   tree.init();
   tree.foreword(schema, fileName);
 
-  tree.visit(schema.definitions, tree.defStructure, schema.required);
-  tree.visit(schema.properties, tree.propStructure, schema.required);
+  tree.doc.push(
+      template.substitute(
+          'Description',
+          {'Description': format.toCaptal(schema.description)})
+  );
 
-  // tree.doc.push('## Table of Contents');
+  tree.propStructure = tree.visit(schema.properties, schema.required);
+  tree.defStructure = tree.visit(schema.definitions, schema.required);
+
   if (schema.properties) {
     tree.doc.push('* [Properties](#properties)');
-    tree.tableOfContents(tree.propStructure, 'properties');
+    tree.print(tree.propStructure, '\t');
   }
   if (schema.definitions) {
     tree.doc.push('* [Definitions](#definitions)');
-    tree.tableOfContents(tree.defStructure, 'definitions');
+    tree.print(tree.defStructure, '\t');
   }
-  if (tree.propStructure.length != 0) {
-    tree.doc.push('* [Example](#example)');
-  }
+
+  // if (tree.propStructure.length != 0) {
+  //   tree.doc.push('* [Example](#example)');
+  // }
 
   if (schema.properties) {
     tree.doc.push(template.fetch('Properties'));
-    tree.initiateTable();
+    tree.initiateTable(true);
     tree.document(tree.propStructure);
-    tree.documentHard(tree.propStructure);
   }
 
   if (schema.definitions) {
     tree.doc.push(template.fetch('Definitions'));
-    tree.initiateTable();
+    tree.initiateTable(true);
     tree.document(tree.defStructure);
-    tree.documentHard(tree.defStructure);
   }
 
-  if (tree.propStructure.length != 0) {
-    tree.doc.push(template.fetch('Example'));
-    tree.doc.push('```');
-    tree.doc.push(JSON.stringify(
-        example.createExample(schema, tree.defStructure), null, 4));
-    tree.doc.push('```');
-  }
+  // if (tree.propStructure.length != 0) {
+  //   tree.doc.push(template.fetch('Example'));
+  //   tree.doc.push('```');
+  //   tree.doc.push(JSON.stringify(
+  //       example.createExample(schema, tree.defStructure), null, 4));
+  //   tree.doc.push('```');
+  // }
 
   dstFilePath = format.outputCheck(
       path.dirname(srcFilePath),

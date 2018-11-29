@@ -2,18 +2,42 @@ const format = require('./format.js');
 const template = require('./template.js');
 
 const describe = module.exports = {
-  property: (name, value, required, defStructure) => {
-    const type = describe.type(name, value, defStructure);
-    const requiredText = required ? '+' : '-';
-    const description = value.description ?
-      describe.description(value) : 'Lack of descripton';
-    return template.substitute('Row', {
-      'Name': `${name}`,
-      'Type': `${type}`,
-      'Required': `${requiredText}`,
-      'Description': `${description}`,
-    });
+  fill: (array, name) => {
+    const newObj = {};
+    for (let i = 0; i < array.length; i++) {
+      newObj[format.giveName(name, i)] = array[i];
+    };
+    return newObj;
   },
+  property: (node, defStructure) => {
+    const type = describe.type(node.name, node.value, defStructure);
+    const description = node.value.description ?
+      describe.description(node.value) : 'Lack of descripton';
+    let key;
+    let hash;
+    if (node.parent) {
+      key = 'ChildRow';
+      hash = {
+        'Name': `${node.name}`,
+        'Type': `${type}`,
+        'Format': `${node.format}`,
+        'Required': `${node.required}`,
+        'Parent': `[${node.parent}](${node.parent})`,
+        'Description': `${description}`,
+      };
+    } else {
+      key = 'RootRow';
+      hash = {
+        'Name': `${node.name}`,
+        'Type': `${type}`,
+        'Format': `${node.format}`,
+        'Required': `${node.required}`,
+        'Description': `${description}`,
+      };
+    }
+    return template.substitute(key, hash);
+  },
+
   type: (name, value, defStructure) => {
     let type = value.type;
     if (value.properties) type = `[${type}](#${name})`;
@@ -22,10 +46,10 @@ const describe = module.exports = {
         type = describe.typeHandleReferences(
             value.items.$ref,
             defStructure,
-            '[]');
+            'array of');
       } else {
         type = (value.items.type) ?
-          `${value.items.type}[]` : `[object[]](#${name})`;
+          `array of ${value.items.type}` : `[tuple array](#${name})`;
       }
     }
     if (value.$ref && value.$ref.indexOf('http') !== 0) {
@@ -33,7 +57,7 @@ const describe = module.exports = {
     }
     return type;
   },
-  typeHandleReferences(reference, defStructure, braces) {
+  typeHandleReferences(reference, defStructure, arrayOf) {
     const name = format.getRefName(reference);
     let ref = reference.replace('.json', '.md');
     for (let i = 0; i < defStructure.length; i++) {
@@ -42,7 +66,7 @@ const describe = module.exports = {
         break;
       }
     }
-    return `[${name}${braces}](${ref})`;
+    return `${arrayOf} [${name}](${ref})`;
   },
   description: (value) => {
     let finalDescription = format.toCaptal(value.description);

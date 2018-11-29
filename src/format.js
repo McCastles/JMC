@@ -11,6 +11,9 @@ const format = module.exports = {
     text = text.charAt(0).toUpperCase() + text.substr(1);
     return text;
   },
+  giveName: (name, number) => {
+    return (name + `[${number}]`);
+  },
   outputCheck: (srcPath, dstPath, generatedName) => {
     if (!dstPath) dstPath = './markdowns/';
     dstPath = srcPath.replace('./', dstPath).concat('/');

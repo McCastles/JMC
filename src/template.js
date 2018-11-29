@@ -18,8 +18,8 @@ const template = module.exports = {
     return temp;
   },
   fetch: (key) => {
-    return fs.readFileSync(template.customJSON ?
-      template.customJSON[key] : template.defaultJSON[key]).toString();
+    const val = template.customJSON ? template.customJSON[key] : undefined;
+    return fs.readFileSync(val ? val : template.defaultJSON[key]).toString();
   },
   fetchTypePrompt: (type) => {
     switch (type) {

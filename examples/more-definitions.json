@@ -37,6 +37,14 @@
 	},
 
     "properties": {
+		"priceArray" : {
+        	"type": "array",
+			"items": {
+				"$ref": "#price",
+				"description": "Price the customer will pay for the product"
+			}
+		},
+
     	"name": {
         	"type": "object",
         	"description": "Name of the client",
@@ -63,11 +71,6 @@
     	"shipping_address": {
         	"$ref": "#address",
         	"description": "Shipping adress"
-		 },
-		 
-      	"price_to_pay": {
-        	"$ref": "#price",
-        	"description": "Price the customer will pay for the product"
-      	}
+		}
     }
 }

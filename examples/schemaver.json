@@ -1,0 +1,112 @@
+{
+    "$schema": "https://schema.linterhub.com/schemaver.json#",
+    "$id": "https://schema.linterhub.com/schemaver.json#",
+    "$version": "0.0.0",
+    "title": "Semantic JSON Schema",
+    "description": "JSON & JSON meta-schema with versioning support",
+    "allOf": [
+        {
+            "$ref": "#/definitions/meta"
+        },
+        {
+            "$ref": "#/definitions/objectver"
+        }
+    ],
+    "required": [
+        "$schema",
+        "$id",
+        "$version",
+        "title",
+        "description"
+    ],
+    "definitions": {
+        "reference": {
+            "$id": "#reference",
+            "title": "Reference",
+            "description": "The reference to schemaver document in URI format",
+            "type": "string",
+            "format": "uri",
+            "examples": [
+                "http://json-schema.org",
+                "file://location",
+                "protocol://address"
+            ]
+        },
+        "version": {
+            "$id": "#version",
+            "title": "Version",
+            "description": "The version in a free format",
+            "type": "string",
+            "examples": [
+                "v0.0.1",
+                "0.1-beta",
+                "sierra"
+            ]
+        },
+        "semver": {
+            "$id": "#semver",
+            "title": "Version",
+            "description": "The semantic version (simplified format)",
+            "type": "string",
+            "format": "regex",
+            "pattern": "^[0-9]+.[0-9]+.[0-9]+$",
+            "examples": [
+                "1.0.0",
+                "2.2.2",
+                "1.22.333"
+            ]
+        },
+        "objectver": {
+            "$id": "#objectver",
+            "title": "Object",
+            "description": "The versioned JSON object",
+            "type": "object",
+            "properties": {
+                "$schema": {
+                    "$ref": "#/definitions/reference",
+                    "description": "The reference to schemaver document used for validation"
+                },
+                "$id": {
+                    "$ref": "#/definitions/reference",
+                    "description": "The reference to the latest version of itself"
+                },
+                "$version": {
+                    "$ref": "#/definitions/semver",
+                    "description": "The semantic version (simplified format)"
+                }
+            },
+            "required": [
+                "$schema",
+                "$id",
+                "$version"
+            ],
+            "examples": [
+                {
+                    "$schema": "protocol://address",
+                    "$id": "protocol://address/file",
+                    "$version": "1.0.0"
+                }
+            ]
+        },
+        "meta": {
+            "type": "string",
+            "$ref": "http://json-schema.org/draft-07/schema#",
+            "description": "The official JSON meta-schema (draft-07)"
+        }
+    },
+    "examples": [
+        {
+            "$schema": "protocol://address",
+            "$id": "protocol://address/file",
+            "$version": "1.0.0",
+            "title": "Title",
+            "description": "Description",
+            "type": "object",
+            "properties": {
+                "property":{
+                    "type": "string"
+                }
+            }
+        }
+    ]
+}

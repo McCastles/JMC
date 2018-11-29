@@ -1,0 +1,44 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Definitions for outerTest",
+	"$id": "https://github.com/McCastles/JMC/blob/master/examples/outer/testArray.json",
+	"description": "Illustrating work with outer definitions file",
+	"type": "object",
+	"properties": {
+		"name": {
+			"type": "object",
+			"description": "Name of the client",
+			"properties": {
+				"firstName": {
+					"type": "string",
+					"description": "First name"
+				},
+				"secondName": {
+					"type": "string",
+					"description": "Second name"
+				}
+			},
+			"required": [
+				"secondName"
+			]
+		},
+
+		"adresses": {
+			"description": "array of adresses",
+			"type": "array",
+			"items": {
+				"$ref": "./definitions/proxy.json#proxyAddress"
+			}
+		},
+
+		"billing_address": {
+			"$ref": "./definitions/proxy.json#proxyAddress",
+			"description": "Billing adress"
+		},
+		
+		"automobile": {
+			"$ref": "./definitions/proxy.json#proxyAutomobile",
+			"description": "The automobile that will deliver the package"
+		}
+	}
+}

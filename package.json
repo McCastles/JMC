@@ -17,6 +17,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bin": {
+    "jmc": "./index.js"
+  },
   "bugs": {
     "url": "https://github.com/McCastles/JMC/issues"
   },
