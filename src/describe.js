@@ -9,65 +9,52 @@ const describe = module.exports = {
     };
     return newObj;
   },
-  property: (node, defStructure) => {
-    const type = describe.type(node.name, node.value, defStructure);
+
+  createRow: (node, key) => {
     const description = node.value.description ?
       describe.description(node.value) : 'Lack of descripton';
-    let key;
-    let hash;
-    if (node.parent) {
-      key = 'ChildRow';
-      hash = {
-        'Name': `${node.name}`,
-        'Type': `${type}`,
-        'Format': `${node.format}`,
-        'Required': `${node.required}`,
-        'Parent': `[${node.parent}](${node.parent})`,
-        'Description': `${description}`,
-      };
-    } else {
-      key = 'RootRow';
-      hash = {
-        'Name': `${node.name}`,
-        'Type': `${type}`,
-        'Format': `${node.format}`,
-        'Required': `${node.required}`,
-        'Description': `${description}`,
-      };
-    }
+    const hash = {
+      'Name': `${node.name}`,
+      'Type': `${node.type}`,
+      'Format': `${node.format}`,
+      'Description': `${description}`,
+    };
+    if (node.parent) hash['Parent'] = `[${node.parent}](#${node.parent})`;
+    if (node.required) hash['Required'] = `${node.required}`;
     return template.substitute(key, hash);
   },
 
-  type: (name, value, defStructure) => {
+  getType: (name, value, refspace) => {
     let type = value.type;
-    if (value.properties) type = `[${type}](#${name})`;
-    if (type === 'array') {
-      if (value.items.$ref) {
-        type = describe.typeHandleReferences(
-            value.items.$ref,
-            defStructure,
-            'array of');
-      } else {
-        type = (value.items.type) ?
-          `array of ${value.items.type}` : `[tuple array](#${name})`;
-      }
-    }
     if (value.$ref && value.$ref.indexOf('http') !== 0) {
-      type = describe.typeHandleReferences(value.$ref, defStructure, '');
+      type = describe.link(value.$ref, refspace);
+      return type;
+    }
+    if (!type && value.enum) type = typeof value.enum[0];
+    if (value.properties) type = `[object](#${name})`;
+    if (value.items) {
+      if (value.items.$ref) {
+        type = `[array of ](${describe.link(value.items.$ref, refspace)})`;
+      } else {
+        type = ((value.items.type) && (value.items.type !== 'object')) ?
+        `array of [${name}](${value.items.type})`
+        : `[array](${name})`;
+      }
     }
     return type;
   },
-  typeHandleReferences(reference, defStructure, arrayOf) {
-    const name = format.getRefName(reference);
-    let ref = reference.replace('.json', '.md');
-    for (let i = 0; i < defStructure.length; i++) {
-      if ((defStructure[i].name === name) && (defStructure[i].hard === false)) {
-        ref = '#definitions';
-        break;
+
+  link(ref, refspace) {
+    const refName = format.getRefName(ref);
+    ref = ref.replace('.json', '.md');
+    for (let i = 0; i < refspace.length; i++) {
+      if (refspace[i] === refName) {
+        return `[${refName}](#${ref})`;
       }
     }
-    return `${arrayOf} [${name}](${ref})`;
+    return `[${refName}](#definitions)`;
   },
+
   description: (value) => {
     let finalDescription = format.toCaptal(value.description);
     if (value.enum) {

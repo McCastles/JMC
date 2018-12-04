@@ -6,6 +6,7 @@
 	"type": "object",
 	"properties": {
 		"size": {
+			"format": "uri",
 			"description": "Size",
 			"type": "string",
 			"default": "small",
@@ -15,6 +16,10 @@
 				"small", 
 				42 
 			]
-	  	}
+		},
+		"color": {
+			"enum": ["green", "yellow", "red"],
+			"default": "green"
+		}  
 	}
 }

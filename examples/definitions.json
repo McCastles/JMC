@@ -4,6 +4,7 @@
     "title": "Simple Schema With Definitions",
     "type": "object",
     "description": "Simple schema with definitions",
+	"required": ["shipping_address"],
 
     "definitions": {
     	"address": {
@@ -28,7 +29,22 @@
 				"city",
 				"state"
 			]
-      	}	
+		},
+		"testArray": {
+			"type": "array",
+			"description": "The array for testing",
+			"format": "date-time",
+			"items": {
+				"type": "object",
+				"properties": {
+					"p1": {
+						"type": "string",
+						"format": "regex",
+						"description": "test property"
+					}
+				}
+			}
+		}
     },
     
     "properties": {
@@ -58,17 +74,16 @@
     	},
       
  	   "shipping_address": {
+			"description": "The shipping address - extends address",
 			"allOf": [
 				{ "$ref": "#/definitions/address" },
 				{ "properties": {
 					"type": {
-						"enum": [
-							"residential",
-							"business"
-						]
+						"type":"string",
+						"description": "Business or Residental"
 					}
 				},
-				"required": ["type"]
+					"required": ["type"]
 				}
 			]
 		}

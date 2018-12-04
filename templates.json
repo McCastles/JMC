@@ -1,24 +1,28 @@
 {
+    "Title": "./src/defaultTemplates/Title.md",
+    "Description": "./src/defaultTemplates/Description.md",
+    "ParsedFrom": "./src/defaultTemplates/ParsedFrom.md",
+
+    "Properties": "./src/defaultTemplates/Properties.md",
+    "Definitions": "./src/defaultTemplates/Definitions.md",
+
+    "SubTitle": "./src/defaultTemplates/Subtitle.md",
+    "SubDescription": "./src/defaultTemplates/SubDescription.md",
+
     "ChildColumns": "./src/defaultTemplates/ChildColumns.md",
     "ChildHeader": "./src/defaultTemplates/ChildHeader.md",
     "ChildRow": "./src/defaultTemplates/ChildRow.md",
 
-    "Definitions": "./src/defaultTemplates/Definitions.md",
-    "Description": "./src/defaultTemplates/Description.md",
-    "Example": "./src/defaultTemplates/Example.md",
-    "ParsedFrom": "./src/defaultTemplates/ParsedFrom.md",
-
-    "PromptNumber": "./src/defaultTemplates/PromptNumber.md",
-    "PromptBoolean": "./src/defaultTemplates/PromptBoolean.md",
-    "PromptString": "./src/defaultTemplates/PromptString.md",
-
-    "Properties": "./src/defaultTemplates/Properties.md",
+    "DefColumns": "./src/defaultTemplates/DefColumns.md",
+    "DefHeader": "./src/defaultTemplates/DefHeader.md",
+    "DefRow": "./src/defaultTemplates/DefRow.md",
 
     "RootColumns": "./src/defaultTemplates/RootColumns.md",
     "RootHeader": "./src/defaultTemplates/RootHeader.md",
     "RootRow": "./src/defaultTemplates/RootRow.md",
 
-    "SubDescription": "./src/defaultTemplates/SubDescription.md",
-    "SubTitle": "./src/defaultTemplates/Subtitle.md",
-    "Title": "./src/defaultTemplates/Title.md"
+    "Example": "./src/defaultTemplates/Example.md",
+    "PromptNumber": "./src/defaultTemplates/PromptNumber.md",
+    "PromptBoolean": "./src/defaultTemplates/PromptBoolean.md",
+    "PromptString": "./src/defaultTemplates/PromptString.md"
 }

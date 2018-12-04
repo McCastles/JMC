@@ -3,12 +3,12 @@
 
 Parsed from file: [more-definitions.json](https://github.com/McCastles/JMC/blob/master/examples/more-definitions.json)
 * [Properties](#properties)
+	* [priceArray](#properties)
 	* [name](#name)
 		* [firstName](#name)
 		* [secondName](#name)
 	* [billing_address](#properties)
 	* [shipping_address](#properties)
-	* [price_to_pay](#properties)
 * [Definitions](#definitions)
 	* [price](#definitions)
 	* [address](#address)
@@ -20,10 +20,10 @@ Parsed from file: [more-definitions.json](https://github.com/McCastles/JMC/blob/
 
 |Key|Type|Required|Description|
 |-|:-:|:-:|-|
+|__priceArray__|[price[]](#definitions)|-|Lack of descripton|
 |__name__|[object](#name)|-|Name of the client|
 |__billing_address__|[address](#address)|-|Billing adress|
 |__shipping_address__|[address](#address)|-|Shipping adress|
-|__price_to_pay__|[price](#definitions)|-|Price the customer will pay for the product|
 ### __name__
 _Name of the client_
 
@@ -48,6 +48,7 @@ _The addres of somebody_
 ## __Example__
 ```
 {
+    "priceArray": [],
     "name": {
         "firstName": "Sample string",
         "secondName": "Sample string"
@@ -61,7 +62,6 @@ _The addres of somebody_
         "street": "Sample string",
         "city": "Sample string",
         "state": "Sample string"
-    },
-    "price_to_pay": {}
+    }
 }
 ```

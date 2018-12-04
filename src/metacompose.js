@@ -6,11 +6,8 @@ const format = require('./format.js');
 
 /* TODO
 * input
-* ДОДЕЛАТЬ ПРОПЕРТИ С ALLOF !
+* parenthood
 * description of meta-sourced fields in Properties
-* documentHard
-* table of contents
-* reference -> Definitions
 * Any additional properties
 * Examples
 */
@@ -24,6 +21,9 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
   tree.init();
   tree.foreword(schema, fileName);
 
+  tree.fillRefspace(schema.definitions);
+  tree.defStructure = tree.visit(schema.definitions, schema.required);
+
   for (let i = 0; i < schema.allOf.length; i++) {
     let extension = schema.allOf[i].$ref;
     extension = extension.substr(extension.lastIndexOf('/') + 1);
@@ -33,10 +33,9 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
         tree.visit(node.properties, node.required, extension);
     }
     if (node.$ref) {
-      // console.log(JSON.parse(node.$ref));
+      // как-то притянуть схему по ссылке и раздеть
     }
   };
-  tree.defStructure = tree.visit(schema.definitions, schema.required);
 
   tree.doc.push('* [Properties](#properties)');
   tree.print(tree.propStructure, '\t');
@@ -54,13 +53,13 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
   );
 
   tree.doc.push(template.fetch('Properties'));
-  tree.initiateTable(false);
-  tree.document(tree.propStructure);
+  tree.initiateTable('ChildHeader', 'ChildColumns');
+  tree.document(tree.propStructure, 'ChildRow');
 
   if (schema.definitions) {
     tree.doc.push(template.fetch('Definitions'));
-    tree.initiateTable(true);
-    tree.document(tree.defStructure, true);
+    tree.initiateTable('DefHeader', 'DefColumns');
+    tree.document(tree.defStructure, 'DefRow');
   }
 
   dstFilePath = format.outputCheck(

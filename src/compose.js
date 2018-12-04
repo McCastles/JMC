@@ -20,8 +20,9 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
           {'Description': format.toCaptal(schema.description)})
   );
 
-  tree.propStructure = tree.visit(schema.properties, schema.required);
+  tree.fillRefspace(schema.definitions);
   tree.defStructure = tree.visit(schema.definitions, schema.required);
+  tree.propStructure = tree.visit(schema.properties, schema.required);
 
   if (schema.properties) {
     tree.doc.push('* [Properties](#properties)');
@@ -38,14 +39,14 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
 
   if (schema.properties) {
     tree.doc.push(template.fetch('Properties'));
-    tree.initiateTable(true);
-    tree.document(tree.propStructure);
+    tree.initiateTable('RootHeader', 'RootColumns');
+    tree.document(tree.propStructure, 'RootRow');
   }
 
   if (schema.definitions) {
     tree.doc.push(template.fetch('Definitions'));
-    tree.initiateTable(true);
-    tree.document(tree.defStructure);
+    tree.initiateTable('DefHeader', 'DefColumns');
+    tree.document(tree.defStructure, 'DefRow');
   }
 
   // if (tree.propStructure.length != 0) {
