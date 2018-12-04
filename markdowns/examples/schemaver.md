@@ -21,6 +21,7 @@ Parsed from file: [schemaver.json](https://schema.linterhub.com/schemaver.json#)
 |__objectver__|[object](#objectver)|*|The versioned JSON object|
 |__meta__|string|*|The official JSON meta-schema (draft-07)|
 ### __objectver__
+
 _The versioned JSON object_
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
