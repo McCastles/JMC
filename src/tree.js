@@ -143,6 +143,7 @@ const tree = module.exports = {
           {'SubDescription': format.toCaptal(description)}
       );
       tree.doc.push(description);
+      tree.doc.push('');
     }
     tree.doc.push(template.fetch(header));
     tree.doc.push(template.fetch(columns));
