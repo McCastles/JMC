@@ -15,13 +15,13 @@ Parsed from file: [new.json](https://github.com/McCastles/JMC/blob/master/exampl
 ### __prop10__
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__prop11__|[object](#prop11)|*|no|[prop10](prop10)|Lack of descripton|
-|__prop13__|string|*|no|[prop10](prop10)|Lack of descripton|
+|__prop11__|[object](#prop11)|*|no|[prop10](#prop10)|Lack of descripton|
+|__prop13__|string|*|no|[prop10](#prop10)|Lack of descripton|
 ### __prop11__
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__prop12__|string|*|yes|[prop11](prop11)|Lack of descripton|
+|__prop12__|string|*|yes|[prop11](#prop11)|Lack of descripton|
 ### __prop20__
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__prop21__|string|*|no|[prop20](prop20)|Lack of descripton|
+|__prop21__|string|*|no|[prop20](#prop20)|Lack of descripton|

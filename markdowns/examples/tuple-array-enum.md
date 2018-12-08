@@ -13,5 +13,5 @@ _List of guests_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__people[0]__|string|*|no|[people](people)|Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`. Default is `Starr`.|
-|__people[1]__|number|*|no|[people](people)|Place|
+|__people[0]__|string|*|no|[people](#people)|Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`. Default is `Starr`.|
+|__people[1]__|number|*|no|[people](#people)|Place|

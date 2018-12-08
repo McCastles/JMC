@@ -75,7 +75,7 @@ const tree = module.exports = {
         required: required && required.indexOf(key) > -1 ? 'yes' : 'no',
         parent: otherParent ? otherParent : parent,
         format: value.format ? value.format : '*',
-        children: tree.visit(branch, value.required, key, parentspace),
+        children: tree.visit(branch, value.required, '#' + key, parentspace),
       };
 
       array.push(toPush);

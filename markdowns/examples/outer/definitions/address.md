@@ -11,7 +11,7 @@ Parsed from file: [address.json](https://github.com/McCastles/JMC/blob/master/ex
 ### __address__
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__house__|number|*|no|[address](address)|House number|
-|__street__|string|*|yes|[address](address)|Street name|
-|__city__|string|*|yes|[address](address)|City name|
-|__state__|string|*|yes|[address](address)|State name|
+|__house__|number|*|no|[address](#address)|House number|
+|__street__|string|*|yes|[address](#address)|Street name|
+|__city__|string|*|yes|[address](#address)|City name|
+|__state__|string|*|yes|[address](#address)|State name|

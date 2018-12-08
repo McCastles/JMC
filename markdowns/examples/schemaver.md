@@ -25,6 +25,6 @@ _The versioned JSON object_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__$schema__|[reference](#definitions)|*|yes|[objectver](objectver)|The reference to schemaver document used for validation|
-|__$id__|[reference](#definitions)|*|yes|[objectver](objectver)|The reference to the latest version of itself|
-|__$version__|[semver](#definitions)|*|yes|[objectver](objectver)|The semantic version (simplified format)|
+|__$schema__|[reference](#definitions)|*|yes|[objectver](#objectver)|The reference to schemaver document used for validation|
+|__$id__|[reference](#definitions)|*|yes|[objectver](#objectver)|The reference to the latest version of itself|
+|__$version__|[semver](#definitions)|*|yes|[objectver](#objectver)|The semantic version (simplified format)|

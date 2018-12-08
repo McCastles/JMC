@@ -11,6 +11,6 @@ Parsed from file: [automobile.json](https://github.com/McCastles/JMC/blob/master
 ### __automobile__
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__producent__|string|*|yes|[automobile](automobile)|Name of the producent company|
-|__color__|string|*|no|[automobile](automobile)|Color of the auto|
-|__year__|number|*|yes|[automobile](automobile)|Year of construction|
+|__producent__|string|*|yes|[automobile](#automobile)|Name of the producent company|
+|__color__|string|*|no|[automobile](#automobile)|Color of the auto|
+|__year__|number|*|yes|[automobile](#automobile)|Year of construction|

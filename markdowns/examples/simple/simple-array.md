@@ -6,4 +6,4 @@ Parsed from file: [simple-array.json](https://github.com/McCastles/JMC/blob/mast
 ## __Properties__
 |Key|Type|Format|Required|Description|
 |-|:-:|:-:|:-:|-|
-|__people__|array of [people](string)|*|yes|Famous people|
+|__people__|array of string|*|yes|Famous people|

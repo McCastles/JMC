@@ -13,13 +13,13 @@ Parsed from file: [tuple-array.json](https://github.com/McCastles/JMC/blob/maste
 ### __sampleArray__
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__sampleArray[0]__|number|*|no|[sampleArray](sampleArray)|Lack of descripton|
-|__sampleArray[1]__|string|*|no|[sampleArray](sampleArray)|Lack of descripton|
+|__sampleArray[0]__|number|*|no|[sampleArray](#sampleArray)|Lack of descripton|
+|__sampleArray[1]__|string|*|no|[sampleArray](#sampleArray)|Lack of descripton|
 ### __people__
 _Famous people_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__people[0]__|string|*|no|[people](people)|Name of the person|
-|__people[1]__|boolean|*|no|[people](people)|Is male?|
-|__people[2]__|number|*|no|[people](people)|Telephone number of the person|
+|__people[0]__|string|*|no|[people](#people)|Name of the person|
+|__people[1]__|boolean|*|no|[people](#people)|Is male?|
+|__people[2]__|number|*|no|[people](#people)|Telephone number of the person|

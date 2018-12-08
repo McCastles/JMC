@@ -14,14 +14,14 @@ _List of guests_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__people[0]__|string|*|no|[people](people)|Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`|
-|__people[1]__|number|*|no|[people](people)|Place|
-|__people[2]__|[object](#people[2])|*|no|[people](people)|Children of the person|
+|__people[0]__|string|*|no|[people](#people)|Guest's surname. Possible values: `Lennon` `McCartney` `Harrison` `Starr`|
+|__people[1]__|number|*|no|[people](#people)|Place|
+|__people[2]__|[object](#people[2])|*|no|[people](#people)|Children of the person|
 ### __people[2]__
 _Children of the person_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__name__|string|*|yes|[people[2]](people[2])|Name of the kid|
-|__surname__|string|*|yes|[people[2]](people[2])|Surname of the kid|
-|__telephone__|number|*|no|[people[2]](people[2])|Telephone number of the kid|
+|__name__|string|*|yes|[people[2]](#people[2])|Name of the kid|
+|__surname__|string|*|yes|[people[2]](#people[2])|Surname of the kid|
+|__telephone__|number|*|no|[people[2]](#people[2])|Telephone number of the kid|

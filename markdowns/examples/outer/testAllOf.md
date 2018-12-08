@@ -13,8 +13,8 @@ _The shipping address - extends address_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__house__|number|*|no|[address](./definitions/address.md#/definitions/address)|House number|
-|__street__|string|*|no|[address](./definitions/address.md#/definitions/address)|Street name|
-|__city__|string|*|no|[address](./definitions/address.md#/definitions/address)|City name|
-|__state__|string|*|no|[address](./definitions/address.md#/definitions/address)|State name|
+|__house__|number|*|no|[address](./definitions/address.md#address)|House number|
+|__street__|string|*|no|[address](./definitions/address.md#address)|Street name|
+|__city__|string|*|no|[address](./definitions/address.md#address)|City name|
+|__state__|string|*|no|[address](./definitions/address.md#address)|State name|
 |__type__|string|*|yes|[shipping_address](#shipping_address)|Business or Residental|

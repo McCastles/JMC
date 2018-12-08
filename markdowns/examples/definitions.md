@@ -28,6 +28,6 @@ _The addres of somebody_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__street__|string|*|yes|[address](address)|Street adress|
-|__city__|string|*|yes|[address](address)|Current city|
-|__state__|string|*|yes|[address](address)|Current state|
+|__street__|string|*|yes|[address](#address)|Street adress|
+|__city__|string|*|yes|[address](#address)|Current city|
+|__state__|string|*|yes|[address](#address)|Current state|

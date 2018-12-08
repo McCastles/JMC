@@ -41,8 +41,8 @@ const describe = module.exports = {
         type = `[array of ](${describe.link(value.items.$ref, refspace)})`;
       } else {
         type = ((value.items.type) && (value.items.type !== 'object')) ?
-        `array of [${name}](${value.items.type})`
-        : `[array](${name})`;
+        `array of ${value.items.type}`
+        : `[array](#${name})`;
       }
     }
     return type;
@@ -51,9 +51,10 @@ const describe = module.exports = {
   link(ref, refspace) {
     const refName = format.getRefName(ref);
     ref = ref.replace('.json', '.md');
+    if (!ref.startsWith('#')) return `[${refName}](${ref})`;
     for (let i = 0; i < refspace.length; i++) {
       if (refspace[i] === refName) {
-        return `[${refName}](#${ref})`;
+        return `[${refName}](${ref})`;
       }
     }
     return `[${refName}](#definitions)`;
