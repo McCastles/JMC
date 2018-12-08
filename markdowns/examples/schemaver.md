@@ -1,9 +1,17 @@
 # __Semantic JSON Schema__
 
 Parsed from file: [schemaver.json](https://schema.linterhub.com/schemaver.json#)
-> JSON & JSON meta-schema with versioning support
+* [Properties](#properties)
 * [Definitions](#definitions)
 	* [objectver](#objectver)
+## schemaver
+> JSON & JSON meta-schema with versioning support
+## __Properties__
+|Key|Type|Format|Required|Parent|Description|
+|-|:-:|:-:|:-:|:-:|-|
+|__$schema__|[reference](#definitions)|*|yes|[objectver](objectver)|The reference to schemaver document used for validation|
+|__$id__|[reference](#definitions)|*|yes|[objectver](objectver)|The reference to the latest version of itself|
+|__$version__|[semver](#definitions)|*|yes|[objectver](objectver)|The semantic version (simplified format)|
 ## __Definitions__
 |Key|Type|Format|Description|
 |-|:-:|:-:|-|

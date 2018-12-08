@@ -10,7 +10,7 @@
  	   "shipping_address": {
 			"description": "The shipping address - extends address",
 			"allOf": [
-                { "$ref": "./definitions/address.json#/definitions/address" },
+                { "$ref": "./definitions/address.json#address" },
 				{ "properties": {
 					"type": {
 						"type":"string",
