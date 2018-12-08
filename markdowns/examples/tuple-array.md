@@ -8,8 +8,8 @@ Parsed from file: [tuple-array.json](https://github.com/McCastles/JMC/blob/maste
 ## __Properties__
 |Key|Type|Format|Required|Description|
 |-|:-:|:-:|:-:|-|
-|__sampleArray__|[array](sampleArray)|*|no|Lack of descripton|
-|__people__|[array](people)|*|yes|Famous people|
+|__sampleArray__|[array](#sampleArray)|*|no|Lack of descripton|
+|__people__|[array](#people)|*|yes|Famous people|
 ### __sampleArray__
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|

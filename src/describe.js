@@ -38,7 +38,7 @@ const describe = module.exports = {
     if (value.properties) type = `[object](#${name})`;
     if (value.items) {
       if (value.items.$ref) {
-        type = `[array of ](${describe.link(value.items.$ref, refspace)})`;
+        type = `array of ${describe.link(value.items.$ref, refspace)}`;
       } else {
         type = ((value.items.type) && (value.items.type !== 'object')) ?
         `array of ${value.items.type}`

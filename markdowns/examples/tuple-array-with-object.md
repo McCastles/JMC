@@ -8,7 +8,7 @@ Parsed from file: [tuple-array-with-object.json](https://github.com/McCastles/JM
 ## __Properties__
 |Key|Type|Format|Required|Description|
 |-|:-:|:-:|:-:|-|
-|__people__|[array](people)|*|yes|Famous people|
+|__people__|[array](#people)|*|yes|Famous people|
 ### __people__
 _Famous people_
 

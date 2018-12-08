@@ -8,7 +8,7 @@ Parsed from file: [tuple-array-with-object-enum.json](https://github.com/McCastl
 ## __Properties__
 |Key|Type|Format|Required|Description|
 |-|:-:|:-:|:-:|-|
-|__people__|[array](people)|*|yes|List of guests|
+|__people__|[array](#people)|*|yes|List of guests|
 ### __people__
 _List of guests_
 

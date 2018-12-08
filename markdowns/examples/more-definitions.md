@@ -9,7 +9,7 @@ Parsed from file: [more-definitions.json](https://github.com/McCastles/JMC/blob/
 ## __Properties__
 |Key|Type|Format|Required|Description|
 |-|:-:|:-:|:-:|-|
-|__priceArray__|[array of ]([price](#definitions))|*|no|Lack of descripton|
+|__priceArray__|array of [price](#definitions)|*|no|Lack of descripton|
 |__name__|[object](#name)|*|no|Name of the client|
 |__billing_address__|[address](#address)|*|no|Billing adress|
 |__shipping_address__|[address](#address)|*|no|Shipping adress|

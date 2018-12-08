@@ -10,7 +10,7 @@ Parsed from file: [testTuple.json](https://github.com/McCastles/JMC/blob/master/
 |Key|Type|Format|Required|Description|
 |-|:-:|:-:|:-:|-|
 |__name__|[object](#name)|*|no|Name of the client|
-|__arrayOfAdressPlusName__|[array](arrayOfAdressPlusName)|*|no|Tuple array with references|
+|__arrayOfAdressPlusName__|[array](#arrayOfAdressPlusName)|*|no|Tuple array with references|
 |__billing_address__|[proxyAddress](./definitions/proxy.md#proxyAddress)|*|no|Billing adress|
 |__shipping_address__|[proxyAddress](./definitions/proxy.md#proxyAddress)|*|no|Shipping adress|
 |__automobile__|[proxyAutomobile](./definitions/proxy.md#proxyAutomobile)|*|no|The automobile that will deliver the package|
