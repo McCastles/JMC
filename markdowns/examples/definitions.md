@@ -15,9 +15,9 @@ _The shipping address - extends address_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__street__|string|*|no|[address](#/address)|Street adress|
-|__city__|string|*|no|[address](#/address)|Current city|
-|__state__|string|*|no|[address](#/address)|Current state|
+|__street__|string|*|no|[address](#address)|Street adress|
+|__city__|string|*|no|[address](#address)|Current city|
+|__state__|string|*|no|[address](#address)|Current state|
 |__type__|string|*|yes|[shipping_address](#shipping_address)|Business or Residental|
 ## __Definitions__
 |Key|Type|Format|Description|
