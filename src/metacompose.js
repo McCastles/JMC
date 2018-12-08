@@ -6,8 +6,6 @@ const format = require('./format.js');
 
 /* TODO
 * input
-* parenthood
-* description of meta-sourced fields in Properties
 * Any additional properties
 * Examples
 */
@@ -19,6 +17,7 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
 
   template.init(customTemplateFileName);
   tree.init();
+  tree.location = srcFilePath.replace(fileName, '');
   tree.foreword(schema, fileName);
 
   tree.fillRefspace(schema.definitions);

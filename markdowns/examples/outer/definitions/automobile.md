@@ -1,21 +1,16 @@
 # __Definitions for miscellaneous schemas__
-> Definitions for outerTest and other schemas
 
 Parsed from file: [automobile.json](https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/automobile.json)
+> Definitions for outerTest and other schemas
 * [Definitions](#definitions)
 	* [automobile](#automobile)
-		* [producent](#automobile)
-		* [color](#automobile)
-		* [year](#automobile)
 ## __Definitions__
-
-|Key|Type|Required|Description|
+|Key|Type|Format|Description|
 |-|:-:|:-:|-|
-|__automobile__|[object](#automobile)|-|Lack of descripton|
+|__automobile__|[object](#automobile)|*|Lack of descripton|
 ### __automobile__
-
-|Key|Type|Required|Description|
-|-|:-:|:-:|-|
-|__producent__|string|+|Name of the producent company|
-|__color__|string|-|Color of the auto|
-|__year__|number|+|Year of construction|
+|Key|Type|Format|Required|Parent|Description|
+|-|:-:|:-:|:-:|:-:|-|
+|__producent__|string|*|yes|[automobile](automobile)|Name of the producent company|
+|__color__|string|*|no|[automobile](automobile)|Color of the auto|
+|__year__|number|*|yes|[automobile](automobile)|Year of construction|

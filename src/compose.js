@@ -12,6 +12,7 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
 
   template.init(customTemplateFileName);
   tree.init();
+  tree.location = srcFilePath.replace(fileName, '');
   tree.foreword(schema, fileName);
 
   tree.doc.push(
@@ -20,11 +21,13 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
           {'Description': format.toCaptal(schema.description)})
   );
 
-  tree.fillRefspace(schema.definitions);
-  tree.defStructure = tree.visit(schema.definitions, schema.required);
-  tree.propStructure = tree.visit(schema.properties, schema.required);
+  if (schema.definitions) {
+    tree.fillRefspace(schema.definitions);
+    tree.defStructure = tree.visit(schema.definitions, schema.required);
+  }
 
   if (schema.properties) {
+    tree.propStructure = tree.visit(schema.properties, schema.required);
     tree.doc.push('* [Properties](#properties)');
     tree.print(tree.propStructure, '\t');
   }

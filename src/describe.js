@@ -19,7 +19,11 @@ const describe = module.exports = {
       'Format': `${node.format}`,
       'Description': `${description}`,
     };
-    if (node.parent) hash['Parent'] = `[${node.parent}](#${node.parent})`;
+    if (node.parent) {
+      const name = format.getRefName(node.parent);
+      const ref = node.parent.replace('.json', '.md');
+      hash['Parent'] = `[${name}](${ref})`;
+    }
     if (node.required) hash['Required'] = `${node.required}`;
     return template.substitute(key, hash);
   },

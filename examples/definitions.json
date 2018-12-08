@@ -29,54 +29,14 @@
 				"city",
 				"state"
 			]
-		},
-		"testArray": {
-			"type": "array",
-			"description": "The array for testing",
-			"format": "date-time",
-			"items": {
-				"type": "object",
-				"properties": {
-					"p1": {
-						"type": "string",
-						"format": "regex",
-						"description": "test property"
-					}
-				}
-			}
 		}
     },
     
     "properties": {
-    	"name": {
-        	"type": "object",
-  	      	"description": "Name of the client",
-    	    "properties": {
-        	  	"firstName": {
-            		"type": "string",
-					"description": "First name",
-					"format": "hostname"
-    	      	},
-        	  	"email": {
-            		"type": "string",
-					"description": "email",
-					"format":"email"
-     	     	}
-       		},
-        	"required": [
-			"email"
-			]
-    	},
-
-    	"billing_address": {
-    		"$ref": "#address",
-        	"description": "Billing adress"
-    	},
-      
  	   "shipping_address": {
 			"description": "The shipping address - extends address",
 			"allOf": [
-				{ "$ref": "#/definitions/address" },
+				{ "$ref": "#/address" },
 				{ "properties": {
 					"type": {
 						"type":"string",

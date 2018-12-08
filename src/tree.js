@@ -1,18 +1,21 @@
 const format = require('./format.js');
 const describe = require('./describe.js');
 const template = require('./template.js');
+const extension = require('./extension.js');
 
 const tree = module.exports = {
   propStructure: [],
   defStructure: [],
   doc: [],
   refspace: [],
+  location: '',
 
   init: () => {
     tree.propStructure = [];
     tree.defStructure = [];
     tree.doc = [];
     tree.refspace = [];
+    tree.location = '';
   },
 
   fillRefspace: (source) => {
@@ -38,15 +41,20 @@ const tree = module.exports = {
             : {'FileName': fileName, 'Link': ''} ) );
   },
 
-  visit: (source, required, parent) => {
+  visit: (source, required, parent, parentspace) => {
     if (!source) return;
     const array = [];
     Object.keys(source).forEach((key) => {
       const value = source[key];
       let branch = value.properties;
 
+      let otherParent;
+      if (parentspace) {
+        otherParent = parentspace[`${key}`];
+      }
+
       if (value.allOf) {
-        array.push(tree.extend(key, value, required, parent));
+        array.push(extension.extend(key, value, required, parent, tree));
         return;
       }
 
@@ -64,57 +72,15 @@ const tree = module.exports = {
         name: key,
         value: value,
         type: describe.getType(key, value, tree.refspace),
-        required: required && required.indexOf(key) > -1 ? '+' : '-',
-        parent: parent,
+        required: required && required.indexOf(key) > -1 ? 'yes' : 'no',
+        parent: otherParent ? otherParent : parent,
         format: value.format ? value.format : '*',
-        children: tree.visit(branch, value.required, key),
+        children: tree.visit(branch, value.required, key, parentspace),
       };
 
       array.push(toPush);
     });
     return array;
-  },
-
-  extend: (key, value, supRequired, parent) => {
-    let inner = {};
-    inner.description = value.description;
-    value.allOf.forEach((part) => {
-      if (!inner.required) inner.required = [];
-      inner.required = inner.required.concat(part.required);
-      inner = tree.formInnerObject(inner, part);
-    });
-    const newSource = {};
-    newSource[`${key}`] = inner;
-    return tree.visit(newSource, supRequired, parent)[0];
-  },
-
-  formInnerObject: (inner, node) => {
-    if (!inner.type) inner.type = node.type;
-    if (!inner.format) inner.format = node.format;
-    if (node.properties) {
-      if (!inner.properties) inner.properties = {};
-      Object.keys(node.properties).forEach((prop) => {
-        inner.properties[`${prop}`] = node.properties[prop];
-      });
-    }
-    if (node.items) {
-      if (!inner.items) inner.items = [];
-      inner.items = inner.items.concat(node.items);
-    }
-    if (node.$ref) {
-      const defNode = tree.getDefNode(node.$ref);
-      inner = tree.formInnerObject(inner, defNode);
-    }
-    return inner;
-  },
-
-  getDefNode: (ref) => {
-    const refName = format.getRefName(ref);
-    for (let i = 0; i < tree.defStructure.length; i++) {
-      if (tree.defStructure[i].name === refName) {
-        return tree.defStructure[i].value;
-      }
-    }
   },
 
   document: (array, rowType) => {

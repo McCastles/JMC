@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/simple/simple-definitions.json",
+    "title": "Simple Schema With Definitions",
+    "type": "object",
+    "description": "Simple schema with definitions",
+	"required": ["shipping_address"],
+    
+    "properties": {
+ 	   "shipping_address": {
+			"description": "The shipping address - extends address",
+			"allOf": [
+                { "$ref": "./definitions/address.json#/definitions/address" },
+				{ "properties": {
+					"type": {
+						"type":"string",
+						"description": "Business or Residental"
+					}
+				},
+					"required": ["type"]
+				}
+			]
+		}
+	}
+}
