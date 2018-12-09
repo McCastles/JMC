@@ -1,66 +1,29 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": "Testing Links With outerDef (tuple arrays)",
+	"title": "Example Schema",
 	"$id": "https://github.com/McCastles/JMC/blob/master/examples/outer/testTuple.json",
     "description": "Illustrating work with outer definitions file",
     "type": "object",
     "properties": {
-    	"name": {
-        	"type": "object",
-        	"description": "Name of the client",
-        	"properties": {
-        	 	"firstName": {
-        	    	"type": "string",
-        	    	"description": "First name"
-        	  	},
-        	  	"secondName": {
-        	    	"type": "string",
-        	    	"description": "Second name"
-        	  	}
-        	},
-        	"required": [
-				"secondName"
-			]
-		},
-		  
-    	"arrayOfAdressPlusName": {
+    	"automobile_shop": {
         	"type": "array",
-        	"description": "tuple array with references",
+        	"description": "shop with automobiles",
         	"items": [
-        		{
-        	    	"type": "number",
-        	    	"description": "Sample number item"
-        	  	},
-        	  	{
-        	    	"$ref": "./definitions/proxy.json#automobile",
-        	    	"description": "sample reference item"
-        	  	},
         	  	{
         	    	"type": "object",
-        	    	"description": "Sample object item",
+        	    	"description": "Particular shop",
         	    	"properties": {
-        	    		"prop": {
-        	    	    	"description": "Sample property",
-        	    	    	"type": "number"
+        	    		"auto": {
+							"description": "The automobile that can be bought here",
+    						"$ref": "./definitions/proxy.json#proxyAutomobile"
+						},
+						"address": {
+							"description": "Shop's address",
+    						"$ref": "./definitions/proxy.json#proxyAddress"
         	    		}
         	    	}
         	  	}	
         	]
-      	},
-		
-		"billing_address": {
-        	"$ref": "./definitions/proxy.json#proxyAddress",
-        	"description": "Billing adress"
-      	},
-	  
-		"shipping_address": {
-        	"$ref": "./definitions/proxy.json#proxyAddress",
-        	"description": "Shipping adress"
-      	},
-	  
-		"automobile": {
-        	"$ref": "./definitions/proxy.json#proxyAutomobile",
-        	"description": "The automobile that will deliver the package"
       	}
     }
 }

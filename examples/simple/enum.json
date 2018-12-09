@@ -1,0 +1,29 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/simple/enum.json",
+	"title": "example Schema",
+	"description": "simple schema with enum",
+	"type": "object",
+	"properties": {
+		"size": {
+			"description": "size of the product",
+			"type": "string",
+			"default": "small",
+			"enum": [ 
+				"big", 
+				"medium", 
+				"small", 
+				42 
+			]
+		},
+		"color": {
+			"description": "color of the product",
+			"enum": [
+				"green",
+				"yellow",
+				"red"
+			],
+			"default": "green"
+		}  
+	}
+}

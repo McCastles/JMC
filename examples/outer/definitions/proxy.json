@@ -6,12 +6,12 @@
 	"definitions": {
 		"proxyAddress": {
 			"$ref": "./address.json#address",
-			"description": "My adress"
+			"description": "Some adress"
 		},
 		
 		"proxyAutomobile": {
 			"$ref": "./automobile.json#automobile",
-			"description": "My automobile"
+			"description": "Some automobile"
 		}
 	}
 }

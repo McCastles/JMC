@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/simple/advanced/definition-extension.json",
+    "title": "Example Schema",
+    "description": "schema that illustrates definition extension",
+    "type": "object",
+	"required": [
+		"shipping_address"
+	],
+    "definitions": {
+    	"address": {
+        	"type": "object",
+	        "description": "The addres of somebody",
+    	    "properties": {
+        	  	"street": {
+            		"description": "street adress",
+            		"type": "string"
+	        	},
+    	      	"city": {
+        	    	"description": "city name",
+            		"type": "string"
+ 	         	},
+    	      	"house": {
+        	    	"description": "house number",
+            		"type": "number"
+          		}
+        	},
+        	"required": [
+				"street",
+				"city",
+				"house"
+			]
+		}
+    },
+    "properties": {
+		"billing_address": {
+			"description": "The billing address - extends address",
+			"allOf": [
+				{ 
+					"$ref": "#address"
+				},
+				{ 
+					"properties": {
+						"type": {
+							"type":"string",
+							"description": "Business or Residental"
+						}
+					},
+					"required": [
+						"type"
+					]
+				}
+			]
+		}
+	}
+}
+
+
+
+

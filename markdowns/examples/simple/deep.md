@@ -1,7 +1,7 @@
-# __Simple deep schema__
+# __Example Schema__
 
-Parsed from file: [simple-deep.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-deep.json)
-> Simple deep
+Parsed from file: [deep.json](https://github.com/McCastles/JMC/blob/master/examples/simple/deep.json)
+> Simple schema which illustrates the chain of properties
 * [Properties](#properties)
 	* [planet](#planet)
 		* [continent](#continent)

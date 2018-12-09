@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/advanced/tuple.json",
+    "title": "Example Schema",
+    "description": "schema with a tuple array (array with items of different types)",
+    "type": "object",
+    "required": [ 
+        "guests" 
+    ],
+    "properties": {
+        "guests": {
+            "description": "List of guests",
+            "type": "array",
+            "items": [
+                {
+                    "format": "hostname",
+                    "description": "name of the person",
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+            		"description": "gender of the person",
+					"enum": [ 
+						"Male",
+						"Female"
+					]
+                },
+                {
+                    "format": "email",
+                    "description": "email of the person",
+                    "type": "number"
+                }       
+            ]
+        }
+    }
+}

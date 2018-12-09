@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/simple/advanced/definition-object.json",
+    "title": "Example Schema",
+    "description": "schema with the definition which is object",
+    "type": "object",
+	"required": [
+		"shipping_address"
+	],
+    "definitions": {
+    	"address": {
+        	"type": "object",
+	        "description": "The addres of somebody",
+    	    "properties": {
+        	  	"street": {
+            		"description": "street adress",
+            		"type": "string"
+	        	},
+    	      	"city": {
+        	    	"description": "city name",
+            		"type": "string"
+ 	         	},
+    	      	"house": {
+        	    	"description": "house number",
+            		"type": "number"
+          		}
+        	},
+        	"required": [
+				"street",
+				"city",
+				"house"
+			]
+		}
+    },
+    "properties": {
+ 		"shipping_address": {
+			"description": "The shipping address",
+			"$ref": "#address"
+		}
+	}
+}

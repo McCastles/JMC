@@ -4,12 +4,6 @@ const tree = require('./tree.js');
 const template = require('./template.js');
 const format = require('./format.js');
 
-/* TODO
-* input
-* Any additional properties
-* Examples
-*/
-
 module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
   if (!srcFilePath.endsWith('.json')) return;
   const fileName = path.basename(srcFilePath);
@@ -29,7 +23,7 @@ module.exports = (srcFilePath, dstFilePath, customTemplateFileName) => {
     const node = schema.definitions[extension];
     if (node.properties) {
       tree.propStructure =
-        tree.visit(node.properties, node.required, extension);
+        tree.visit(node.properties, node.required, '#' + extension);
     }
     if (node.$ref) {
       // как-то притянуть схему по ссылке и раздеть

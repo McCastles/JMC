@@ -6,5 +6,5 @@ Parsed from file: [proxy.json](https://github.com/McCastles/JMC/blob/master/exam
 ## __Definitions__
 |Key|Type|Format|Description|
 |-|:-:|:-:|-|
-|__proxyAddress__|[address](./address.md#address)|*|My adress|
-|__proxyAutomobile__|[automobile](./automobile.md#automobile)|*|My automobile|
+|__proxyAddress__|[address](./address.md#address)|*|Some adress|
+|__proxyAutomobile__|[automobile](./automobile.md#automobile)|*|Some automobile|

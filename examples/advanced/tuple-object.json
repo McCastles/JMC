@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/advanced/tuple-object.json",
+    "title": "Example Schema",
+    "description": "schema with a tuple array (array with items of different types), one of which is an object",
+    "type": "object",
+    "required":[ 
+        "guests" 
+    ],
+    "properties": {
+        "guests": {
+            "description": "Invited guests",
+            "type": "array",
+            "items": [
+                {
+                    "description": "One of the guests",
+                    "type": "object",
+                    "required": [
+                        "surname"
+                    ],
+                    "properties": {
+                        "name": {
+                            "description": "name of the guest",
+                            "type": "string"
+                        },
+                        "surname": {
+                            "description": "surname of the guest",
+                            "type": "string"
+                        },
+                        "age": {
+                            "description": "age of the guest",
+                            "type": "number"
+                        }
+                    }   
+                }       
+            ]
+        }
+    }
+}

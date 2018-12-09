@@ -31,7 +31,7 @@ const tree = module.exports = {
     tree.doc.push(
         template.substitute(
             'Title',
-            {'Title': schema.title} ) );
+            {'Title': format.toCaptal(schema.title)} ) );
     tree.doc.push('');
     tree.doc.push(
         template.substitute(

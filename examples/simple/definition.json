@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/McCastles/JMC/blob/master/examples/simple/definition.json",
+    "title": "example Schema",
+    "type": "object",
+    "description": "simple schema with definition as the example",
+	"required": [
+		"billing_address"
+	],
+    "definitions": {
+    	"address": {
+        	"type": "string",
+			"description": "The addres of somebody",
+			"format": "address"
+      	}	
+    },
+    "properties": {
+    	"billing_address": {
+    		"$ref": "#address",
+        	"description": "Billing adress"
+    	},
+ 	   "shipping_address": {
+    	   	"$ref": "#address",
+       		"description": "Shipping adress"
+   		}
+	}
+}

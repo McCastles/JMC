@@ -1,7 +1,7 @@
-# __Simple Schema With Definitions__
+# __Example Schema__
 
-Parsed from file: [testAllOf.json](https://github.com/McCastles/JMC/blob/master/examples/simple/simple-definitions.json)
-> Simple schema with definitions
+Parsed from file: [testAllOf.json](https://github.com/McCastles/JMC/blob/master/examples/outer/testAllOf.json)
+> Illustrating work with outer definitions file
 * [Properties](#properties)
 	* [shipping_address](#shipping_address)
 ## __Properties__
@@ -13,8 +13,7 @@ _The shipping address - extends address_
 
 |Key|Type|Format|Required|Parent|Description|
 |-|:-:|:-:|:-:|:-:|-|
-|__house__|number|*|no|[address](./definitions/address.md#address)|House number|
-|__street__|string|*|no|[address](./definitions/address.md#address)|Street name|
+|__street__|string|*|no|[address](./definitions/address.md#address)|Street adress|
 |__city__|string|*|no|[address](./definitions/address.md#address)|City name|
-|__state__|string|*|no|[address](./definitions/address.md#address)|State name|
+|__house__|number|*|no|[address](./definitions/address.md#address)|House number|
 |__type__|string|*|yes|[shipping_address](#shipping_address)|Business or Residental|

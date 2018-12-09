@@ -1,0 +1,17 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+    "$id":"https://github.com/McCastles/JMC/blob/master/examples/simple/property.json",
+    "title": "example Schema",
+    "description": "simple schema with one property",
+    "type": "object",
+    "required": [
+        "address"
+    ],
+    "properties": {
+    	"address": {
+            "description": "the email address of customer",
+            "type": "string",
+            "format": "email"
+    	}
+    }
+}

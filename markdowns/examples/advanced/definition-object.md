@@ -1,9 +1,14 @@
-# __Definitions for miscellaneous schemas__
+# __Example Schema__
 
-Parsed from file: [address.json](https://github.com/McCastles/JMC/blob/master/examples/outer/definitions/address.json)
-> Definitions for outerTest and other schemas
+Parsed from file: [definition-object.json](https://github.com/McCastles/JMC/blob/master/examples/simple/advanced/definition-object.json)
+> Schema with the definition which is object
+* [Properties](#properties)
 * [Definitions](#definitions)
 	* [address](#address)
+## __Properties__
+|Key|Type|Format|Required|Description|
+|-|:-:|:-:|:-:|-|
+|__shipping_address__|[address](#address)|*|yes|The shipping address|
 ## __Definitions__
 |Key|Type|Format|Description|
 |-|:-:|:-:|-|
